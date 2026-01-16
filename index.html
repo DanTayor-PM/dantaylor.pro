@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Taylor | Global Product Programme Leader</title>
+    <meta name="description" content="Global Product Programme Leader with expertise in enterprise software delivery across Global Specialty and P&C insurance. Building governance where none existed.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy-darkest: #050a12;
+            --navy-dark: #0a1628;
+            --navy-mid: #132340;
+            --navy-light: #1e3a5f;
+            --gold-primary: #c9a227;
+            --gold-light: #e3c565;
+            --gold-pale: #f5e6b8;
+            --white: #ffffff;
+            --white-off: #f0f2f5;
+            --grey-light: #a8b2c1;
+            --grey-mid: #6b7a8f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--navy-darkest);
+            color: var(--white-off);
+            line-height: 1.7;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, var(--navy-darkest) 0%, transparent 100%);
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(5, 10, 18, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 4rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .logo-mark::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 1px solid var(--gold-primary);
+            opacity: 0.3;
+        }
+
+        .logo:hover .logo-mark {
+            background: var(--gold-primary);
+            color: var(--navy-darkest);
+        }
+
+        .logo-text {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--grey-light);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse at 70% 30%, var(--navy-mid) 0%, transparent 60%);
+            opacity: 0.5;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-pretitle {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .hero-name {
+            font-size: clamp(3rem, 8vw, 6rem);
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+
+        .hero-title {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--grey-light);
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+
+        .hero-tagline {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.8s forwards;
+        }
+
+        .tagline-word {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 500;
+            color: var(--gold-light);
+            position: relative;
+        }
+
+        .tagline-word:not(:last-child)::after {
+            content: '.';
+            color: var(--gold-primary);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--grey-light);
+            max-width: 650px;
+            line-height: 1.9;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 1s forwards;
+        }
+
+        /* Metrics Section */
+        .metrics {
+            background: var(--navy-dark);
+            padding: 5rem 4rem;
+            position: relative;
+        }
+
+        .metrics::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            opacity: 0.3;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+
+        .metric-card:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60%;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, var(--navy-light), transparent);
+        }
+
+        .metric-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--grey-mid);
+            line-height: 1.4;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 8rem 4rem;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--white);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--navy-darkest);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--grey-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+        }
+
+        .about-text p:first-of-type::first-letter {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            float: left;
+            line-height: 0.8;
+            padding-right: 0.5rem;
+            color: var(--gold-primary);
+        }
+
+        .competencies {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .competency-group h4 {
+            font-size: 1rem;
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .competency-group ul {
+            list-style: none;
+        }
+
+        .competency-group li {
+            font-size: 0.85rem;
+            color: var(--grey-light);
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--navy-dark);
+        }
+
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--gold-primary), var(--navy-light));
+        }
+
+        .timeline-item {
+            padding-left: 4rem;
+            padding-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--navy-dark);
+            border: 2px solid var(--gold-primary);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-role {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: var(--grey-mid);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            font-size: 0.95rem;
+            color: var(--grey-light);
+            line-height: 1.8;
+        }
+
+        .timeline-highlights {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .highlight-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.4rem 0.8rem;
+            background: rgba(201, 162, 39, 0.1);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            color: var(--gold-light);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--navy-darkest);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--navy-dark);
+            padding: 2.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 6rem;
+            color: var(--gold-primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 0.5rem;
+            left: 1.5rem;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--grey-light);
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: var(--grey-mid);
+        }
+
+        /* Framework Teaser */
+        .framework-teaser {
+            background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-dark) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .framework-teaser::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--gold-primary) 0%, transparent 70%);
+            opacity: 0.03;
+        }
+
+        .framework-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .framework-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .framework-title span {
+            color: var(--gold-primary);
+        }
+
+        .framework-subtitle {
+            font-size: 1.2rem;
+            color: var(--grey-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--gold-primary);
+            color: var(--navy-darkest);
+            border: 2px solid var(--gold-primary);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--gold-primary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold-primary);
+            border: 2px solid var(--gold-primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold-primary);
+            color: var(--navy-darkest);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--navy-darkest);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+            color: var(--grey-light);
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-email {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--gold-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: var(--gold-primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-dark);
+            padding: 2rem 4rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
+            color: var(--grey-mid);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .metrics-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .metric-card:nth-child(4)::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+            
+            .hero, section {
+                padding: 6rem 2rem;
+            }
+            
+            .metrics {
+                padding: 4rem 2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .metric-card::after {
+                display: none;
+            }
+            
+            .hero-tagline {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .competencies {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-mark">DT</div>
+            <span class="logo-text">Daniel Taylor</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="clarity-framework.html">The Clarity Framework</a></li>
+            <li><a href="#contact">Connect</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-pretitle">Global Product Programme Leader</p>
+            <h1 class="hero-name">Daniel Taylor</h1>
+            <p class="hero-title">Enterprise Software · Global Specialty & P&C Insurance · Programme Governance & Transformation</p>
+            <div class="hero-tagline">
+                <span class="tagline-word">Calm</span>
+                <span class="tagline-word">Clarity</span>
+                <span class="tagline-word">Control</span>
+            </div>
+            <p class="hero-description">
+                Building programme governance capability from inception through to acquisition-readiness. 
+                Orchestrating enterprise-scale software delivery across complex, regulated environments 
+                where none previously existed.
+            </p>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics">
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">£100bn+</div>
+                <div class="metric-label">GWP Supported</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">£50M</div>
+                <div class="metric-label">Acquisition</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">8</div>
+                <div class="metric-label">Products</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">~250</div>
+                <div class="metric-label">Staff Coordinated</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">2,000+</div>
+                <div class="metric-label">Initiatives</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">£12M</div>
+                <div class="metric-label">R&D Budget</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">3</div>
+                <div class="metric-label">Integrations</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <div class="section-header">
+                    <p class="section-label">About</p>
+                    <h2 class="section-title">Governance Built from First Principles</h2>
+                </div>
+                <p>
+                    Global Product Programme Leader with proven expertise orchestrating enterprise-scale 
+                    software delivery across complex, regulated environments. My career has been defined 
+                    by building programme governance capability from inception — establishing frameworks, 
+                    processes, and reporting structures where none previously existed.
+                </p>
+                <p>
+                    Most recently accountable for the complete programme management function across an 
+                    8-product portfolio serving multi-billion dollar carriers. Through a bespoke methodology 
+                    conceived, designed, and implemented from first principles, I coordinated circa 250 staff, 
+                    managed a £12M R&D budget, and delivered 2,000+ programme initiatives with full upstream 
+                    and downstream dependency mapping.
+                </p>
+                <p>
+                    Career-long progression through increasingly complex transformation and operational 
+                    leadership roles, consistently delivering enterprise system implementations ahead of 
+                    schedule and establishing governance frameworks that enable organisations to scale.
+                </p>
+            </div>
+            <div class="competencies">
+                <div class="competency-group">
+                    <h4>Programme & Portfolio</h4>
+                    <ul>
+                        <li>Multi-product coordination</li>
+                        <li>Dependency chain mapping</li>
+                        <li>Capacity planning & forecasting</li>
+                        <li>Resource & skillset allocation</li>
+                        <li>Hybrid Agile/Waterfall delivery</li>
+                        <li>Release coordination</li>
+                    </ul>
+                </div>
+                <div class="competency-group">
+                    <h4>Governance & Controls</h4>
+                    <ul>
+                        <li>Steering Committee leadership</li>
+                        <li>Design Authority frameworks</li>
+                        <li>Technical Control Board</li>
+                        <li>Risk register management</li>
+                        <li>Executive reporting</li>
+                        <li>M&A due diligence</li>
+                    </ul>
+                </div>
+                <div class="competency-group">
+                    <h4>Transformation</h4>
+                    <ul>
+                        <li>Enterprise system implementation</li>
+                        <li>Digital transformation</li>
+                        <li>Process redesign (Lean Six Sigma)</li>
+                        <li>Change management</li>
+                        <li>ISO 9001 & compliance</li>
+                        <li>Vendor & client coordination</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="section-header" style="max-width: 1000px; margin: 0 auto 4rem;">
+            <p class="section-label">Career</p>
+            <h2 class="section-title">Experience</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <p class="timeline-date">March 2024 — January 2025</p>
+                <h3 class="timeline-role">Global Product Programme Lead</h3>
+                <p class="timeline-company">Sapiens AdvantageGo · Global Specialty & P&C Insurance Software</p>
+                <p class="timeline-description">
+                    Served as the leading managing force across all annual product management processes 
+                    for a global enterprise software vendor serving multi-billion dollar specialty insurers. 
+                    Single point of coordination across 8 products, circa 250 staff, and 3 post-acquisition 
+                    integrations with Sapiens global portfolios.
+                </p>
+                <div class="timeline-highlights">
+                    <span class="highlight-tag">£50M Acquisition</span>
+                    <span class="highlight-tag">8 Products</span>
+                    <span class="highlight-tag">Everest Group Leader</span>
+                    <span class="highlight-tag">12-Week Implementation</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-date">2022 — 2024</p>
+                <h3 class="timeline-role">Operations & Program Manager</h3>
+                <p class="timeline-company">Ingersoll Rand (Harrier Pneumatics) · NYSE-Listed Industrial Group</p>
+                <p class="timeline-description">
+                    Appointed to lead national enterprise system implementation and operational transformation 
+                    programme across 4 locations. Consolidated fragmented legacy systems, established standardised 
+                    processes, and drove operational excellence across the UK business unit.
+                </p>
+                <div class="timeline-highlights">
+                    <span class="highlight-tag">13-Month CRM Delivery</span>
+                    <span class="highlight-tag">20%+ Efficiency Gain</span>
+                    <span class="highlight-tag">ISO 9001</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-date">2017 — 2019</p>
+                <h3 class="timeline-role">Transformation Manager</h3>
+                <p class="timeline-company">Harrier Pneumatics Ltd</p>
+                <p class="timeline-description">
+                    Recruited to drive comprehensive digital transformation of a traditional paper-based 
+                    operation. Full technology adoption, process re-engineering, and commercial growth 
+                    strategy resulting in 250% revenue growth.
+                </p>
+                <div class="timeline-highlights">
+                    <span class="highlight-tag">Digital Transformation</span>
+                    <span class="highlight-tag">250% Revenue Growth</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-date">2013 — 2017</p>
+                <h3 class="timeline-role">Operations & Logistics Manager</h3>
+                <p class="timeline-company">Atlas Copco (Multibrands) · Global Industrial Manufacturing</p>
+                <p class="timeline-description">
+                    Progressive career advancement through technical and operational roles, culminating 
+                    in leadership of nationwide ERP transformation programme. Sole Business Key User 
+                    for SAP implementation, bridging technical requirements with operational realities.
+                </p>
+                <div class="timeline-highlights">
+                    <span class="highlight-tag">SAP Implementation</span>
+                    <span class="highlight-tag">10% Under Budget</span>
+                    <span class="highlight-tag">20% Stock Reduction</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
+            <p class="section-label">Testimonials</p>
+            <h2 class="section-title">What Leaders Say</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    Daniel is not merely competent — he is the calibre of individual around 
+                    whom you can build an entire operational function.
+                </p>
+                <p class="testimonial-author">John Bowers</p>
+                <p class="testimonial-role">Chief Product Officer, Sapiens AdvantageGo</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    Dan makes the difficult look easy. He is reliable, insightful, and 
+                    deeply committed to delivering quality.
+                </p>
+                <p class="testimonial-author">James Byford</p>
+                <p class="testimonial-role">Global Head of Design, AdvantageGo</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    He translated complex project data into clear insights. Reliable, patient, 
+                    and very skilled, he made a big difference in how we tracked and improved 
+                    project outcomes.
+                </p>
+                <p class="testimonial-author">Abhinandan Gulabrao Pise</p>
+                <p class="testimonial-role">Senior Data Scientist, Aays</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework Teaser -->
+    <section class="framework-teaser">
+        <div class="framework-content">
+            <p class="section-label">Methodology</p>
+            <h2 class="framework-title">The <span>Clarity</span> Framework</h2>
+            <p class="framework-subtitle">
+                A comprehensive programme management methodology conceived, designed, and 
+                implemented from first principles — enabling meticulous coordination of 
+                2,000+ initiatives with full dependency mapping and executive visibility.
+            </p>
+            <a href="clarity-framework.html" class="btn btn-primary">Explore the Framework</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <p class="section-label">Connect</p>
+            <h2 class="contact-title">Let's Talk</h2>
+            <p class="contact-text">
+                Open to discussing senior programme leadership opportunities within 
+                Global Specialty P&C insurance software vendors.
+            </p>
+            <a href="mailto:dan.elliot.taylor@gmail.com" class="contact-email">dan.elliot.taylor@gmail.com</a>
+            <div class="contact-links" style="margin-top: 2rem;">
+                <a href="https://www.linkedin.com/in/dan-taylorpm" target="_blank" class="btn btn-outline">Connect on LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-text">© 2025 Daniel Taylor. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth reveal on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .testimonial-card, .metric-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
