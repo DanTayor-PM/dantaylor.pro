@@ -315,87 +315,7 @@
             line-height: 1.8;
         }
 
-        /* Pillars Section */
-        .pillars {
-            background: var(--navy-darkest);
-        }
-
-        .pillars-intro {
-            max-width: 800px;
-            margin: 0 auto 4rem;
-            text-align: center;
-        }
-
-        .pillars-intro p {
-            font-size: 1.1rem;
-            color: var(--grey-light);
-            line-height: 1.9;
-        }
-
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .pillar-card {
-            background: var(--navy-dark);
-            padding: 3rem 2.5rem;
-            position: relative;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.4s ease;
-        }
-
-        .pillar-card:hover {
-            border-color: rgba(201, 162, 39, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .pillar-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--gold-primary);
-            opacity: 0.2;
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            line-height: 1;
-        }
-
-        .pillar-icon {
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--gold-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .pillar-icon svg {
-            width: 28px;
-            height: 28px;
-            stroke: var(--gold-primary);
-            fill: none;
-            stroke-width: 1.5;
-        }
-
-        .pillar-card h3 {
-            font-size: 1.5rem;
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-
-        .pillar-card p {
-            font-size: 0.95rem;
-            color: var(--grey-light);
-            line-height: 1.8;
-        }
-
-                /* Artefacts Section - Embedded Full-Width */
+        /* Artefacts Section /* Artefacts Section - Embedded Full-Width */
         .artefacts {
             background: var(--navy-dark);
         }
@@ -660,7 +580,6 @@
                 padding: 6rem 2rem;
             }
             
-            .pillars-grid,
             .problem-grid {
                 grid-template-columns: 1fr;
             }
@@ -737,7 +656,6 @@
                 margin-top: 1rem;
             }
             
-            .pillar-card,
             .problem-card {
                 padding: 2rem 1.5rem;
             }
@@ -775,9 +693,7 @@
                 font-size: 1.6rem;
             }
             
-            .pillars-intro p {
-                font-size: 1rem;
-            }
+            
         }
     </style>
 </head>
@@ -852,74 +768,8 @@
         </div>
     </section>
 
-    <!-- Pillars Section -->
-    <section class="pillars">
-        <div class="section-header" style="text-align: center;">
-            <p class="section-label">The Solution</p>
-            <h2 class="section-title">Three Pillars of Programme Excellence</h2>
-        </div>
-        <div class="pillars-intro">
-            <p>
-                The Clarity Framework addresses enterprise programme complexity through 
-                three interconnected pillars – each designed to bring order, visibility, 
-                and control to multi-product delivery at scale.
-            </p>
-        </div>
-        <div class="pillars-grid">
-            <div class="pillar-card">
-                <span class="pillar-number">01</span>
-                <div class="pillar-icon">
-                    <svg viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 6v6l4 2"/>
-                    </svg>
-                </div>
-                <h3>Calm</h3>
-                <p>
-                    Structured governance that creates predictability. Formalised SteerCo, 
-                    Design Authority, and Technical Control Board processes ensure every 
-                    escalation has a path and every decision has an owner.
-                </p>
-            </div>
-            <div class="pillar-card">
-                <span class="pillar-number">02</span>
-                <div class="pillar-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M2 12h5l3-9 4 18 3-9h5"/>
-                    </svg>
-                </div>
-                <h3>Clarity</h3>
-                <p>
-                    Complete programme observability through integrated planning 
-                    with custom executive dashboards. Every initiative, 
-                    dependency, and resource constraint visible at a glance.
-                </p>
-            </div>
-            <div class="pillar-card">
-                <span class="pillar-number">03</span>
-                <div class="pillar-icon">
-                    <svg viewBox="0 0 24 24">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M9 9h6v6H9z"/>
-                    </svg>
-                </div>
-                <h3>Control</h3>
-                <p>
-                    Proactive risk management and issue resolution. 90% of risks 
-                    mitigated before escalation, issue resolution reduced from 
-                    months to days through systematic governance.
-                </p>
-            </div>
-        </div>
-    </section>
-
         <!-- Artefacts Section -->
     <section class="artefacts">
-        <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
-            <p class="section-label">Framework Components</p>
-            <h2 class="section-title">Artefacts & Tooling</h2>
-        </div>
-        
         <div class="artefacts-container">
             <!-- Methodology Overview -->
             <div class="artefact-display">
@@ -1037,7 +887,7 @@
                     <g transform="translate(20, 335)">
                         <rect x="0" y="0" width="240" height="70" rx="3" fill="#132340"/>
                         <text x="120" y="25" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="18" font-weight="600" fill="#ffffff">Governance That Works</text>
-                        <text x="120" y="45" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">Protection without obstruction â€”</text>
+                        <text x="120" y="45" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">Protection without obstruction "”</text>
                         <text x="120" y="58" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">scalable, controllable, effective</text>
                     </g>
                 </g>
@@ -1145,12 +995,12 @@
                     </text>
                     <text x="450" y="52" text-anchor="middle" 
                           font-family="Raleway, sans-serif" font-size="10" fill="#c9a227" letter-spacing="0.15em" font-weight="600">
-                        MONTHLY Â· THE WINDOW INTO PROGRAMME HEALTH
+                        MONTHLY · THE WINDOW INTO PROGRAMME HEALTH
                     </text>
                     <line x1="100" y1="64" x2="800" y2="64" stroke="#1e3a5f" stroke-width="1"/>
                     <text x="450" y="82" text-anchor="middle" 
                           font-family="Raleway, sans-serif" font-size="9" fill="#a8b2c1">
-                        Progress Reporting Â· Risk Exceptions Â· Decision Forum Â· Strategic Updates Â· Stakeholder Management
+                        Progress Reporting · Risk Exceptions · Decision Forum · Strategic Updates · Stakeholder Management
                     </text>
                 </g>
 
@@ -1173,7 +1023,7 @@
                     <line x1="50" y1="56" x2="850" y2="56" stroke="#1e3a5f" stroke-width="1"/>
                     <text x="450" y="72" text-anchor="middle" 
                           font-family="Raleway, sans-serif" font-size="7.5" fill="#a8b2c1">
-                        Planning Â· Tracking Â· Dependency Tracking Â· Resource Levelling Â· Capacity Monitoring Â· Contractual Commitment Rotation Â· Conflict Resolution Â· Prioritisation Â· Stakeholder Communication Â· Risk Reporting Â· Mitigation & Escalation Â· Outcome Influence
+                        Planning · Tracking · Dependency Tracking · Resource Levelling · Capacity Monitoring · Contractual Commitment Rotation · Conflict Resolution · Prioritisation · Stakeholder Communication · Risk Reporting · Mitigation & Escalation · Outcome Influence
                     </text>
                 </g>
 
@@ -1243,7 +1093,7 @@
                     <line x1="20" y1="58" x2="160" y2="58" stroke="#1e3a5f" stroke-width="1"/>
                     <text x="90" y="76" text-anchor="middle" 
                           font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">
-                        Architecture Â· Technical Approach
+                        Architecture · Technical Approach
                     </text>
                     <text x="90" y="92" text-anchor="middle" 
                           font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">
@@ -1266,7 +1116,7 @@
                     <line x1="20" y1="58" x2="160" y2="58" stroke="#1e3a5f" stroke-width="1"/>
                     <text x="90" y="76" text-anchor="middle" 
                           font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">
-                        Quality Gate Â· Impact Review
+                        Quality Gate · Impact Review
                     </text>
                     <text x="90" y="92" text-anchor="middle" 
                           font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">
@@ -1340,7 +1190,7 @@
                     <line x1="30" y1="50" x2="150" y2="50" stroke="#1e3a5f" stroke-width="1"/>
                     <text x="90" y="68" text-anchor="middle" 
                           font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">
-                        SOW Â· Initial Design
+                        SOW · Initial Design
                     </text>
                     <text x="90" y="82" text-anchor="middle" 
                           font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">
@@ -1359,7 +1209,7 @@
                     <line x1="30" y1="50" x2="150" y2="50" stroke="#1e3a5f" stroke-width="1"/>
                     <text x="90" y="72" text-anchor="middle" 
                           font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">
-                        Front End Â· Back End Â· Full Build
+                        Front End · Back End · Full Build
                     </text>
                 </g>
 
@@ -1374,7 +1224,7 @@
                     <line x1="30" y1="50" x2="150" y2="50" stroke="#1e3a5f" stroke-width="1"/>
                     <text x="90" y="72" text-anchor="middle" 
                           font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">
-                        Deploy Â· Document Â· Release
+                        Deploy · Document · Release
                     </text>
                 </g>
 
@@ -1449,7 +1299,7 @@
                     <line x1="80" y1="56" x2="820" y2="56" stroke="#1e3a5f" stroke-width="1"/>
                     <text x="450" y="74" text-anchor="middle" 
                           font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">
-                        General Risks Â· Risk Register Â· Impact Assessment Â· Mitigation Planning Â· Exception Escalation Â· Stakeholder Notification
+                        General Risks · Risk Register · Impact Assessment · Mitigation Planning · Exception Escalation · Stakeholder Notification
                     </text>
                 </g>
 
@@ -1590,7 +1440,7 @@
                 <!-- Sprint Velocity -->
                 <g transform="translate(510, 220)">
                     <rect x="0" y="0" width="440" height="90" rx="4" fill="#0a1628" stroke="#9a9a8a" stroke-width="2"/>
-                    <text x="220" y="24" text-anchor="middle" font-family="Raleway, sans-serif" font-size="9" fill="#9a9a8a" letter-spacing="0.15em" font-weight="600">SPRINT VELOCITY Â· SPRINT 14</text>
+                    <text x="220" y="24" text-anchor="middle" font-family="Raleway, sans-serif" font-size="9" fill="#9a9a8a" letter-spacing="0.15em" font-weight="600">SPRINT VELOCITY · SPRINT 14</text>
                     <line x1="20" y1="34" x2="420" y2="34" stroke="#1e3a5f" stroke-width="1"/>
                     
                     <!-- Three metrics in a row - centered -->
@@ -1684,7 +1534,7 @@
                     <text x="105" y="22" text-anchor="middle" font-family="Raleway, sans-serif" font-size="9" fill="#e05252" letter-spacing="0.12em" font-weight="600">OPEN RISKS</text>
                     <line x1="20" y1="32" x2="190" y2="32" stroke="#1e3a5f" stroke-width="1"/>
                     <text x="105" y="58" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="30" font-weight="700" fill="#c9a227">4</text>
-                    <text x="105" y="74" text-anchor="middle" font-family="Raleway, sans-serif" font-size="7" fill="#a8b2c1">0 HIGH Â· 2 MEDIUM Â· 2 LOW</text>
+                    <text x="105" y="74" text-anchor="middle" font-family="Raleway, sans-serif" font-size="7" fill="#a8b2c1">0 HIGH · 2 MEDIUM · 2 LOW</text>
                 </g>
 
                 <!-- Risk Exceptions -->
@@ -1733,7 +1583,7 @@
                     <rect x="0" y="0" width="900" height="230" rx="4" fill="#132340" stroke="#9a9a8a" stroke-width="2.5"/>
                     
                     <text x="450" y="24" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="20" font-weight="600" fill="#ffffff">Critical Dependency Chains</text>
-                    <text x="450" y="40" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#9a9a8a" letter-spacing="0.1em">SELECT CHAIN TO VIEW Â· HOVER NODES FOR DETAILS</text>
+                    <text x="450" y="40" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#9a9a8a" letter-spacing="0.1em">SELECT CHAIN TO VIEW · HOVER NODES FOR DETAILS</text>
                     
                     <!-- Chain selector tabs -->
                     <g transform="translate(250, 52)">
@@ -1826,7 +1676,7 @@
                     </g>
 
                     <!-- Chain summary and legend -->
-                    <text x="450" y="195" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">DC1234: 3 of 4 items healthy Â· 1 at risk Â· 2 with upstream risk Â· Est. completion Q1 2026</text>
+                    <text x="450" y="195" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">DC1234: 3 of 4 items healthy · 1 at risk · 2 with upstream risk · Est. completion Q1 2026</text>
                     <g transform="translate(310, 208)">
                         <circle cx="6" cy="6" r="5" fill="#132340" stroke="#c9a227" stroke-width="1"/>
                         <text x="6" y="9" text-anchor="middle" font-family="Raleway, sans-serif" font-size="6" fill="#c9a227" font-weight="700">â†‘</text>
@@ -1891,7 +1741,7 @@
                 governance in a growing organisation, or preparing for M&A activity – 
                 let's discuss how structured programme management can transform your outcomes.
             </p>
-            <a href="mailto:dan.elliot.taylor@gmail.com" class="btn btn-primary">Get in Touch</a>
+            <a href="https://www.linkedin.com/in/dan-taylorpm" target="_blank" class="btn btn-primary">Get in Touch</a>
             <a href="index.html" class="btn btn-outline">Back to Profile</a>
         </div>
     </section>
@@ -1927,7 +1777,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.pillar-card, .artefact-display, .problem-card, .result-card').forEach(el => {
+        document.querySelectorAll('.artefact-display, .problem-card, .result-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
