@@ -1008,31 +1008,31 @@
     <section class="metrics">
         <div class="metrics-grid">
             <div class="metric-card">
-                <div class="metric-value">&pound;100bn+</div>
+                <div class="metric-value" id="metric-gwp">&pound;100bn+</div>
                 <div class="metric-label">GWP Supported</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value">&pound;50M</div>
+                <div class="metric-value" id="metric-acquisition">&pound;50M</div>
                 <div class="metric-label">Acquisition</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value">8</div>
+                <div class="metric-value" id="metric-products">8</div>
                 <div class="metric-label">Products</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value">~250</div>
+                <div class="metric-value" id="metric-staff">~250</div>
                 <div class="metric-label">Staff Coordinated</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value">2,000+</div>
+                <div class="metric-value" id="metric-initiatives">2,000+</div>
                 <div class="metric-label">Initiatives</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value">&pound;12M</div>
+                <div class="metric-value" id="metric-budget">&pound;12M</div>
                 <div class="metric-label">R&D Budget</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value">3</div>
+                <div class="metric-value" id="metric-integrations">3</div>
                 <div class="metric-label">Integrations</div>
             </div>
         </div>
@@ -1362,6 +1362,100 @@
             }
         ]
     }
+    </script>
+
+    <!-- Animated Metrics Counter Script -->
+    <script>
+        (function() {
+            // Counter animation configuration for metrics bar
+            const counters = [
+                { id: 'metric-gwp', target: 100, prefix: '£', suffix: 'bn+', format: 'number' },
+                { id: 'metric-acquisition', target: 50, prefix: '£', suffix: 'M', format: 'number' },
+                { id: 'metric-products', target: 8, suffix: '', format: 'number' },
+                { id: 'metric-staff', target: 250, prefix: '~', suffix: '', format: 'number' },
+                { id: 'metric-initiatives', target: 2000, suffix: '+', format: 'comma' },
+                { id: 'metric-budget', target: 12, prefix: '£', suffix: 'M', format: 'number' },
+                { id: 'metric-integrations', target: 3, suffix: '', format: 'number' }
+            ];
+
+            let hasAnimated = false;
+            const duration = 2000; // 2 seconds
+
+            // Easing function for smooth animation
+            function easeOutQuart(t) {
+                return 1 - Math.pow(1 - t, 4);
+            }
+
+            // Format number with commas
+            function formatWithCommas(num) {
+                return Math.floor(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+
+            // Animate a single counter
+            function animateCounter(element, config) {
+                const startTime = performance.now();
+                
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easedProgress = easeOutQuart(progress);
+                    const currentValue = easedProgress * config.target;
+                    
+                    let displayValue;
+                    if (config.format === 'comma') {
+                        displayValue = formatWithCommas(currentValue);
+                    } else if (config.format === 'decimal') {
+                        displayValue = currentValue.toFixed(1);
+                    } else {
+                        displayValue = Math.floor(currentValue);
+                    }
+                    
+                    element.textContent = (config.prefix || '') + displayValue + (config.suffix || '');
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                }
+                
+                requestAnimationFrame(update);
+            }
+
+            // Start all counter animations
+            function startCounters() {
+                if (hasAnimated) return;
+                hasAnimated = true;
+                
+                counters.forEach(config => {
+                    const element = document.getElementById(config.id);
+                    if (element) {
+                        // Set initial value to 0
+                        element.textContent = (config.prefix || '') + '0' + (config.suffix || '');
+                        // Start animation after a tiny delay for visual effect
+                        setTimeout(() => animateCounter(element, config), 100);
+                    }
+                });
+            }
+
+            // Find the metrics section
+            const metricsSection = document.querySelector('.metrics');
+            
+            if (metricsSection && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+                            startCounters();
+                        }
+                    });
+                }, {
+                    threshold: 0.3 // Trigger when 30% visible
+                });
+                
+                observer.observe(metricsSection);
+            } else {
+                // Fallback: animate on page load after delay
+                setTimeout(startCounters, 1000);
+            }
+        })();
     </script>
 </body>
 </html>
