@@ -496,42 +496,6 @@
         .chain-tab { cursor: pointer; transition: all 0.15s ease; }
         .chain-tab:hover { filter: brightness(1.2); }
 
-        /* Results Section */
-        .results {
-            background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-dark) 100%);
-        }
-
-        .results-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .result-card {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .result-value {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--gold-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .result-label {
-            font-size: 0.85rem;
-            color: var(--grey-light);
-            line-height: 1.5;
-        }
-
         /* CTA Section */
         .cta {
             background: var(--navy-darkest);
@@ -632,10 +596,6 @@
             .artefacts-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .results-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         @media (max-width: 768px) {
@@ -690,10 +650,6 @@
             
             .section-title {
                 font-size: 2rem;
-            }
-            
-            .results-grid {
-                grid-template-columns: 1fr;
             }
             
             .btn-outline {
@@ -942,7 +898,7 @@
                     <g transform="translate(20, 335)">
                         <rect x="0" y="0" width="240" height="70" rx="3" fill="#132340"/>
                         <text x="120" y="25" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="18" font-weight="600" fill="#ffffff">Governance That Works</text>
-                        <text x="120" y="45" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">Protection without obstruction &mdash;</text>
+                        <text x="120" y="45" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">Protection without obstruction &mdash;Â</text>
                         <text x="120" y="58" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">scalable, controllable, effective</text>
                     </g>
                 </g>
@@ -1413,11 +1369,11 @@
                 </div>
             </div>
 
-            <!-- Executive Dashboard -->
+            <!-- Executive Dashboards -->
             <div class="artefact-display">
                 <div class="artefact-header">
-                    <h3>Executive Dashboard</h3>
-                    <p>Portfolio health visualisation with programme scoring, dependency tracking, and risk observability.</p>
+                    <h3>Executive Dashboards</h3>
+                    <p>One example of the observability outputs the Clarity Framework enables.</p>
                 </div>
                 <div class="artefact-visual">
                     <svg viewBox="0 0 1000 820" xmlns="http://www.w3.org/2000/svg">
@@ -1754,37 +1710,202 @@
             </svg>
                 </div>
             </div>
+
+            <!-- Results Delivered -->
+            <div class="artefact-display">
+                <div class="artefact-header">
+                    <h3>Results Delivered</h3>
+                    <p>Measurable outcomes from implementing the Clarity Framework in practice.</p>
+                </div>
+                <div class="artefact-visual">
+                    <svg viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background grid -->
+                <pattern id="grid-results" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e3a5f" stroke-width="0.5" opacity="0.12"/>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#grid-results)"/>
+
+                <!-- HEADER -->
+                <g transform="translate(50, 30)">
+                    <text x="450" y="28" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="32" font-weight="600" fill="#ffffff">
+                        Results Delivered
+                    </text>
+                    <text x="450" y="50" text-anchor="middle" font-family="Raleway, sans-serif" font-size="11" fill="#a8b2c1">
+                        Measurable outcomes from implementing the Clarity Framework
+                    </text>
+                </g>
+
+                <!-- ROW 1: TWO LARGE METRIC CARDS -->
+
+                <!-- Initiatives Coordinated -->
+                <g transform="translate(50, 85)">
+                    <rect x="-4" y="-4" width="438" height="148" rx="6" fill="none" stroke="#2a8f8f" stroke-width="1" opacity="0.2"/>
+                    <rect x="0" y="0" width="430" height="140" rx="4" fill="#0a1628" stroke="#2a8f8f" stroke-width="2"/>
+                    
+                    <text x="215" y="70" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="64" font-weight="700" fill="#2a8f8f">2,000+</text>
+                    <text x="215" y="95" text-anchor="middle" font-family="Raleway, sans-serif" font-size="11" fill="#ffffff" font-weight="600">INITIATIVES COORDINATED</text>
+                    <text x="215" y="118" text-anchor="middle" font-family="Raleway, sans-serif" font-size="9" fill="#a8b2c1">Full upstream and downstream dependency mapping</text>
+                    <text x="215" y="131" text-anchor="middle" font-family="Raleway, sans-serif" font-size="9" fill="#a8b2c1">across 8-product portfolio</text>
+                    
+                    <!-- Visual indicator: network nodes -->
+                    <g transform="translate(370, 20)" opacity="0.3">
+                        <circle cx="0" cy="0" r="4" fill="#2a8f8f"/>
+                        <circle cx="20" cy="15" r="3" fill="#2a8f8f"/>
+                        <circle cx="-15" cy="20" r="3" fill="#2a8f8f"/>
+                        <circle cx="10" cy="35" r="4" fill="#2a8f8f"/>
+                        <line x1="0" y1="0" x2="20" y2="15" stroke="#2a8f8f" stroke-width="1"/>
+                        <line x1="0" y1="0" x2="-15" y2="20" stroke="#2a8f8f" stroke-width="1"/>
+                        <line x1="20" y1="15" x2="10" y2="35" stroke="#2a8f8f" stroke-width="1"/>
+                        <line x1="-15" y1="20" x2="10" y2="35" stroke="#2a8f8f" stroke-width="1"/>
+                    </g>
+                </g>
+
+                <!-- Risk Mitigation -->
+                <g transform="translate(520, 85)">
+                    <rect x="-4" y="-4" width="438" height="148" rx="6" fill="none" stroke="#c9a227" stroke-width="1" opacity="0.2"/>
+                    <rect x="0" y="0" width="430" height="140" rx="4" fill="#0a1628" stroke="#c9a227" stroke-width="2"/>
+                    
+                    <text x="215" y="70" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="64" font-weight="700" fill="#c9a227">90%</text>
+                    <text x="215" y="95" text-anchor="middle" font-family="Raleway, sans-serif" font-size="11" fill="#ffffff" font-weight="600">RISKS MITIGATED EARLY</text>
+                    <text x="215" y="118" text-anchor="middle" font-family="Raleway, sans-serif" font-size="9" fill="#a8b2c1">Resolved before requiring escalation</text>
+                    <text x="215" y="131" text-anchor="middle" font-family="Raleway, sans-serif" font-size="9" fill="#a8b2c1">through proactive governance</text>
+                    
+                    <!-- Visual indicator: shield/checkmark -->
+                    <g transform="translate(375, 18)" opacity="0.3">
+                        <path d="M15 0 L30 8 L30 22 Q30 35, 15 42 Q0 35, 0 22 L0 8 Z" fill="none" stroke="#c9a227" stroke-width="2"/>
+                        <path d="M8 20 L13 26 L24 14" fill="none" stroke="#c9a227" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                </g>
+
+                <!-- ROW 2: GOVERNANCE TRANSFORMATION STORY -->
+                <g transform="translate(50, 245)">
+                    <rect x="-4" y="-4" width="908" height="178" rx="6" fill="none" stroke="#c9a227" stroke-width="1" opacity="0.3"/>
+                    <rect x="0" y="0" width="900" height="170" rx="4" fill="#132340" stroke="#c9a227" stroke-width="2.5"/>
+                    
+                    <text x="450" y="26" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="20" font-weight="600" fill="#ffffff">Governance Transformation</text>
+                    <text x="450" y="42" text-anchor="middle" font-family="Raleway, sans-serif" font-size="9" fill="#a8b2c1">From ad-hoc escalation to structured decision-making</text>
+                    <line x1="50" y1="54" x2="850" y2="54" stroke="#1e3a5f" stroke-width="1"/>
+                    
+                    <!-- BEFORE State -->
+                    <g transform="translate(50, 68)">
+                        <rect x="0" y="0" width="180" height="85" rx="3" fill="#0a1628" stroke="#e05252" stroke-width="1.5"/>
+                        <text x="90" y="18" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#e05252" letter-spacing="0.1em" font-weight="600">BEFORE</text>
+                        <line x1="15" y1="26" x2="165" y2="26" stroke="#1e3a5f" stroke-width="1"/>
+                        
+                        <text x="90" y="50" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="26" font-weight="700" fill="#e05252">2 Months</text>
+                        <text x="90" y="65" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">Issue resolution time</text>
+                        <text x="90" y="80" text-anchor="middle" font-family="Raleway, sans-serif" font-size="7" fill="#6b7a8f">No formal governance</text>
+                    </g>
+                    
+                    <!-- Arrow 1 -->
+                    <g transform="translate(245, 105)">
+                        <line x1="0" y1="0" x2="55" y2="0" stroke="#c9a227" stroke-width="2"/>
+                        <polygon points="55,0 47,-4 47,4" fill="#c9a227"/>
+                    </g>
+                    
+                    <!-- CLARITY FRAMEWORK GOVERNANCE -->
+                    <g transform="translate(315, 68)">
+                        <rect x="0" y="0" width="270" height="85" rx="3" fill="#0a1628" stroke="#c9a227" stroke-width="2"/>
+                        <text x="135" y="18" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#c9a227" letter-spacing="0.1em" font-weight="600">METHODOLOGY APPLIED</text>
+                        <line x1="15" y1="26" x2="255" y2="26" stroke="#1e3a5f" stroke-width="1"/>
+                        
+                        <text x="135" y="50" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="22" font-weight="600" fill="#c9a227">Clarity Framework</text>
+                        <text x="135" y="68" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="18" font-weight="500" fill="#ffffff">Governance</text>
+                        
+                        <text x="135" y="82" text-anchor="middle" font-family="Raleway, sans-serif" font-size="7" fill="#6b7a8f">Structured decision-making established</text>
+                    </g>
+                    
+                    <!-- Arrow 2 -->
+                    <g transform="translate(600, 105)">
+                        <line x1="0" y1="0" x2="55" y2="0" stroke="#c9a227" stroke-width="2"/>
+                        <polygon points="55,0 47,-4 47,4" fill="#c9a227"/>
+                    </g>
+                    
+                    <!-- AFTER State -->
+                    <g transform="translate(670, 68)">
+                        <rect x="0" y="0" width="180" height="85" rx="3" fill="#0a1628" stroke="#2a8f8f" stroke-width="1.5"/>
+                        <text x="90" y="18" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#2a8f8f" letter-spacing="0.1em" font-weight="600">AFTER</text>
+                        <line x1="15" y1="26" x2="165" y2="26" stroke="#1e3a5f" stroke-width="1"/>
+                        
+                        <text x="90" y="50" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="26" font-weight="700" fill="#2a8f8f">1 Week</text>
+                        <text x="90" y="65" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">Issue resolution time</text>
+                        
+                        <!-- 8x indicator -->
+                        <g transform="translate(45, 70)">
+                            <rect x="0" y="0" width="90" height="18" rx="9" fill="#2a8f8f"/>
+                            <text x="45" y="13" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="12" font-weight="700" fill="#0a1628">8&times; FASTER</text>
+                        </g>
+                    </g>
+                </g>
+
+                <!-- ROW 3: THREE ADDITIONAL METRICS -->
+
+                <!-- Record Implementation -->
+                <g transform="translate(50, 435)">
+                    <rect x="0" y="0" width="280" height="130" rx="4" fill="#0a1628" stroke="#2a8f8f" stroke-width="2"/>
+                    
+                    <text x="140" y="24" text-anchor="middle" font-family="Raleway, sans-serif" font-size="9" fill="#2a8f8f" letter-spacing="0.12em" font-weight="600">RECORD IMPLEMENTATION</text>
+                    <line x1="20" y1="34" x2="260" y2="34" stroke="#1e3a5f" stroke-width="1"/>
+                    
+                    <text x="110" y="78" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="48" font-weight="700" fill="#2a8f8f">12</text>
+                    <text x="155" y="72" text-anchor="start" font-family="Raleway, sans-serif" font-size="16" fill="#2a8f8f" font-weight="500">weeks</text>
+                    <text x="140" y="98" text-anchor="middle" font-family="Raleway, sans-serif" font-size="10" fill="#ffffff" font-weight="500">Fastest in Company History</text>
+                    <text x="140" y="118" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">First new customer win in 18+ months</text>
+                </g>
+
+                <!-- Development Capacity Protected -->
+                <g transform="translate(360, 435)">
+                    <rect x="0" y="0" width="280" height="130" rx="4" fill="#0a1628" stroke="#c9a227" stroke-width="2"/>
+                    
+                    <text x="140" y="24" text-anchor="middle" font-family="Raleway, sans-serif" font-size="9" fill="#c9a227" letter-spacing="0.12em" font-weight="600">DEVELOPMENT CAPACITY PROTECTED</text>
+                    <line x1="20" y1="34" x2="260" y2="34" stroke="#1e3a5f" stroke-width="1"/>
+                    
+                    <text x="140" y="78" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="42" font-weight="700" fill="#c9a227">&pound;1.2M</text>
+                    <text x="140" y="98" text-anchor="middle" font-family="Raleway, sans-serif" font-size="10" fill="#ffffff" font-weight="500">R&amp;D Misallocation Identified</text>
+                    <text x="140" y="118" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">10% of annual budget &mdash; resources retained</text>
+                </g>
+
+                <!-- Team Scale -->
+                <g transform="translate(670, 435)">
+                    <rect x="0" y="0" width="280" height="130" rx="4" fill="#0a1628" stroke="#e3c565" stroke-width="2"/>
+                    
+                    <text x="140" y="24" text-anchor="middle" font-family="Raleway, sans-serif" font-size="9" fill="#e3c565" letter-spacing="0.12em" font-weight="600">COORDINATION SCALE</text>
+                    <line x1="20" y1="34" x2="260" y2="34" stroke="#1e3a5f" stroke-width="1"/>
+                    
+                    <text x="140" y="78" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="48" font-weight="700" fill="#e3c565">~250</text>
+                    <text x="140" y="98" text-anchor="middle" font-family="Raleway, sans-serif" font-size="10" fill="#ffffff" font-weight="500">Staff Coordinated</text>
+                    <text x="140" y="118" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">Across UK and India delivery teams</text>
+                </g>
+
+                <!-- BOTTOM BAR: TAGLINE -->
+                <g transform="translate(50, 585)">
+                    <rect x="-4" y="-4" width="908" height="58" rx="6" fill="none" stroke="#9a9a8a" stroke-width="1" opacity="0.3"/>
+                    <rect x="0" y="0" width="900" height="50" rx="4" fill="#132340" stroke="#9a9a8a" stroke-width="2"/>
+                    
+                    <text x="450" y="32" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="20" font-weight="600" fill="#ffffff">
+                        Programme governance that creates enterprise value.
+                    </text>
+                </g>
+
+                <!-- DT LOGO -->
+                <g transform="translate(920, 655)">
+                    <rect x="0" y="0" width="50" height="50" fill="#0a1628" stroke="#c9a227" stroke-width="1.5"/>
+                    <rect x="-3" y="-3" width="56" height="56" fill="none" stroke="#c9a227" stroke-width="0.5" opacity="0.3"/>
+                    <text x="25" y="22" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-weight="700" fill="#c9a227">DT</text>
+                    <g transform="translate(6, 26) scale(0.38)">
+                        <path d="M8 26 Q4 24, 6 20 L10 14 Q16 4, 32 3 Q50 2, 52 14 Q54 24, 38 26 Q28 28, 24 22" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+                        <path d="M24 22 Q22 26, 20 28 M28 18 Q26 22, 28 24 Q30 22, 28 18 L30 24 M34 18 L32 26 M38 16 Q42 14, 44 18 L42 26" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+                        <path d="M14 16 Q35 12, 60 10 Q80 8, 94 12" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+                        <path d="M54 20 L52 28 M58 18 L56 26" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+                    </g>
+                </g>
+
+            </svg>
+                </div>
+            </div>
         </div>
     </section>
 
-
-    <!-- Results Section -->
-    <section class="results">
-        <div class="results-content">
-            <div class="section-header" style="text-align: center;">
-                <p class="section-label">Proven Impact</p>
-                <h2 class="section-title">Results Delivered</h2>
-            </div>
-            <div class="results-grid">
-                <div class="result-card">
-                    <div class="result-value">2,000+</div>
-                    <div class="result-label">Initiatives coordinated with full dependency mapping</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-value">90%</div>
-                    <div class="result-label">Risks mitigated before requiring escalation</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-value">8&times;</div>
-                    <div class="result-label">Faster issue resolution (2 months &rarr; 1 week)</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-value">14</div>
-                    <div class="result-label">Consecutive monthly SteerCo sessions established</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- CTA Section -->
     <section class="cta">
@@ -1832,7 +1953,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.artefact-display, .problem-card, .result-card').forEach(el => {
+        document.querySelectorAll('.artefact-display, .problem-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -1856,8 +1977,8 @@
                     const data = node.dataset;
                     if (!data.tooltip) return;
                     const statusClass = data.status === 'healthy' ? 'green' : data.status === 'at-risk' ? 'amber' : 'red';
-                    const statusText = data.status === 'healthy' ? 'Ã¢Å&ldquo;â€œ HEALTHY' : data.status === 'at-risk' ? 'Ã¢Å¡  AT RISK' : 'Ã¢Å&ldquo;â€¢ BLOCKED';
-                    const upstreamNote = data.upstreamRisk === 'true' ? '<div class="tooltip-status upstream-risk">Ã¢â€ â€˜ UPSTREAM DEPENDENCY AT RISK</div>' : '';
+                    const statusText = data.status === 'healthy' ? 'ÃƒÂ¢Ã…&ldquo;Ã¢â‚¬Å“ HEALTHY' : data.status === 'at-risk' ? 'ÃƒÂ¢Ã…Â¡Â  AT RISK' : 'ÃƒÂ¢Ã…&ldquo;Ã¢â‚¬Â¢ BLOCKED';
+                    const upstreamNote = data.upstreamRisk === 'true' ? '<div class="tooltip-status upstream-risk">ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Ëœ UPSTREAM DEPENDENCY AT RISK</div>' : '';
                     dashboardTooltip.innerHTML = `<div class="tooltip-title">${data.title}</div>
                         <div style="font-size: 10px; color: #a8b2c1; margin-bottom: 10px;">${data.desc || ''}</div>
                         <div class="tooltip-row"><span class="tooltip-label">Progress</span><span class="tooltip-value ${statusClass}">${data.progress}%</span></div>
