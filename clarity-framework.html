@@ -234,16 +234,57 @@
             text-align: center;
         }
 
+        /* Animated gradient orbs */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
+            top: -10%;
             left: 50%;
             transform: translateX(-50%);
             width: 800px;
             height: 800px;
-            background: radial-gradient(ellipse, var(--navy-mid) 0%, transparent 60%);
-            opacity: 0.4;
+            background: radial-gradient(ellipse, rgba(201, 162, 39, 0.08) 0%, transparent 60%);
+            animation: floatOrb1 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero-bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .hero-bg-orb-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(42, 143, 143, 0.15) 0%, transparent 70%);
+            top: 5%;
+            right: 10%;
+            animation: floatOrb1 25s ease-in-out infinite;
+        }
+
+        .hero-bg-orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%);
+            bottom: 0%;
+            left: 15%;
+            animation: floatOrb2 30s ease-in-out infinite;
+        }
+
+        @keyframes floatOrb1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-30px, 40px) scale(1.05); }
+            50% { transform: translate(20px, -20px) scale(0.95); }
+            75% { transform: translate(-20px, -30px) scale(1.02); }
+        }
+
+        @keyframes floatOrb2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -30px) scale(1.08); }
+            66% { transform: translate(-30px, 20px) scale(0.92); }
         }
 
         .hero::after {
@@ -579,6 +620,86 @@
             }
         }
 
+        /* ============================================ */
+        /* SCROLL REVEAL ANIMATION SYSTEM              */
+        /* ============================================ */
+        
+        /* Base reveal state - hidden */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Reveal from left */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-left.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Reveal from right */
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-right.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Scale reveal */
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-scale.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays for grouped elements */
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* Problem cards hover lift effect */
+        .problem-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, 
+                        opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Artefact displays reveal */
+        .artefact-display {
+            transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             nav {
@@ -725,6 +846,10 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <!-- Animated background orbs -->
+        <div class="hero-bg-orb hero-bg-orb-1"></div>
+        <div class="hero-bg-orb hero-bg-orb-2"></div>
+        
         <div class="hero-content">
             <p class="hero-pretitle">Programme Management Methodology</p>
             <h1 class="hero-title">The <span>Clarity</span> Framework</h1>
@@ -741,12 +866,12 @@
     <!-- Problem Section -->
     <section class="problem">
         <div class="problem-content">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <p class="section-label">The Challenge</p>
                 <h2 class="section-title">Where Traditional Approaches Fall Short</h2>
             </div>
             <div class="problem-grid">
-                <div class="problem-card">
+                <div class="problem-card reveal reveal-delay-1">
                     <h4>Generic Programme Management</h4>
                     <p>
                         Standard frameworks deployed without domain translation. The methodology 
@@ -761,14 +886,14 @@
                         Risks surface too late, and decisions are made on incomplete information.
                     </p>
                 </div>
-                <div class="problem-card">
+                <div class="problem-card reveal reveal-delay-2">
                     <h4>Dependency Blindness</h4>
                     <p>
                         Complex cross-product dependencies go unmapped. Teams discover blockers 
                         mid-sprint, cascading delays across the portfolio.
                     </p>
                 </div>
-                <div class="problem-card">
+                <div class="problem-card reveal reveal-delay-3">
                     <h4>Governance Gaps</h4>
                     <p>
                         No formal escalation paths, inconsistent reporting, and ad-hoc decision 
@@ -783,7 +908,7 @@
     <section class="artefacts">
         <div class="artefacts-container">
             <!-- Methodology Overview -->
-            <div class="artefact-display">
+            <div class="artefact-display reveal">
                 <div class="artefact-header">
                     <h3>Methodology Overview</h3>
                     <p>The principles behind programme excellence &mdash; Calm, Clarity, and Control delivered through six foundational practices.</p>
@@ -898,7 +1023,7 @@
                     <g transform="translate(20, 335)">
                         <rect x="0" y="0" width="240" height="70" rx="3" fill="#132340"/>
                         <text x="120" y="25" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="18" font-weight="600" fill="#ffffff">Governance That Works</text>
-                        <text x="120" y="45" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">Protection without obstruction &mdash;Â</text>
+                        <text x="120" y="45" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">Protection without obstruction &mdash;Ã‚Â</text>
                         <text x="120" y="58" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">scalable, controllable, effective</text>
                     </g>
                 </g>
@@ -977,7 +1102,7 @@
             </div>
 
             <!-- Governance Framework -->
-            <div class="artefact-display">
+            <div class="artefact-display reveal">
                 <div class="artefact-header">
                     <h3>Governance Framework</h3>
                     <p>Structured decision-making across the programme lifecycle &mdash; from Steering Committee through to continuous risk management.</p>
@@ -1370,7 +1495,7 @@
             </div>
 
             <!-- Executive Dashboards -->
-            <div class="artefact-display">
+            <div class="artefact-display reveal">
                 <div class="artefact-header">
                     <h3>Executive Dashboards</h3>
                     <p>One example of the observability outputs the Clarity Framework enables.</p>
@@ -1712,7 +1837,7 @@
             </div>
 
             <!-- Results Delivered -->
-            <div class="artefact-display">
+            <div class="artefact-display reveal">
                 <div class="artefact-header">
                     <h3>Results Delivered</h3>
                     <p>Measurable outcomes from implementing the Clarity Framework in practice.</p>
@@ -1944,20 +2069,33 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        // Enhanced scroll reveal system
+        const revealObserverOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('revealed');
                 }
             });
-        }, observerOptions);
+        }, revealObserverOptions);
 
-        document.querySelectorAll('.artefact-display, .problem-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
+        // Observe all elements with reveal classes
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Artifact displays with staggered reveals
+        document.querySelectorAll('.artefact-display').forEach((el, index) => {
+            el.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Problem cards already have delay classes, just observe them
+        document.querySelectorAll('.problem-card').forEach(el => {
+            revealObserver.observe(el);
         });
     </script>
 
@@ -1977,8 +2115,8 @@
                     const data = node.dataset;
                     if (!data.tooltip) return;
                     const statusClass = data.status === 'healthy' ? 'green' : data.status === 'at-risk' ? 'amber' : 'red';
-                    const statusText = data.status === 'healthy' ? 'ÃƒÂ¢Ã…&ldquo;Ã¢â‚¬Å“ HEALTHY' : data.status === 'at-risk' ? 'ÃƒÂ¢Ã…Â¡Â  AT RISK' : 'ÃƒÂ¢Ã…&ldquo;Ã¢â‚¬Â¢ BLOCKED';
-                    const upstreamNote = data.upstreamRisk === 'true' ? '<div class="tooltip-status upstream-risk">ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Ëœ UPSTREAM DEPENDENCY AT RISK</div>' : '';
+                    const statusText = data.status === 'healthy' ? 'ÃƒÆ’Ã‚Â¢Ãƒâ€¦&ldquo;ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ HEALTHY' : data.status === 'at-risk' ? 'ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã‚Â¡Ã‚Â  AT RISK' : 'ÃƒÆ’Ã‚Â¢Ãƒâ€¦&ldquo;ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ BLOCKED';
+                    const upstreamNote = data.upstreamRisk === 'true' ? '<div class="tooltip-status upstream-risk">ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÂ¢Ã¢â€šÂ¬Ã‹Å“ UPSTREAM DEPENDENCY AT RISK</div>' : '';
                     dashboardTooltip.innerHTML = `<div class="tooltip-title">${data.title}</div>
                         <div style="font-size: 10px; color: #a8b2c1; margin-bottom: 10px;">${data.desc || ''}</div>
                         <div class="tooltip-row"><span class="tooltip-label">Progress</span><span class="tooltip-value ${statusClass}">${data.progress}%</span></div>
@@ -2178,9 +2316,9 @@
             const counters = [
                 { id: 'counter-initiatives', target: 2000, suffix: '+', format: 'comma' },
                 { id: 'counter-risks', target: 90, suffix: '%', format: 'number' },
-                { id: 'counter-faster', target: 8, suffix: '× FASTER', format: 'number' },
+                { id: 'counter-faster', target: 8, suffix: 'Ã— FASTER', format: 'number' },
                 { id: 'counter-weeks', target: 12, suffix: '', format: 'number' },
-                { id: 'counter-budget', target: 1.2, prefix: '£', suffix: 'M', format: 'decimal' },
+                { id: 'counter-budget', target: 1.2, prefix: 'Â£', suffix: 'M', format: 'decimal' },
                 { id: 'counter-staff', target: 250, prefix: '~', suffix: '', format: 'number' }
             ];
 
