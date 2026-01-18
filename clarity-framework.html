@@ -94,10 +94,29 @@
             line-height: 1.2;
         }
 
+        /* Scroll Progress Indicator */
+        .scroll-progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 9999;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--teal-primary), var(--gold-primary), var(--gold-light));
+            transition: width 0.1s ease-out;
+            box-shadow: 0 0 6px var(--gold-primary), 0 0 12px rgba(201, 162, 39, 0.4);
+        }
+
         /* Navigation */
         nav {
             position: fixed;
-            top: 0;
+            top: 3px;
             left: 0;
             right: 0;
             z-index: 1000;
@@ -876,6 +895,11 @@
     </style>
 </head>
 <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
     <!-- Particle Background Canvas -->
     <canvas id="particles-canvas"></canvas>
 
@@ -2579,6 +2603,24 @@
             resizeCanvas();
             initParticles();
             animate();
+        })();
+    </script>
+
+    <!-- Scroll Progress Indicator Script -->
+    <script>
+        (function() {
+            const progressBar = document.getElementById('scrollProgressBar');
+            
+            function updateProgress() {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                progressBar.style.width = scrollPercent + '%';
+            }
+            
+            window.addEventListener('scroll', updateProgress, { passive: true });
+            window.addEventListener('resize', updateProgress);
+            updateProgress();
         })();
     </script>
 </body>
