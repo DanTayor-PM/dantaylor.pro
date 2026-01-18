@@ -58,6 +58,7 @@
             --gold-primary: #c9a227;
             --gold-light: #e3c565;
             --gold-pale: #f5e6b8;
+            --teal-primary: #2a8f8f;
             --white: #ffffff;
             --white-off: #f0f2f5;
             --grey-light: #a8b2c1;
@@ -453,7 +454,10 @@
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Experience Section */
+        /* ============================================ */
+        /* INTERACTIVE EXPERIENCE TIMELINE             */
+        /* ============================================ */
+        
         .experience {
             background: var(--navy-dark);
         }
@@ -476,14 +480,16 @@
 
         .timeline-item {
             padding-left: 4rem;
-            padding-bottom: 4rem;
+            padding-bottom: 2rem;
             position: relative;
+            cursor: pointer;
         }
 
         .timeline-item:last-child {
             padding-bottom: 0;
         }
 
+        /* Timeline dot with pulse animation on hover */
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -494,6 +500,103 @@
             background: var(--navy-dark);
             border: 2px solid var(--gold-primary);
             border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        /* Outer glow ring */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: -4px;
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--gold-primary);
+            box-shadow: 0 0 15px rgba(201, 162, 39, 0.5);
+            transform: scale(1.2);
+        }
+
+        .timeline-item:hover::after {
+            opacity: 0.5;
+            transform: scale(1.3);
+        }
+
+        .timeline-item.expanded::before {
+            background: var(--gold-primary);
+            box-shadow: 0 0 20px rgba(201, 162, 39, 0.6);
+            transform: scale(1.3);
+        }
+
+        .timeline-item.expanded::after {
+            opacity: 0.6;
+            transform: scale(1.5);
+            animation: pulseRing 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseRing {
+            0%, 100% { transform: scale(1.5); opacity: 0.6; }
+            50% { transform: scale(1.8); opacity: 0.2; }
+        }
+
+        /* Card wrapper for hover effects */
+        .timeline-card {
+            background: var(--navy-mid);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--gold-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-card {
+            transform: translateX(8px);
+            border-color: rgba(201, 162, 39, 0.3);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .timeline-item:hover .timeline-card::before {
+            opacity: 1;
+        }
+
+        .timeline-item.expanded .timeline-card {
+            transform: translateX(8px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, var(--navy-mid) 0%, rgba(201, 162, 39, 0.05) 100%);
+        }
+
+        .timeline-item.expanded .timeline-card::before {
+            opacity: 1;
+        }
+
+        /* Header section (always visible) */
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
         }
 
         .timeline-date {
@@ -510,6 +613,11 @@
             font-size: 1.8rem;
             color: var(--white);
             margin-bottom: 0.25rem;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-role {
+            color: var(--gold-light);
         }
 
         .timeline-company {
@@ -518,14 +626,58 @@
             margin-bottom: 1rem;
         }
 
-        .timeline-description {
+        /* Expand indicator */
+        .expand-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--grey-mid);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+        }
+
+        .expand-indicator svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .expand-indicator svg path {
+            stroke: var(--grey-mid);
+            transition: stroke 0.3s ease;
+        }
+
+        .timeline-item:hover .expand-indicator {
+            color: var(--gold-primary);
+        }
+
+        .timeline-item:hover .expand-indicator svg path {
+            stroke: var(--gold-primary);
+        }
+
+        .timeline-item.expanded .expand-indicator svg {
+            transform: rotate(180deg);
+        }
+
+        .timeline-item.expanded .expand-indicator span {
+            display: none;
+        }
+
+        /* Summary (visible when collapsed) */
+        .timeline-summary {
             font-size: 0.95rem;
             color: var(--grey-light);
             line-height: 1.8;
+            margin-bottom: 1rem;
         }
 
+        /* Highlights (always visible) */
         .timeline-highlights {
-            margin-top: 1rem;
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
@@ -540,6 +692,135 @@
             background: rgba(201, 162, 39, 0.1);
             border: 1px solid rgba(201, 162, 39, 0.3);
             color: var(--gold-light);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .highlight-tag {
+            background: rgba(201, 162, 39, 0.15);
+            border-color: rgba(201, 162, 39, 0.5);
+        }
+
+        .timeline-item.expanded .highlight-tag {
+            background: rgba(201, 162, 39, 0.2);
+            border-color: var(--gold-primary);
+        }
+
+        /* Expanded content (hidden by default) */
+        .timeline-expanded {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease;
+            margin-top: 0;
+        }
+
+        .timeline-item.expanded .timeline-expanded {
+            max-height: 600px;
+            opacity: 1;
+            margin-top: 1.5rem;
+        }
+
+        .expanded-divider {
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold-primary), transparent);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Achievement list */
+        .achievements-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+        }
+
+        .achievements-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .achievements-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--grey-light);
+            line-height: 1.7;
+        }
+
+        .achievements-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 6px;
+            height: 6px;
+            background: var(--teal-primary);
+            border-radius: 50%;
+        }
+
+        /* Metrics row in expanded state */
+        .expanded-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .expanded-metric {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .expanded-metric-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--teal-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .expanded-metric-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--grey-mid);
+        }
+
+        /* Skills tags in expanded */
+        .skills-section {
+            margin-top: 1.5rem;
+        }
+
+        .skills-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--grey-mid);
+            margin-bottom: 0.75rem;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .skill-tag {
+            font-size: 0.65rem;
+            font-weight: 500;
+            padding: 0.3rem 0.6rem;
+            background: rgba(42, 143, 143, 0.15);
+            border: 1px solid rgba(42, 143, 143, 0.3);
+            color: var(--teal-primary);
+            border-radius: 2px;
         }
 
         /* Testimonials Section */
@@ -771,6 +1052,10 @@
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .expanded-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -891,8 +1176,32 @@
                 padding-left: 50px;
             }
             
-            .timeline-marker {
-                left: 12px;
+            .timeline-item::before {
+                left: 15px;
+            }
+            
+            .timeline-item::after {
+                left: 11px;
+            }
+            
+            .timeline-card {
+                padding: 1.5rem;
+            }
+            
+            .timeline-header {
+                flex-direction: column;
+            }
+            
+            .expand-indicator {
+                margin-top: 1rem;
+            }
+            
+            .timeline-role {
+                font-size: 1.4rem;
+            }
+            
+            .expanded-metrics {
+                grid-template-columns: 1fr;
             }
             
             .testimonial-card {
@@ -915,6 +1224,12 @@
             
             .contact-links {
                 justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-links .btn {
+                margin-left: 0 !important;
             }
         }
 
@@ -957,6 +1272,22 @@
             .section-title {
                 font-size: 1.6rem;
             }
+            
+            .timeline-item {
+                padding-left: 40px;
+            }
+            
+            .timeline::before {
+                left: 15px;
+            }
+            
+            .timeline-item::before {
+                left: 10px;
+            }
+            
+            .timeline-item::after {
+                left: 6px;
+            }
         }
     </style>
 </head>
@@ -990,7 +1321,7 @@
         <div class="hero-content">
             <p class="hero-pretitle">Global Product Programme Leader</p>
             <h1 class="hero-name">Daniel Taylor</h1>
-            <p class="hero-title">Enterprise Software &middot; Global Specialty & P&C Insurance &middot; Programme Governance & Transformation</p>
+            <p class="hero-title">Enterprise Software &middot; Global Specialty &amp; P&amp;C Insurance &middot; Programme Governance &amp; Transformation</p>
             <div class="hero-tagline">
                 <span class="tagline-word">Calm</span>
                 <span class="tagline-word">Clarity</span>
@@ -1029,7 +1360,7 @@
             </div>
             <div class="metric-card">
                 <div class="metric-value" id="metric-budget">&pound;12M</div>
-                <div class="metric-label">R&D Budget</div>
+                <div class="metric-label">R&amp;D Budget</div>
             </div>
             <div class="metric-card">
                 <div class="metric-value" id="metric-integrations">3</div>
@@ -1056,7 +1387,7 @@
                     Most recently accountable for the complete programme management function across an 
                     8-product portfolio serving multi-billion dollar carriers. Through a bespoke methodology 
                     conceived, designed, and implemented from first principles, I coordinated circa 250 staff, 
-                    managed a &pound;12M R&D budget, and delivered 2,000+ programme initiatives with full upstream 
+                    managed a &pound;12M R&amp;D budget, and delivered 2,000+ programme initiatives with full upstream 
                     and downstream dependency mapping.
                 </p>
                 <p>
@@ -1067,25 +1398,25 @@
             </div>
             <div class="competencies">
                 <div class="competency-group">
-                    <h4>Programme & Portfolio</h4>
+                    <h4>Programme &amp; Portfolio</h4>
                     <ul>
                         <li>Multi-product coordination</li>
                         <li>Dependency chain mapping</li>
-                        <li>Capacity planning & forecasting</li>
-                        <li>Resource & skillset allocation</li>
+                        <li>Capacity planning &amp; forecasting</li>
+                        <li>Resource &amp; skillset allocation</li>
                         <li>Hybrid Agile/Waterfall delivery</li>
                         <li>Release coordination</li>
                     </ul>
                 </div>
                 <div class="competency-group">
-                    <h4>Governance & Controls</h4>
+                    <h4>Governance &amp; Controls</h4>
                     <ul>
                         <li>Steering Committee leadership</li>
                         <li>Design Authority frameworks</li>
                         <li>Technical Control Board</li>
                         <li>Risk register management</li>
                         <li>Executive reporting</li>
-                        <li>M&A due diligence</li>
+                        <li>M&amp;A due diligence</li>
                     </ul>
                 </div>
                 <div class="competency-group">
@@ -1095,8 +1426,8 @@
                         <li>Digital transformation</li>
                         <li>Process redesign (Lean Six Sigma)</li>
                         <li>Change management</li>
-                        <li>ISO 9001 & compliance</li>
-                        <li>Vendor & client coordination</li>
+                        <li>ISO 9001 &amp; compliance</li>
+                        <li>Vendor &amp; client coordination</li>
                     </ul>
                 </div>
             </div>
@@ -1110,65 +1441,268 @@
             <h2 class="section-title">Experience</h2>
         </div>
         <div class="timeline">
-            <div class="timeline-item">
-                <p class="timeline-date">2024 &mdash; 2026</p>
-                <h3 class="timeline-role">Global Product Programme Lead</h3>
-                <p class="timeline-company">Sapiens AdvantageGo &middot; Global Specialty & P&C Insurance Software</p>
-                <p class="timeline-description">
-                    Served as the leading managing force across all annual product management processes 
-                    for a global enterprise software vendor serving multi-billion dollar specialty insurers. 
-                    Single point of coordination across 8 products, circa 250 staff, and 3 post-acquisition 
-                    integrations with Sapiens global portfolios.
-                </p>
-                <div class="timeline-highlights">
-                    <span class="highlight-tag">&pound;50M Acquisition</span>
-                    <span class="highlight-tag">8 Products</span>
-                    <span class="highlight-tag">Everest Group Leader</span>
-                    <span class="highlight-tag">12-Week Implementation</span>
+            <!-- Role 1: Sapiens AdvantageGo -->
+            <div class="timeline-item" data-role="advantagego">
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <p class="timeline-date">2024 &mdash; 2026</p>
+                            <h3 class="timeline-role">Global Product Programme Lead</h3>
+                            <p class="timeline-company">Sapiens AdvantageGo &middot; Global Specialty &amp; P&amp;C Insurance Software</p>
+                        </div>
+                        <div class="expand-indicator">
+                            <span>Details</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="timeline-summary">
+                        Served as the leading managing force across all annual product management processes 
+                        for a global enterprise software vendor serving multi-billion dollar specialty insurers.
+                    </p>
+                    <div class="timeline-highlights">
+                        <span class="highlight-tag">&pound;50M Acquisition</span>
+                        <span class="highlight-tag">8 Products</span>
+                        <span class="highlight-tag">Everest Group Leader</span>
+                        <span class="highlight-tag">12-Week Implementation</span>
+                    </div>
+                    
+                    <!-- Expanded content -->
+                    <div class="timeline-expanded">
+                        <div class="expanded-divider"></div>
+                        <p class="achievements-title">Key Achievements</p>
+                        <ul class="achievements-list">
+                            <li>Conceived, designed, and implemented comprehensive programme methodology &mdash; coordinating 2,000+ initiatives with full upstream and downstream dependency mapping</li>
+                            <li>Established and chaired Global Steering Committee with 5 Directors, 6 Product Managers, and 2 Delivery Heads &mdash; 14 consecutive monthly sessions where no governance previously existed</li>
+                            <li>Achieved 90% risk mitigation before escalation; reduced issue resolution time from 2 months to 1 week</li>
+                            <li>Led comprehensive product due diligence supporting successful &pound;50M acquisition by Sapiens</li>
+                            <li>Enabled first new customer win in 18+ months &mdash; delivered as fastest implementation in company history</li>
+                            <li>Fundamental contributor to transformation from unrated vendor to Everest Group Leader status</li>
+                        </ul>
+                        
+                        <div class="expanded-metrics">
+                            <div class="expanded-metric">
+                                <div class="expanded-metric-value">~250</div>
+                                <div class="expanded-metric-label">Staff Coordinated</div>
+                            </div>
+                            <div class="expanded-metric">
+                                <div class="expanded-metric-value">&pound;12M</div>
+                                <div class="expanded-metric-label">R&amp;D Budget Owned</div>
+                            </div>
+                            <div class="expanded-metric">
+                                <div class="expanded-metric-value">2,000+</div>
+                                <div class="expanded-metric-label">Initiatives Managed</div>
+                            </div>
+                        </div>
+                        
+                        <div class="skills-section">
+                            <p class="skills-title">Domain &amp; Technologies</p>
+                            <div class="skills-tags">
+                                <span class="skill-tag">Lloyd&rsquo;s Market</span>
+                                <span class="skill-tag">Blueprint Two</span>
+                                <span class="skill-tag">Policy Administration</span>
+                                <span class="skill-tag">Claims Management</span>
+                                <span class="skill-tag">Underwriting Workbench</span>
+                                <span class="skill-tag">Exposure Management</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <p class="timeline-date">2020 &mdash; 2024</p>
-                <h3 class="timeline-role">Operations & Programme Manager</h3>
-                <p class="timeline-company">Ingersoll Rand (Harrier Pneumatics) &middot; NYSE-Listed Industrial Group</p>
-                <p class="timeline-description">
-                    Appointed to lead national enterprise system implementation and operational transformation 
-                    programme across 4 locations. Consolidated fragmented legacy systems, established standardised 
-                    processes, and drove operational excellence across the UK business unit.
-                </p>
-                <div class="timeline-highlights">
-                    <span class="highlight-tag">13-Month CRM Delivery</span>
-                    <span class="highlight-tag">20%+ Efficiency Gain</span>
-                    <span class="highlight-tag">ISO 9001</span>
+            
+            <!-- Role 2: Ingersoll Rand -->
+            <div class="timeline-item" data-role="ingersoll">
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <p class="timeline-date">2020 &mdash; 2024</p>
+                            <h3 class="timeline-role">Operations &amp; Programme Manager</h3>
+                            <p class="timeline-company">Ingersoll Rand (Harrier Pneumatics) &middot; NYSE-Listed Industrial Group</p>
+                        </div>
+                        <div class="expand-indicator">
+                            <span>Details</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="timeline-summary">
+                        Appointed to lead national enterprise system implementation and operational transformation 
+                        programme across 4 locations for this NYSE-listed industrial group.
+                    </p>
+                    <div class="timeline-highlights">
+                        <span class="highlight-tag">13-Month CRM Delivery</span>
+                        <span class="highlight-tag">20%+ Efficiency Gain</span>
+                        <span class="highlight-tag">ISO 9001</span>
+                    </div>
+                    
+                    <!-- Expanded content -->
+                    <div class="timeline-expanded">
+                        <div class="expanded-divider"></div>
+                        <p class="achievements-title">Key Achievements</p>
+                        <ul class="achievements-list">
+                            <li>Delivered enterprise CRM integration in 13 months against 24-month timeline &mdash; consolidating multiple legacy systems whilst maintaining business continuity</li>
+                            <li>Achieved &gt;20% workflow efficiency improvement through end-to-end process redesign and standardisation across all sites</li>
+                            <li>Transformed engineer utilisation from 33% to 75% through Lean Six Sigma process redesign &mdash; directly improving service capacity and revenue potential</li>
+                            <li>Led successful ISO 9001 accreditation and industry-specific certifications, establishing quality management framework</li>
+                        </ul>
+                        
+                        <div class="expanded-metrics">
+                            <div class="expanded-metric">
+                                <div class="expanded-metric-value">4</div>
+                                <div class="expanded-metric-label">Sites Consolidated</div>
+                            </div>
+                            <div class="expanded-metric">
+                                <div class="expanded-metric-value">75%</div>
+                                <div class="expanded-metric-label">Engineer Utilisation</div>
+                            </div>
+                            <div class="expanded-metric">
+                                <div class="expanded-metric-value">11mo</div>
+                                <div class="expanded-metric-label">Ahead of Schedule</div>
+                            </div>
+                        </div>
+                        
+                        <div class="skills-section">
+                            <p class="skills-title">Skills Applied</p>
+                            <div class="skills-tags">
+                                <span class="skill-tag">CRM Implementation</span>
+                                <span class="skill-tag">Lean Six Sigma</span>
+                                <span class="skill-tag">ISO 9001</span>
+                                <span class="skill-tag">Process Redesign</span>
+                                <span class="skill-tag">Change Management</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <p class="timeline-date">2017 &mdash; 2020</p>
-                <h3 class="timeline-role">Transformation Manager</h3>
-                <p class="timeline-company">Harrier Pneumatics Ltd</p>
-                <p class="timeline-description">
-                    Recruited to drive comprehensive digital transformation of a traditional paper-based 
-                    operation. Full technology adoption, process re-engineering, and commercial growth 
-                    strategy resulting in 250% revenue growth.
-                </p>
-                <div class="timeline-highlights">
-                    <span class="highlight-tag">Digital Transformation</span>
-                    <span class="highlight-tag">250% Revenue Growth</span>
+            
+            <!-- Role 3: Transformation Manager -->
+            <div class="timeline-item" data-role="harrier">
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <p class="timeline-date">2017 &mdash; 2020</p>
+                            <h3 class="timeline-role">Transformation Manager</h3>
+                            <p class="timeline-company">Harrier Pneumatics Ltd</p>
+                        </div>
+                        <div class="expand-indicator">
+                            <span>Details</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="timeline-summary">
+                        Recruited to drive comprehensive digital transformation of a traditional paper-based 
+                        operation. Full technology adoption, process re-engineering, and commercial growth strategy.
+                    </p>
+                    <div class="timeline-highlights">
+                        <span class="highlight-tag">Digital Transformation</span>
+                        <span class="highlight-tag">250% Revenue Growth</span>
+                    </div>
+                    
+                    <!-- Expanded content -->
+                    <div class="timeline-expanded">
+                        <div class="expanded-divider"></div>
+                        <p class="achievements-title">Key Achievements</p>
+                        <ul class="achievements-list">
+                            <li>Executed complete digital transformation from paper-based to CRM-enabled operations &mdash; achieved full organisational adoption within 6 months through structured change management</li>
+                            <li>Delivered 250% revenue growth (&pound;20k to &pound;70k monthly) through systematic new account acquisition enabled by improved operational visibility and capacity</li>
+                            <li>Established operational foundations and governance that supported subsequent Ingersoll Rand acquisition and integration</li>
+                        </ul>
+                        
+                        <div class="expanded-metrics">
+                            <div class="expanded-metric">
+                                <div class="expanded-metric-value">250%</div>
+                                <div class="expanded-metric-label">Revenue Growth</div>
+                            </div>
+                            <div class="expanded-metric">
+                                <div class="expanded-metric-value">6mo</div>
+                                <div class="expanded-metric-label">Full Adoption</div>
+                            </div>
+                            <div class="expanded-metric">
+                                <div class="expanded-metric-value">&pound;70k</div>
+                                <div class="expanded-metric-label">Monthly Revenue</div>
+                            </div>
+                        </div>
+                        
+                        <div class="skills-section">
+                            <p class="skills-title">Skills Applied</p>
+                            <div class="skills-tags">
+                                <span class="skill-tag">Digital Transformation</span>
+                                <span class="skill-tag">CRM Adoption</span>
+                                <span class="skill-tag">Change Management</span>
+                                <span class="skill-tag">Commercial Strategy</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <p class="timeline-date">2013 &mdash; 2017</p>
-                <h3 class="timeline-role">Operations & Logistics Manager</h3>
-                <p class="timeline-company">Atlas Copco (Multibrands) &middot; Global Industrial Manufacturing</p>
-                <p class="timeline-description">
-                    Progressive career advancement through technical and operational roles, culminating 
-                    in leadership of nationwide ERP transformation programme. Sole Business Key User 
-                    for SAP implementation, bridging technical requirements with operational realities.
-                </p>
-                <div class="timeline-highlights">
-                    <span class="highlight-tag">SAP Implementation</span>
-                    <span class="highlight-tag">10% Under Budget</span>
-                    <span class="highlight-tag">20% Stock Reduction</span>
+            
+            <!-- Role 4: Atlas Copco -->
+            <div class="timeline-item" data-role="atlascopco">
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <p class="timeline-date">2013 &mdash; 2017</p>
+                            <h3 class="timeline-role">Operations &amp; Logistics Manager</h3>
+                            <p class="timeline-company">Atlas Copco (Multibrands) &middot; Global Industrial Manufacturing</p>
+                        </div>
+                        <div class="expand-indicator">
+                            <span>Details</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="timeline-summary">
+                        Progressive career advancement through technical and operational roles, culminating 
+                        in leadership of nationwide ERP transformation programme.
+                    </p>
+                    <div class="timeline-highlights">
+                        <span class="highlight-tag">SAP Implementation</span>
+                        <span class="highlight-tag">10% Under Budget</span>
+                        <span class="highlight-tag">20% Stock Reduction</span>
+                    </div>
+                    
+                    <!-- Expanded content -->
+                    <div class="timeline-expanded">
+                        <div class="expanded-divider"></div>
+                        <p class="achievements-title">Key Achievements</p>
+                        <ul class="achievements-list">
+                            <li>Led nationwide SAP transition as sole Business Key User &mdash; delivered on time and 10% under budget whilst maintaining operational continuity throughout migration</li>
+                            <li>Reduced stockholding by 20% whilst simultaneously improving fast-mover availability through development of custom BI reporting and demand forecasting</li>
+                            <li>Designed and implemented digital warranty system reducing customer claim processing time by &gt;20%, improving customer satisfaction</li>
+                            <li>Built foundational expertise in enterprise systems, change management, and operational transformation</li>
+                        </ul>
+                        
+                        <div class="expanded-metrics">
+                            <div class="expanded-metric">
+                                <div class="expanded-metric-value">50+</div>
+                                <div class="expanded-metric-label">Team Size</div>
+                            </div>
+                            <div class="expanded-metric">
+                                <div class="expanded-metric-value">10%</div>
+                                <div class="expanded-metric-label">Under Budget</div>
+                            </div>
+                            <div class="expanded-metric">
+                                <div class="expanded-metric-value">20%</div>
+                                <div class="expanded-metric-label">Stock Reduction</div>
+                            </div>
+                        </div>
+                        
+                        <div class="skills-section">
+                            <p class="skills-title">Skills Applied</p>
+                            <div class="skills-tags">
+                                <span class="skill-tag">SAP Implementation</span>
+                                <span class="skill-tag">ERP Migration</span>
+                                <span class="skill-tag">BI Reporting</span>
+                                <span class="skill-tag">Demand Forecasting</span>
+                                <span class="skill-tag">Supply Chain</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1227,10 +1761,10 @@
     <section class="contact" id="contact">
         <div class="contact-content">
             <p class="section-label">Connect</p>
-            <h2 class="contact-title">Let's Talk</h2>
+            <h2 class="contact-title">Let&rsquo;s Talk</h2>
             <p class="contact-text">
                 Open to discussing senior programme leadership opportunities within 
-                Global Specialty P&C insurance software vendors.
+                Global Specialty P&amp;C insurance software vendors.
             </p>
             <a href="mailto:dan.elliot.taylor@gmail.com" class="contact-email">dan.elliot.taylor@gmail.com</a>
             <div class="contact-links" style="margin-top: 2rem;">
@@ -1256,6 +1790,44 @@
             }
         });
 
+        // Interactive Timeline - Accordion functionality
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        timelineItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Don't toggle if clicking a link
+                if (e.target.tagName === 'A') return;
+                
+                const isExpanded = this.classList.contains('expanded');
+                
+                // Close all other items
+                timelineItems.forEach(otherItem => {
+                    if (otherItem !== this) {
+                        otherItem.classList.remove('expanded');
+                    }
+                });
+                
+                // Toggle this item
+                if (isExpanded) {
+                    this.classList.remove('expanded');
+                } else {
+                    this.classList.add('expanded');
+                    
+                    // Smooth scroll to bring expanded card into view
+                    setTimeout(() => {
+                        const cardTop = this.getBoundingClientRect().top;
+                        const offset = 150; // Account for fixed nav
+                        if (cardTop < offset) {
+                            window.scrollBy({
+                                top: cardTop - offset,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 100);
+                }
+            });
+        });
+
         // Smooth reveal on scroll
         const observerOptions = {
             threshold: 0.1,
@@ -1271,10 +1843,10 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.timeline-item, .testimonial-card, .metric-card').forEach(el => {
+        document.querySelectorAll('.timeline-item, .testimonial-card, .metric-card').forEach((el, index) => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
             observer.observe(el);
         });
     </script>
@@ -1369,12 +1941,12 @@
         (function() {
             // Counter animation configuration for metrics bar
             const counters = [
-                { id: 'metric-gwp', target: 100, prefix: '£', suffix: 'bn+', format: 'number' },
-                { id: 'metric-acquisition', target: 50, prefix: '£', suffix: 'M', format: 'number' },
+                { id: 'metric-gwp', target: 100, prefix: '\u00A3', suffix: 'bn+', format: 'number' },
+                { id: 'metric-acquisition', target: 50, prefix: '\u00A3', suffix: 'M', format: 'number' },
                 { id: 'metric-products', target: 8, suffix: '', format: 'number' },
                 { id: 'metric-staff', target: 250, prefix: '~', suffix: '', format: 'number' },
                 { id: 'metric-initiatives', target: 2000, suffix: '+', format: 'comma' },
-                { id: 'metric-budget', target: 12, prefix: '£', suffix: 'M', format: 'number' },
+                { id: 'metric-budget', target: 12, prefix: '\u00A3', suffix: 'M', format: 'number' },
                 { id: 'metric-integrations', target: 3, suffix: '', format: 'number' }
             ];
 
