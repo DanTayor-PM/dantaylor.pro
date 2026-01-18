@@ -230,70 +230,15 @@
             overflow: hidden;
         }
 
-        /* Animated gradient orbs */
         .hero::before {
             content: '';
             position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 80%;
-            height: 80%;
-            background: radial-gradient(ellipse at center, rgba(201, 162, 39, 0.08) 0%, transparent 60%);
-            animation: floatOrb1 20s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .hero-bg-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse at 70% 30%, var(--navy-mid) 0%, transparent 60%);
             opacity: 0.5;
-        }
-
-        .hero-bg-orb-1 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(42, 143, 143, 0.15) 0%, transparent 70%);
-            top: 10%;
-            right: -5%;
-            animation: floatOrb1 25s ease-in-out infinite;
-        }
-
-        .hero-bg-orb-2 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%);
-            bottom: -10%;
-            left: 20%;
-            animation: floatOrb2 30s ease-in-out infinite;
-        }
-
-        .hero-bg-orb-3 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(30, 58, 95, 0.3) 0%, transparent 70%);
-            top: 40%;
-            left: -10%;
-            animation: floatOrb3 22s ease-in-out infinite;
-        }
-
-        @keyframes floatOrb1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(-30px, 40px) scale(1.05); }
-            50% { transform: translate(20px, -20px) scale(0.95); }
-            75% { transform: translate(-20px, -30px) scale(1.02); }
-        }
-
-        @keyframes floatOrb2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(40px, -30px) scale(1.08); }
-            66% { transform: translate(-30px, 20px) scale(0.92); }
-        }
-
-        @keyframes floatOrb3 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(50px, 30px) scale(1.1); }
         }
 
         .hero::after {
@@ -1075,129 +1020,6 @@
             }
         }
 
-        /* ============================================ */
-        /* SCROLL REVEAL ANIMATION SYSTEM              */
-        /* ============================================ */
-        
-        /* Base reveal state - hidden */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Reveal from left */
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .reveal-left.revealed {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Reveal from right */
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(60px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .reveal-right.revealed {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Scale reveal */
-        .reveal-scale {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .reveal-scale.revealed {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Stagger delays for grouped elements */
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
-        .reveal-delay-5 { transition-delay: 0.5s; }
-        .reveal-delay-6 { transition-delay: 0.6s; }
-        .reveal-delay-7 { transition-delay: 0.7s; }
-
-        /* Section header reveals */
-        .section-header.reveal .section-label {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
-        }
-
-        .section-header.reveal .section-title {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease 0.25s, transform 0.6s ease 0.25s;
-        }
-
-        .section-header.reveal.revealed .section-label,
-        .section-header.reveal.revealed .section-title {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Competency groups stagger */
-        .competencies .competency-group {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .competencies.revealed .competency-group:nth-child(1) { transition-delay: 0.1s; }
-        .competencies.revealed .competency-group:nth-child(2) { transition-delay: 0.25s; }
-        .competencies.revealed .competency-group:nth-child(3) { transition-delay: 0.4s; }
-
-        .competencies.revealed .competency-group {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Testimonial cards with lift effect */
-        .testimonial-card {
-            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-                        box-shadow 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Framework teaser glow pulse */
-        .framework-teaser.revealed::before {
-            animation: glowPulse 4s ease-in-out infinite;
-        }
-
-        @keyframes glowPulse {
-            0%, 100% { opacity: 0.03; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.06; transform: translate(-50%, -50%) scale(1.1); }
-        }
-
         /* Responsive */
         @media (max-width: 1200px) {
             .metrics-grid {
@@ -1467,9 +1289,115 @@
                 left: 6px;
             }
         }
+
+        /* ============================================ */
+        /* GRADIENT TEXT ON KEY HEADINGS               */
+        /* ============================================ */
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .framework-title .gradient-text {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 50%, var(--teal-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ============================================ */
+        /* 3D CARD TILT EFFECT                         */
+        /* ============================================ */
+        
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out;
+        }
+
+        .tilt-card .card-content {
+            transform: translateZ(20px);
+        }
+
+        .tilt-card .card-shine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.03) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .tilt-card:hover .card-shine {
+            opacity: 1;
+        }
+
+        /* Apply to testimonial cards */
+        .testimonial-card {
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+            perspective: 1000px;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border-color: rgba(201, 162, 39, 0.3);
+        }
+
+        /* Apply to timeline cards */
+        .timeline-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        /* Apply to metric cards */
+        .metric-card {
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+            perspective: 1000px;
+        }
+
+        .metric-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ============================================ */
+        /* PARTICLE BACKGROUND                         */
+        /* ============================================ */
+        
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        /* Ensure content is above particles */
+        nav, section, footer {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
+    <!-- Particle Background Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
     <!-- Navigation -->
     <nav id="navbar">
         <a href="#" class="logo">
@@ -1496,11 +1424,6 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <!-- Animated background orbs -->
-        <div class="hero-bg-orb hero-bg-orb-1"></div>
-        <div class="hero-bg-orb hero-bg-orb-2"></div>
-        <div class="hero-bg-orb hero-bg-orb-3"></div>
-        
         <div class="hero-content">
             <p class="hero-pretitle">Global Product Programme Leader</p>
             <h1 class="hero-name">Daniel Taylor</h1>
@@ -1555,10 +1478,10 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="about-content">
-            <div class="about-text reveal reveal-left">
+            <div class="about-text">
                 <div class="section-header">
                     <p class="section-label">About</p>
-                    <h2 class="section-title">Governance Built from First Principles</h2>
+                    <h2 class="section-title"><span class="gradient-text">Governance Built from First Principles</span></h2>
                 </div>
                 <p>
                     Global Product Programme Leader with proven expertise orchestrating enterprise-scale 
@@ -1579,7 +1502,7 @@
                     schedule and establishing governance frameworks that enable organisations to scale.
                 </p>
             </div>
-            <div class="competencies reveal reveal-right">
+            <div class="competencies">
                 <div class="competency-group">
                     <h4>Programme &amp; Portfolio</h4>
                     <ul>
@@ -1619,9 +1542,9 @@
 
     <!-- Experience Section -->
     <section class="experience" id="experience">
-        <div class="section-header reveal" style="max-width: 1000px; margin: 0 auto 4rem;">
+        <div class="section-header" style="max-width: 1000px; margin: 0 auto 4rem;">
             <p class="section-label">Career</p>
-            <h2 class="section-title">Experience</h2>
+            <h2 class="section-title"><span class="gradient-text">Experience</span></h2>
         </div>
         <div class="timeline">
             <!-- Role 1: Sapiens AdvantageGo -->
@@ -1893,12 +1816,12 @@
 
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
-        <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
+        <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
             <p class="section-label">Testimonials</p>
-            <h2 class="section-title">What Leaders Say</h2>
+            <h2 class="section-title"><span class="gradient-text">What Leaders Say</span></h2>
         </div>
         <div class="testimonials-grid">
-            <div class="testimonial-card reveal reveal-delay-1">
+            <div class="testimonial-card">
                 <p class="testimonial-text">
                     Daniel is not merely competent &mdash; he is the calibre of individual around 
                     whom you can build an entire operational function.
@@ -1906,7 +1829,7 @@
                 <p class="testimonial-author">John Bowers</p>
                 <p class="testimonial-role">Chief Product Officer, Sapiens AdvantageGo</p>
             </div>
-            <div class="testimonial-card reveal reveal-delay-2">
+            <div class="testimonial-card">
                 <p class="testimonial-text">
                     Dan makes the difficult look easy. He is reliable, insightful, and 
                     deeply committed to delivering quality.
@@ -1914,7 +1837,7 @@
                 <p class="testimonial-author">James Byford</p>
                 <p class="testimonial-role">Global Head of Design</p>
             </div>
-            <div class="testimonial-card reveal reveal-delay-3">
+            <div class="testimonial-card">
                 <p class="testimonial-text">
                     He translated complex project data into clear insights. Reliable, patient, 
                     and very skilled, he made a big difference in how we tracked and improved 
@@ -1927,10 +1850,10 @@
     </section>
 
     <!-- Framework Teaser -->
-    <section class="framework-teaser reveal reveal-scale">
+    <section class="framework-teaser">
         <div class="framework-content">
             <p class="section-label">Methodology</p>
-            <h2 class="framework-title">The <span>Clarity</span> Framework</h2>
+            <h2 class="framework-title">The <span class="gradient-text">Clarity</span> Framework</h2>
             <p class="framework-subtitle">
                 A comprehensive programme management methodology conceived, designed, and 
                 implemented from first principles &mdash; enabling meticulous coordination of 
@@ -1942,9 +1865,9 @@
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="contact-content reveal">
+        <div class="contact-content">
             <p class="section-label">Connect</p>
-            <h2 class="contact-title">Let&rsquo;s Talk</h2>
+            <h2 class="contact-title"><span class="gradient-text">Let's Talk</span></h2>
             <p class="contact-text">
                 Open to discussing senior programme leadership opportunities within 
                 Global Specialty P&amp;C insurance software vendors.
@@ -2011,46 +1934,26 @@
             });
         });
 
-        // Smooth reveal on scroll - Enhanced reveal system
-        const revealObserverOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -80px 0px'
+        // Smooth reveal on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
-        const revealObserver = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    // Optionally unobserve after revealing (for one-time animations)
-                    // revealObserver.unobserve(entry.target);
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, revealObserverOptions);
+        }, observerOptions);
 
-        // Observe all elements with reveal classes
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .competencies').forEach(el => {
-            revealObserver.observe(el);
-        });
-
-        // Timeline and metric cards - with staggered delays
-        const timelineObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-        document.querySelectorAll('.timeline-item').forEach((el, index) => {
-            el.classList.add('reveal');
-            el.style.transitionDelay = `${index * 0.15}s`;
-            timelineObserver.observe(el);
-        });
-
-        document.querySelectorAll('.metric-card').forEach((el, index) => {
-            el.classList.add('reveal');
-            el.style.transitionDelay = `${index * 0.08}s`;
-            timelineObserver.observe(el);
+        document.querySelectorAll('.timeline-item, .testimonial-card, .metric-card').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(el);
         });
     </script>
 
@@ -2230,6 +2133,166 @@
                 // Fallback: animate on page load after delay
                 setTimeout(startCounters, 1000);
             }
+        })();
+    </script>
+
+    <!-- 3D Card Tilt Effect -->
+    <script>
+        (function() {
+            // 3D Tilt effect for cards
+            const tiltCards = document.querySelectorAll('.testimonial-card, .metric-card');
+            
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                });
+            });
+
+            // Timeline card tilt (lighter effect due to existing hover animations)
+            const timelineCards = document.querySelectorAll('.timeline-card');
+            
+            timelineCards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    // Lighter tilt for timeline cards
+                    const rotateX = (y - centerY) / 40;
+                    const rotateY = (centerX - x) / 40;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateX(8px)`;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const isExpanded = card.closest('.timeline-item').classList.contains('expanded');
+                    if (isExpanded) {
+                        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateX(8px)';
+                    } else {
+                        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateX(0)';
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <!-- Particle Background Animation -->
+    <script>
+        (function() {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            let particles = [];
+            let animationId;
+            
+            // Resize canvas to full window
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            
+            // Particle class
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.speedY = (Math.random() - 0.5) * 0.3;
+                    this.opacity = Math.random() * 0.5 + 0.1;
+                    
+                    // Colour variations: gold, teal, or white
+                    const colorChoice = Math.random();
+                    if (colorChoice < 0.3) {
+                        this.color = `rgba(201, 162, 39, ${this.opacity})`; // Gold
+                    } else if (colorChoice < 0.5) {
+                        this.color = `rgba(42, 143, 143, ${this.opacity})`; // Teal
+                    } else {
+                        this.color = `rgba(255, 255, 255, ${this.opacity * 0.5})`; // White (dimmer)
+                    }
+                }
+                
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    
+                    // Wrap around edges
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                    if (this.y > canvas.height) this.y = 0;
+                }
+                
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+            }
+            
+            // Initialise particles
+            function initParticles() {
+                particles = [];
+                // Fewer particles for subtle effect
+                const particleCount = Math.floor((canvas.width * canvas.height) / 25000);
+                for (let i = 0; i < Math.min(particleCount, 80); i++) {
+                    particles.push(new Particle());
+                }
+            }
+            
+            // Animation loop
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                animationId = requestAnimationFrame(animate);
+            }
+            
+            // Handle resize
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                initParticles();
+            });
+            
+            // Reduce animation when tab is not visible
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    cancelAnimationFrame(animationId);
+                } else {
+                    animate();
+                }
+            });
+            
+            // Start
+            resizeCanvas();
+            initParticles();
+            animate();
         })();
     </script>
 </body>
