@@ -230,15 +230,70 @@
             overflow: hidden;
         }
 
+        /* Animated gradient orbs */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 60%;
-            height: 100%;
-            background: radial-gradient(ellipse at 70% 30%, var(--navy-mid) 0%, transparent 60%);
+            top: -20%;
+            right: -10%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(ellipse at center, rgba(201, 162, 39, 0.08) 0%, transparent 60%);
+            animation: floatOrb1 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero-bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
             opacity: 0.5;
+        }
+
+        .hero-bg-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(42, 143, 143, 0.15) 0%, transparent 70%);
+            top: 10%;
+            right: -5%;
+            animation: floatOrb1 25s ease-in-out infinite;
+        }
+
+        .hero-bg-orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%);
+            bottom: -10%;
+            left: 20%;
+            animation: floatOrb2 30s ease-in-out infinite;
+        }
+
+        .hero-bg-orb-3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(30, 58, 95, 0.3) 0%, transparent 70%);
+            top: 40%;
+            left: -10%;
+            animation: floatOrb3 22s ease-in-out infinite;
+        }
+
+        @keyframes floatOrb1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-30px, 40px) scale(1.05); }
+            50% { transform: translate(20px, -20px) scale(0.95); }
+            75% { transform: translate(-20px, -30px) scale(1.02); }
+        }
+
+        @keyframes floatOrb2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -30px) scale(1.08); }
+            66% { transform: translate(-30px, 20px) scale(0.92); }
+        }
+
+        @keyframes floatOrb3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 30px) scale(1.1); }
         }
 
         .hero::after {
@@ -1020,6 +1075,129 @@
             }
         }
 
+        /* ============================================ */
+        /* SCROLL REVEAL ANIMATION SYSTEM              */
+        /* ============================================ */
+        
+        /* Base reveal state - hidden */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Reveal from left */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-left.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Reveal from right */
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-right.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Scale reveal */
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-scale.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays for grouped elements */
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+        .reveal-delay-6 { transition-delay: 0.6s; }
+        .reveal-delay-7 { transition-delay: 0.7s; }
+
+        /* Section header reveals */
+        .section-header.reveal .section-label {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
+        }
+
+        .section-header.reveal .section-title {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease 0.25s, transform 0.6s ease 0.25s;
+        }
+
+        .section-header.reveal.revealed .section-label,
+        .section-header.reveal.revealed .section-title {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Competency groups stagger */
+        .competencies .competency-group {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .competencies.revealed .competency-group:nth-child(1) { transition-delay: 0.1s; }
+        .competencies.revealed .competency-group:nth-child(2) { transition-delay: 0.25s; }
+        .competencies.revealed .competency-group:nth-child(3) { transition-delay: 0.4s; }
+
+        .competencies.revealed .competency-group {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Testimonial cards with lift effect */
+        .testimonial-card {
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Framework teaser glow pulse */
+        .framework-teaser.revealed::before {
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.03; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.06; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .metrics-grid {
@@ -1318,6 +1496,11 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <!-- Animated background orbs -->
+        <div class="hero-bg-orb hero-bg-orb-1"></div>
+        <div class="hero-bg-orb hero-bg-orb-2"></div>
+        <div class="hero-bg-orb hero-bg-orb-3"></div>
+        
         <div class="hero-content">
             <p class="hero-pretitle">Global Product Programme Leader</p>
             <h1 class="hero-name">Daniel Taylor</h1>
@@ -1372,7 +1555,7 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="about-content">
-            <div class="about-text">
+            <div class="about-text reveal reveal-left">
                 <div class="section-header">
                     <p class="section-label">About</p>
                     <h2 class="section-title">Governance Built from First Principles</h2>
@@ -1396,7 +1579,7 @@
                     schedule and establishing governance frameworks that enable organisations to scale.
                 </p>
             </div>
-            <div class="competencies">
+            <div class="competencies reveal reveal-right">
                 <div class="competency-group">
                     <h4>Programme &amp; Portfolio</h4>
                     <ul>
@@ -1436,7 +1619,7 @@
 
     <!-- Experience Section -->
     <section class="experience" id="experience">
-        <div class="section-header" style="max-width: 1000px; margin: 0 auto 4rem;">
+        <div class="section-header reveal" style="max-width: 1000px; margin: 0 auto 4rem;">
             <p class="section-label">Career</p>
             <h2 class="section-title">Experience</h2>
         </div>
@@ -1710,12 +1893,12 @@
 
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
-        <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
+        <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
             <p class="section-label">Testimonials</p>
             <h2 class="section-title">What Leaders Say</h2>
         </div>
         <div class="testimonials-grid">
-            <div class="testimonial-card">
+            <div class="testimonial-card reveal reveal-delay-1">
                 <p class="testimonial-text">
                     Daniel is not merely competent &mdash; he is the calibre of individual around 
                     whom you can build an entire operational function.
@@ -1723,7 +1906,7 @@
                 <p class="testimonial-author">John Bowers</p>
                 <p class="testimonial-role">Chief Product Officer, Sapiens AdvantageGo</p>
             </div>
-            <div class="testimonial-card">
+            <div class="testimonial-card reveal reveal-delay-2">
                 <p class="testimonial-text">
                     Dan makes the difficult look easy. He is reliable, insightful, and 
                     deeply committed to delivering quality.
@@ -1731,7 +1914,7 @@
                 <p class="testimonial-author">James Byford</p>
                 <p class="testimonial-role">Global Head of Design</p>
             </div>
-            <div class="testimonial-card">
+            <div class="testimonial-card reveal reveal-delay-3">
                 <p class="testimonial-text">
                     He translated complex project data into clear insights. Reliable, patient, 
                     and very skilled, he made a big difference in how we tracked and improved 
@@ -1744,7 +1927,7 @@
     </section>
 
     <!-- Framework Teaser -->
-    <section class="framework-teaser">
+    <section class="framework-teaser reveal reveal-scale">
         <div class="framework-content">
             <p class="section-label">Methodology</p>
             <h2 class="framework-title">The <span>Clarity</span> Framework</h2>
@@ -1759,7 +1942,7 @@
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="contact-content">
+        <div class="contact-content reveal">
             <p class="section-label">Connect</p>
             <h2 class="contact-title">Let&rsquo;s Talk</h2>
             <p class="contact-text">
@@ -1828,26 +2011,46 @@
             });
         });
 
-        // Smooth reveal on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        // Smooth reveal on scroll - Enhanced reveal system
+        const revealObserverOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('revealed');
+                    // Optionally unobserve after revealing (for one-time animations)
+                    // revealObserver.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, revealObserverOptions);
 
-        document.querySelectorAll('.timeline-item, .testimonial-card, .metric-card').forEach((el, index) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-            observer.observe(el);
+        // Observe all elements with reveal classes
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .competencies').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Timeline and metric cards - with staggered delays
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.timeline-item').forEach((el, index) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = `${index * 0.15}s`;
+            timelineObserver.observe(el);
+        });
+
+        document.querySelectorAll('.metric-card').forEach((el, index) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = `${index * 0.08}s`;
+            timelineObserver.observe(el);
         });
     </script>
 
