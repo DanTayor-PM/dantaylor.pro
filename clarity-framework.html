@@ -817,9 +817,66 @@
             
             
         }
+
+        /* ============================================ */
+        /* GRADIENT TEXT ON KEY HEADINGS               */
+        /* ============================================ */
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title .gradient-text {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 50%, var(--teal-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ============================================ */
+        /* 3D CARD TILT EFFECT                         */
+        /* ============================================ */
+        
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out;
+        }
+
+        /* Apply to problem cards */
+        .problem-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        /* ============================================ */
+        /* PARTICLE BACKGROUND                         */
+        /* ============================================ */
+        
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        /* Ensure content is above particles */
+        nav, section, footer {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
+    <!-- Particle Background Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
     <!-- Navigation -->
     <nav id="navbar">
         <a href="index.html" class="logo">
@@ -852,7 +909,7 @@
         
         <div class="hero-content">
             <p class="hero-pretitle">Programme Management Methodology</p>
-            <h1 class="hero-title">The <span>Clarity</span> Framework</h1>
+            <h1 class="hero-title">The <span class="gradient-text">Clarity</span> Framework</h1>
             <p class="hero-subtitle">
                 When coordinating 2,000+ initiatives across multi-billion dollar specialty insurers, 
                 generic frameworks don't survive first contact. This methodology was conceived, 
@@ -868,7 +925,7 @@
         <div class="problem-content">
             <div class="section-header reveal">
                 <p class="section-label">The Challenge</p>
-                <h2 class="section-title">Where Traditional Approaches Fall Short</h2>
+                <h2 class="section-title"><span class="gradient-text">Where Traditional Approaches Fall Short</span></h2>
             </div>
             <div class="problem-grid">
                 <div class="problem-card reveal reveal-delay-1">
@@ -1023,7 +1080,7 @@
                     <g transform="translate(20, 335)">
                         <rect x="0" y="0" width="240" height="70" rx="3" fill="#132340"/>
                         <text x="120" y="25" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="18" font-weight="600" fill="#ffffff">Governance That Works</text>
-                        <text x="120" y="45" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">Protection without obstruction &mdash;</text>
+                        <text x="120" y="45" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">Protection without obstruction</text>
                         <text x="120" y="58" text-anchor="middle" font-family="Raleway, sans-serif" font-size="8" fill="#a8b2c1">scalable, controllable, effective</text>
                     </g>
                 </g>
@@ -2026,7 +2083,7 @@
     <section class="cta">
         <div class="cta-content">
             <p class="section-label">Interested?</p>
-            <h2 class="cta-title">Bring Clarity to Your Programme</h2>
+            <h2 class="cta-title"><span class="gradient-text">Bring Clarity to Your Programme</span></h2>
             <p class="cta-text">
                 Whether you're scaling delivery across multiple products, establishing 
                 governance in a growing organisation, or preparing for M&A activity &mdash; 
@@ -2389,6 +2446,137 @@
                 // Fallback: animate on page load after delay
                 setTimeout(startCounters, 1000);
             }
+        })();
+    </script>
+
+    <!-- 3D Card Tilt Effect -->
+    <script>
+        (function() {
+            // 3D Tilt effect for problem cards
+            const problemCards = document.querySelectorAll('.problem-card');
+            
+            problemCards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 25;
+                    const rotateY = (centerX - x) / 25;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale3d(1.01, 1.01, 1.01)`;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale3d(1, 1, 1)';
+                });
+            });
+        })();
+    </script>
+
+    <!-- Particle Background Animation -->
+    <script>
+        (function() {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            let particles = [];
+            let animationId;
+            
+            // Resize canvas to full window
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            
+            // Particle class
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.speedY = (Math.random() - 0.5) * 0.3;
+                    this.opacity = Math.random() * 0.5 + 0.1;
+                    
+                    // Colour variations: gold, teal, or white
+                    const colorChoice = Math.random();
+                    if (colorChoice < 0.3) {
+                        this.color = `rgba(201, 162, 39, ${this.opacity})`; // Gold
+                    } else if (colorChoice < 0.5) {
+                        this.color = `rgba(42, 143, 143, ${this.opacity})`; // Teal
+                    } else {
+                        this.color = `rgba(255, 255, 255, ${this.opacity * 0.5})`; // White (dimmer)
+                    }
+                }
+                
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    
+                    // Wrap around edges
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                    if (this.y > canvas.height) this.y = 0;
+                }
+                
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+            }
+            
+            // Initialise particles
+            function initParticles() {
+                particles = [];
+                // Fewer particles for subtle effect
+                const particleCount = Math.floor((canvas.width * canvas.height) / 25000);
+                for (let i = 0; i < Math.min(particleCount, 80); i++) {
+                    particles.push(new Particle());
+                }
+            }
+            
+            // Animation loop
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                animationId = requestAnimationFrame(animate);
+            }
+            
+            // Handle resize
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                initParticles();
+            });
+            
+            // Reduce animation when tab is not visible
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    cancelAnimationFrame(animationId);
+                } else {
+                    animate();
+                }
+            });
+            
+            // Start
+            resizeCanvas();
+            initParticles();
+            animate();
         })();
     </script>
 </body>
