@@ -292,8 +292,8 @@
 
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
             margin-top: 3rem;
         }
 
@@ -358,14 +358,13 @@
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 4px;
             padding: 1.5rem;
-            overflow-x: auto;
+            overflow: hidden;
         }
 
         .artefact-visual svg {
             width: 100%;
             height: auto;
             display: block;
-            min-width: 800px;
         }
 
         @media (max-width: 1024px) {
@@ -373,8 +372,8 @@
                 padding: 1rem;
             }
             
-            .artefact-visual svg {
-                min-width: 700px;
+            .problem-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -392,14 +391,19 @@
                 border-radius: 3px;
             }
             
-            .artefact-visual svg {
-                min-width: 600px;
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .problem-card {
+                padding: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
-            .artefact-visual svg {
-                min-width: 500px;
+            .artefact-header p {
+                font-size: 0.9rem;
             }
         }
 
@@ -728,9 +732,11 @@
             <p class="hero-pretitle">Programme Management Methodology</p>
             <h1 class="hero-title">The <span>Clarity</span> Framework</h1>
             <p class="hero-subtitle">
-                A comprehensive programme management methodology conceived, designed, and 
-                implemented from first principles – enabling meticulous coordination of 
-                enterprise-scale delivery with full dependency mapping and executive visibility.
+                When coordinating 2,000+ initiatives across multi-billion dollar specialty insurers, 
+                generic frameworks don't survive first contact. This methodology was conceived, 
+                stress-tested, and refined in the demanding environment of Global Specialty P&C – 
+                where Lloyd's Market complexity, Blueprint Two compliance, and acquisition-readiness 
+                aren't aspirations but baseline requirements.
             </p>
         </div>
     </section>
@@ -743,6 +749,14 @@
                 <h2 class="section-title">Where Traditional Approaches Fall Short</h2>
             </div>
             <div class="problem-grid">
+                <div class="problem-card">
+                    <h4>Generic Programme Management</h4>
+                    <p>
+                        Standard frameworks deployed without domain translation. The methodology 
+                        looks right on paper but misses the regulatory rhythms, dependency patterns, 
+                        and stakeholder dynamics unique to the sector.
+                    </p>
+                </div>
                 <div class="problem-card">
                     <h4>Fragmented Visibility</h4>
                     <p>
@@ -1362,7 +1376,7 @@
             <div class="artefact-display">
                 <div class="artefact-header">
                     <h3>Executive Dashboard</h3>
-                    <p>Real-time portfolio health visualisation with programme scoring, dependency tracking, and risk observability.</p>
+                    <p>Portfolio health visualisation with programme scoring, dependency tracking, and risk observability.</p>
                 </div>
                 <div class="artefact-visual">
                     <svg viewBox="0 0 1000 820" xmlns="http://www.w3.org/2000/svg">
@@ -1720,8 +1734,8 @@
                     <div class="result-label">Risks mitigated before requiring escalation</div>
                 </div>
                 <div class="result-card">
-                    <div class="result-value">8Ã—</div>
-                    <div class="result-label">Faster issue resolution (2 months â†’ 1 week)</div>
+                    <div class="result-value">8×</div>
+                    <div class="result-label">Faster issue resolution (2 months → 1 week)</div>
                 </div>
                 <div class="result-card">
                     <div class="result-value">14</div>
