@@ -1,0 +1,11 @@
+# robots.txt for dantaylor.pro
+# Professional portfolio of Daniel Taylor
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://dantaylor.pro/sitemap.xml
+
+# Crawl delay (optional, be polite to crawlers)
+Crawl-delay: 1
