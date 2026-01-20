@@ -892,6 +892,632 @@
             position: relative;
             z-index: 1;
         }
+
+        /* ============================================ */
+        /* CLARITY FRAMEWORK MAP - SELF-CONTAINED      */
+        /* ============================================ */
+        
+        .cfm-container {
+            background: #0a1628;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #1e3a5f;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        /* Interactive Banner */
+        .cfm-banner {
+            background: linear-gradient(90deg, rgba(201,162,39,0.1) 0%, rgba(42,143,143,0.15) 50%, rgba(201,162,39,0.1) 100%);
+            border-bottom: 1px solid rgba(201,162,39,0.3);
+            padding: 16px 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cfm-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(201,162,39,0.1), transparent);
+            animation: cfmBannerShimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes cfmBannerShimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+        
+        .cfm-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cfm-banner-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #c9a227;
+            letter-spacing: 1px;
+            animation: cfmBannerPulse 2s ease-in-out infinite;
+        }
+        
+        .cfm-banner-text .sparkle {
+            display: inline-block;
+            animation: cfmSparkle 1.5s ease-in-out infinite;
+        }
+        
+        .cfm-banner-text .sparkle:last-child {
+            animation-delay: 0.75s;
+        }
+        
+        @keyframes cfmBannerPulse {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes cfmSparkle {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+        
+        .cfm-banner-hint {
+            font-size: 12px;
+            color: #6a7a8a;
+            margin-top: 6px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .cfm-banner.hidden {
+            display: none;
+        }
+        
+        /* Header */
+        .cfm-header {
+            padding: 20px 32px;
+            border-bottom: 1px solid #1e3a5f;
+            background: linear-gradient(180deg, #0d1c30 0%, #0a1628 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cfm-header h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .cfm-header h2 .tm {
+            font-size: 12px;
+            vertical-align: super;
+            color: #c9a227;
+            margin-left: 2px;
+        }
+        
+        .cfm-header .subtitle {
+            margin: 4px 0 0;
+            font-size: 11px;
+            color: #6a7a8a;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .cfm-header .author {
+            text-align: right;
+        }
+        
+        .cfm-header .author-label {
+            font-size: 10px;
+            color: #5a6a7a;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+        
+        .cfm-header .author-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #c9a227;
+        }
+        
+        /* Canvas Wrapper - Handles Responsive Scaling */
+        .cfm-canvas-wrapper {
+            width: 100%;
+            overflow: hidden;
+            background: #0a1628;
+            position: relative;
+        }
+        
+        /* The actual canvas - fixed dimensions, scaled via transform */
+        .cfm-canvas {
+            width: 1400px;
+            height: 900px;
+            position: relative;
+            background: radial-gradient(ellipse at center, #0f2744 0%, #0a1628 70%);
+            overflow: hidden;
+            transform-origin: top left;
+            /* Scale will be set via JavaScript */
+        }
+        
+        /* Watermark */
+        .cfm-watermark {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .cfm-watermark svg {
+            opacity: 0.06;
+        }
+        
+        /* Hint text in center */
+        .cfm-hint {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            pointer-events: none;
+            z-index: 5;
+            transition: opacity 0.5s ease;
+        }
+        
+        .cfm-hint.hidden {
+            opacity: 0;
+        }
+        
+        .cfm-hint .hint-title {
+            font-size: 18px;
+            font-weight: 300;
+            color: #6a7a8a;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            animation: cfmHintPulse 3s ease-in-out infinite;
+        }
+        
+        .cfm-hint .hint-text {
+            font-size: 13px;
+            color: #4a5a6a;
+            letter-spacing: 1px;
+        }
+        
+        @keyframes cfmHintPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        /* SVG Layer */
+        .cfm-svg-layer {
+            position: absolute;
+            inset: 0;
+            width: 1400px;
+            height: 900px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Nodes Layer */
+        .cfm-nodes-layer {
+            position: absolute;
+            inset: 0;
+            width: 1400px;
+            height: 900px;
+            z-index: 2;
+        }
+        
+        /* Individual Node */
+        .cfm-node {
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+        }
+        
+        .cfm-node-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .cfm-node-inner .dot {
+            position: absolute;
+            left: 8px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .cfm-node-inner .dot.visible {
+            opacity: 1;
+        }
+        
+        .cfm-node-inner span {
+            font-size: 9.5px;
+            font-weight: 500;
+            text-align: center;
+            padding: 0 8px;
+        }
+        
+        /* Gradient Overlay */
+        .cfm-gradient-overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            transition: all 1s ease;
+            z-index: 3;
+        }
+        
+        .cfm-gradient-overlay.chaos {
+            background: radial-gradient(ellipse at center, transparent 10%, rgba(10,22,40,0.4) 50%, rgba(10,22,40,0.7) 100%);
+        }
+        
+        .cfm-gradient-overlay.clarity {
+            background: radial-gradient(ellipse at center, transparent 50%, rgba(10,22,40,0.5) 100%);
+        }
+        
+        /* State Badge */
+        .cfm-state-badge {
+            position: absolute;
+            top: 12px;
+            right: 20px;
+            padding: 8px 16px;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.5s ease;
+            z-index: 4;
+        }
+        
+        .cfm-state-badge.chaos {
+            background-color: rgba(60,60,60,0.3);
+            border: 1px solid #4a5a6a;
+            color: #6a7a8a;
+        }
+        
+        .cfm-state-badge.clarity {
+            background-color: rgba(42,143,143,0.2);
+            border: 1px solid #2a8f8f;
+            color: #2a8f8f;
+        }
+        
+        /* Footer */
+        .cfm-footer {
+            padding: 20px 32px;
+            border-top: 1px solid #1e3a5f;
+            background: linear-gradient(0deg, #0d1c30 0%, #0a1628 100%);
+        }
+        
+        .cfm-footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .cfm-footer-tagline {
+            font-size: 11px;
+            color: #5a6a7a;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+        
+        .cfm-footer-copyright {
+            font-size: 9px;
+            color: #3a4a5a;
+            text-align: right;
+        }
+        
+        .cfm-footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cfm-explore-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .cfm-explore-group.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        
+        .cfm-explore-label {
+            font-size: 10px;
+            color: #5a6a7a;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-right: 4px;
+        }
+        
+        .cfm-explore-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: transparent;
+            border: 1px solid var(--btn-color);
+            border-radius: 14px;
+            color: var(--btn-color);
+            font-size: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        
+        .cfm-explore-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+        
+        .cfm-explore-btn:not(:disabled):hover {
+            background: var(--btn-color-bg);
+            transform: translateY(-1px);
+        }
+        
+        .cfm-explore-btn.active {
+            background: var(--btn-color-bg);
+            box-shadow: 0 0 10px var(--btn-color-bg);
+        }
+        
+        .cfm-explore-btn .btn-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--btn-color);
+            opacity: 0.5;
+            transition: opacity 0.2s ease;
+        }
+        
+        .cfm-explore-btn.active .btn-dot {
+            opacity: 1;
+            box-shadow: 0 0 6px var(--btn-color);
+        }
+        
+        .cfm-divider {
+            width: 1px;
+            height: 24px;
+            background: #1e3a5f;
+        }
+        
+        .cfm-action-btn {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+        
+        .cfm-action-btn.chaos {
+            background: linear-gradient(135deg, #c9a227, #e3c565);
+            color: #0a1628;
+        }
+        
+        .cfm-action-btn.chaos:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201,162,39,0.4);
+        }
+        
+        .cfm-action-btn.clarity {
+            background: linear-gradient(135deg, #2a8f8f, #3ab5b5);
+            color: #ffffff;
+        }
+        
+        .cfm-action-btn.clarity:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(42,143,143,0.4);
+        }
+        
+        .cfm-action-btn.pulse {
+            animation: cfmButtonGlow 2s ease-in-out infinite;
+        }
+        
+        .cfm-action-btn.chaos-hidden {
+            display: none;
+        }
+        
+        @keyframes cfmButtonGlow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(201,162,39,0.3), 0 0 10px rgba(201,162,39,0.2);
+            }
+            50% {
+                box-shadow: 0 0 15px rgba(201,162,39,0.5), 0 0 30px rgba(201,162,39,0.3), 0 0 45px rgba(201,162,39,0.2);
+            }
+        }
+        
+        /* Animation Keyframes for Nodes */
+        @keyframes cfmFloatNode {
+            0% { 
+                transform: translate(0px, 0px) rotate(0deg); 
+            }
+            25% { 
+                transform: translate(var(--float-x1), var(--float-y1)) rotate(var(--float-r1)); 
+            }
+            50% { 
+                transform: translate(var(--float-x2), var(--float-y2)) rotate(var(--float-r2)); 
+            }
+            75% { 
+                transform: translate(var(--float-x3), var(--float-y3)) rotate(var(--float-r3)); 
+            }
+            100% { 
+                transform: translate(0px, 0px) rotate(0deg); 
+            }
+        }
+        
+        /* SVG Animations */
+        @keyframes cfmFlowPulse {
+            0% { stroke-dashoffset: 24; }
+            100% { stroke-dashoffset: 0; }
+        }
+        
+        @keyframes cfmFeedbackForward {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -16; }
+        }
+        
+        @keyframes cfmFeedbackReverse {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 16; }
+        }
+        
+        @keyframes cfmPillarGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 4px var(--glow-color));
+                opacity: 0.85;
+            }
+            50% { 
+                filter: drop-shadow(0 0 12px var(--glow-color)) drop-shadow(0 0 20px var(--glow-color));
+                opacity: 1;
+            }
+        }
+        
+        @keyframes cfmPillarPulse {
+            0%, 100% { 
+                stroke-opacity: 0.7;
+                stroke-width: 2;
+            }
+            50% { 
+                stroke-opacity: 1;
+                stroke-width: 3;
+            }
+        }
+        
+        @keyframes cfmDotPulse {
+            0%, 100% { r: 4; opacity: 0.6; }
+            50% { r: 6; opacity: 1; }
+        }
+        
+        @keyframes cfmLabelGlow {
+            0%, 100% { 
+                opacity: 0.85;
+                filter: drop-shadow(0 0 2px var(--glow-color));
+            }
+            50% { 
+                opacity: 1;
+                filter: drop-shadow(0 0 8px var(--glow-color));
+            }
+        }
+        
+        /* Animated cross-stack connections */
+        @keyframes cfmConnectionFlow {
+            0% { stroke-dashoffset: 16; }
+            100% { stroke-dashoffset: 0; }
+        }
+        
+        /* Centered CTA Button (Chaos Mode) */
+        .cfm-center-cta {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            text-align: center;
+            pointer-events: none;
+        }
+        
+        .cfm-center-cta.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        .cfm-center-cta-btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #c9a227, #e3c565);
+            color: #0a1628;
+            box-shadow: 0 8px 32px rgba(201,162,39,0.4), 0 0 60px rgba(201,162,39,0.2);
+            transition: all 0.3s ease;
+            animation: cfmCenterBtnPulse 2s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+            pointer-events: auto;
+        }
+        
+        .cfm-center-cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(201,162,39,0.5), 0 0 80px rgba(201,162,39,0.3);
+        }
+        
+        @keyframes cfmCenterBtnPulse {
+            0%, 100% {
+                box-shadow: 0 8px 32px rgba(201,162,39,0.4), 0 0 60px rgba(201,162,39,0.2);
+            }
+            50% {
+                box-shadow: 0 8px 40px rgba(201,162,39,0.6), 0 0 80px rgba(201,162,39,0.4), 0 0 100px rgba(201,162,39,0.2);
+            }
+        }
+        
+        .cfm-center-cta-hint {
+            margin-top: 12px;
+            font-size: 11px;
+            color: #6a7a8a;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        /* Responsive adjustments for very small screens */
+        @media (max-width: 480px) {
+            .cfm-header {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            .cfm-header .author {
+                text-align: center;
+            }
+            .cfm-footer-bottom {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .cfm-explore-group {
+                justify-content: center;
+            }
+            .cfm-divider {
+                display: none;
+            }
+            .cfm-action-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -991,6 +1617,136 @@
         <!-- Artefacts Section -->
     <section class="artefacts">
         <div class="artefacts-container">
+
+            <!-- ============================================ -->
+            <!-- CLARITY FRAMEWORK MAP - FIRST ARTIFACT      -->
+            <!-- ============================================ -->
+            <div class="artefact-display reveal">
+                <div class="artefact-header">
+                    <h3>The Clarity Framework Map</h3>
+                    <p>An interactive visualization of how programme management, governance, and product development interconnect &mdash; click to transform chaos into clarity.</p>
+                </div>
+                <div class="artefact-visual">
+                    <!-- THE CLARITY FRAMEWORK MAP -->
+                    <div class="cfm-container" id="cfmContainer">
+                        
+                        <!-- Interactive Banner -->
+                        <div class="cfm-banner" id="cfmBanner">
+                            <div class="cfm-banner-content">
+                                <div class="cfm-banner-text">
+                                    <span class="sparkle">&#10024;</span>
+                                    Click to See Clarity Through the Chaos
+                                    <span class="sparkle">&#10024;</span>
+                                </div>
+                                <div class="cfm-banner-hint">&#8595; Interactive Element &#8595;</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Header -->
+                        <div class="cfm-header">
+                            <div>
+                                <h2>The Clarity Framework<span class="tm">&trade;</span></h2>
+                                <p class="subtitle">The Clarity Framework Map</p>
+                            </div>
+                            <div class="author">
+                                <div class="author-label">Developed by</div>
+                                <div class="author-name">Dan Taylor</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Canvas Wrapper -->
+                        <div class="cfm-canvas-wrapper" id="cfmCanvasWrapper">
+                            <div class="cfm-canvas" id="cfmCanvas">
+                                
+                                <!-- Watermark -->
+                                <div class="cfm-watermark">
+                                    <svg width="520" height="520" viewBox="0 0 50 50">
+                                        <rect x="0" y="0" width="50" height="50" fill="none" stroke="#c9a227" stroke-width="1"/>
+                                        <rect x="3" y="3" width="44" height="44" fill="none" stroke="#c9a227" stroke-width="0.3" opacity="0.5"/>
+                                        <text x="25" y="32" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="24" font-weight="700" fill="#c9a227">DT</text>
+                                    </svg>
+                                </div>
+                                
+                                <!-- Hint Text -->
+                                <div class="cfm-hint" id="cfmHint">
+                                    <div class="hint-title">Interactive</div>
+                                    <div class="hint-text">Click the button below to transform</div>
+                                </div>
+                                
+                                <!-- SVG Layer -->
+                                <svg class="cfm-svg-layer" id="cfmSvg" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid meet">
+                                    <defs>
+                                        <filter id="cfmGlow">
+                                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                        </filter>
+                                        <marker id="cfm-arrow-pm" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#2a8f8f" />
+                                        </marker>
+                                        <marker id="cfm-arrow-gov" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#7b6ba3" />
+                                        </marker>
+                                        <marker id="cfm-arrow-pd" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#c9a227" />
+                                        </marker>
+                                    </defs>
+                                </svg>
+                                
+                                <!-- Nodes Layer -->
+                                <div class="cfm-nodes-layer" id="cfmNodes"></div>
+                                
+                                <!-- Gradient Overlay -->
+                                <div class="cfm-gradient-overlay chaos" id="cfmOverlay"></div>
+                                
+                                <!-- State Badge -->
+                                <div class="cfm-state-badge chaos" id="cfmBadge">Chaos</div>
+                                
+                                <!-- Centered CTA Button (for Chaos mode) -->
+                                <div class="cfm-center-cta" id="cfmCenterCta">
+                                    <button class="cfm-center-cta-btn" id="cfmCenterBtn">
+                                        See Clarity Through the Chaos
+                                    </button>
+                                    <div class="cfm-center-cta-hint">Click to transform</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Footer -->
+                        <div class="cfm-footer">
+                            <div class="cfm-footer-top">
+                                <div class="cfm-footer-tagline">&ldquo;Calm in chaos. Clarity in complexity. Control in delivery.&rdquo;</div>
+                                <div class="cfm-footer-copyright">&copy; 2025 Dan Taylor | dantaylor.pro</div>
+                            </div>
+                            <div class="cfm-footer-bottom">
+                                <div class="cfm-explore-group disabled" id="cfmExploreGroup">
+                                    <span class="cfm-explore-label">Explore:</span>
+                                    <button class="cfm-explore-btn" data-relationship="documentation" style="--btn-color: #5a7a9a; --btn-color-bg: rgba(90,122,154,0.25);" disabled>
+                                        <span class="btn-dot"></span>
+                                        Documentation
+                                    </button>
+                                    <button class="cfm-explore-btn" data-relationship="process" style="--btn-color: #7b6ba3; --btn-color-bg: rgba(123,107,163,0.25);" disabled>
+                                        <span class="btn-dot"></span>
+                                        Process
+                                    </button>
+                                    <button class="cfm-explore-btn" data-relationship="riskManagement" style="--btn-color: #ef4444; --btn-color-bg: rgba(239,68,68,0.25);" disabled>
+                                        <span class="btn-dot"></span>
+                                        Risk
+                                    </button>
+                                    <button class="cfm-explore-btn" data-relationship="programmeIntelligence" style="--btn-color: #e67e22; --btn-color-bg: rgba(230,126,34,0.25);" disabled>
+                                        <span class="btn-dot"></span>
+                                        Intelligence
+                                    </button>
+                                </div>
+                                <div class="cfm-divider"></div>
+                                <button class="cfm-action-btn chaos pulse" id="cfmActionBtn">
+                                    See Clarity in the Chaos &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Methodology Overview -->
             <div class="artefact-display reveal">
                 <div class="artefact-header">
@@ -2623,6 +3379,834 @@
             window.addEventListener('resize', updateProgress);
             updateProgress();
         })();
+    </script>
+
+    <!-- Clarity Framework Map Interactive Script -->
+    <script>
+    (function() {
+        'use strict';
+        
+        // ============================================
+        // CONFIGURATION
+        // ============================================
+        const CONFIG = {
+            canvasWidth: 1400,
+            canvasHeight: 900,
+            nodeWidth: 165,
+            nodeHeight: 34,
+            stackGap: 42,
+            columnGap: 200,
+            pillarMargin: 120,
+        };
+        
+        // ============================================
+        // STATE
+        // ============================================
+        let isOrganized = false;
+        let hasInteracted = false;
+        let activeRelationships = {
+            documentation: false,
+            process: false,
+            riskManagement: false,
+            programmeIntelligence: false,
+        };
+        
+        // ============================================
+        // NODE DATA
+        // ============================================
+        const nodeData = [
+            // Programme Management (16)
+            { id: 'pm-1', label: 'Detailed Roadmapping', category: 'activity', stacks: ['pm', 'pd'], primaryStack: 'pm' },
+            { id: 'pm-2', label: 'Identify Contractual Commitments', category: 'activity', stacks: ['pm'] },
+            { id: 'pm-3', label: 'Dependency Identification', category: 'activity', stacks: ['pm'] },
+            { id: 'pm-4', label: 'High-Level Project Plans', category: 'artefact', stacks: ['pm'] },
+            { id: 'pm-5', label: 'Capacity Analysis', category: 'activity', stacks: ['pm'] },
+            { id: 'pm-6', label: 'Capacity Planning', category: 'activity', stacks: ['pm'] },
+            { id: 'pm-7', label: 'Detailed Project Plans', category: 'artefact', stacks: ['pm'] },
+            { id: 'pm-8', label: 'Timeline & Release Projection', category: 'activity', stacks: ['pm'] },
+            { id: 'pm-9', label: 'Dependency Visibility', category: 'artefact', stacks: ['pm'] },
+            { id: 'pm-10', label: 'Sprint Planning', category: 'activity', stacks: ['pm'] },
+            { id: 'pm-11', label: 'Capacity Monitoring', category: 'activity', stacks: ['pm'] },
+            { id: 'pm-12', label: 'Sprint & Progress Tracking', category: 'activity', stacks: ['pm'] },
+            { id: 'pm-13', label: 'Resource Levelling', category: 'activity', stacks: ['pm'] },
+            { id: 'pm-14', label: 'Contractual Commitment Rotation', category: 'activity', stacks: ['pm'] },
+            { id: 'pm-15', label: 'General Risk Mitigation', category: 'activity', stacks: ['pm'] },
+            { id: 'pm-16', label: 'Retrospective', category: 'activity', stacks: ['pm'] },
+            // Governance (13)
+            { id: 'gov-1', label: 'Risk Management Governance', category: 'governance', stacks: ['gov'] },
+            { id: 'gov-2', label: 'Central Risk Register', category: 'artefact', stacks: ['gov'] },
+            { id: 'gov-3', label: 'Organised Resource Catalogue', category: 'artefact', stacks: ['gov'] },
+            { id: 'gov-4', label: 'Document Governance', category: 'governance', stacks: ['gov'] },
+            { id: 'gov-5', label: 'Centralised Document Storage', category: 'artefact', stacks: ['gov'] },
+            { id: 'gov-6', label: 'Design Authority', category: 'forum', stacks: ['gov'] },
+            { id: 'gov-7', label: 'Environment Governance', category: 'governance', stacks: ['gov'] },
+            { id: 'gov-8', label: 'Environment Strategy', category: 'governance', stacks: ['gov'] },
+            { id: 'gov-9', label: 'Testing Strategy', category: 'governance', stacks: ['gov'] },
+            { id: 'gov-10', label: 'Executive Dashboards', category: 'artefact', stacks: ['gov'] },
+            { id: 'gov-11', label: 'Technical Control Board', category: 'forum', stacks: ['gov'] },
+            { id: 'gov-12', label: 'SteerCo', category: 'forum', stacks: ['gov'] },
+            { id: 'gov-13', label: 'Change & Transformation Mgmt', category: 'governance', stacks: ['gov'] },
+            // Product Development (16)
+            { id: 'pd-2', label: 'Ideate', category: 'stage', stacks: ['pd'] },
+            { id: 'pd-3', label: 'Draft SoW', category: 'artefact', stacks: ['pd'] },
+            { id: 'pd-4', label: 'Collaboration', category: 'activity', stacks: ['pd'] },
+            { id: 'pd-5', label: 'SoW Update', category: 'artefact', stacks: ['pd'] },
+            { id: 'pd-6', label: 'Development', category: 'stage', stacks: ['pd'] },
+            { id: 'pd-7', label: 'Impact Review', category: 'activity', stacks: ['pd'] },
+            { id: 'pd-8', label: 'Iterative Improvements', category: 'activity', stacks: ['pd'] },
+            { id: 'pd-9', label: 'SoW Update', category: 'artefact', stacks: ['pd'] },
+            { id: 'pd-10', label: 'QC 1', category: 'activity', stacks: ['pd'] },
+            { id: 'pd-11', label: 'Go/No Go', category: 'activity', stacks: ['pd'] },
+            { id: 'pd-12', label: 'Release Notes', category: 'artefact', stacks: ['pd'] },
+            { id: 'pd-13', label: 'Product Definitions', category: 'artefact', stacks: ['pd'] },
+            { id: 'pd-14', label: 'Deployment', category: 'stage', stacks: ['pd'] },
+            { id: 'pd-15', label: 'QC 2', category: 'activity', stacks: ['pd'] },
+            { id: 'pd-16', label: 'UAT', category: 'activity', stacks: ['pd'] },
+            { id: 'pd-17', label: 'Release', category: 'stage', stacks: ['pd'] },
+            // Continuous (2)
+            { id: 'cont-1', label: 'Stakeholder Communication', category: 'continuous', stacks: ['continuous'] },
+            { id: 'cont-2', label: 'Risk Management', category: 'continuous', stacks: ['continuous'] },
+        ];
+        
+        // Stack configuration
+        const stackConfig = {
+            pm: { 
+                color: '#2a8f8f', 
+                label: 'Programme Management',
+                items: ['pm-1','pm-2','pm-3','pm-4','pm-5','pm-6','pm-7','pm-8','pm-9','pm-10','pm-11','pm-12','pm-13','pm-14','pm-15','pm-16'],
+            },
+            gov: { 
+                isFloating: true, 
+                color: '#7b6ba3', 
+                label: 'Governance',
+                items: ['gov-1','gov-2','gov-3','gov-4','gov-5','gov-6','gov-7','gov-8','gov-9','gov-10','gov-11','gov-12','gov-13'],
+            },
+            pd: { 
+                color: '#c9a227', 
+                label: 'Product Development',
+                items: ['pd-2','pd-3','pd-4','pd-5','pd-6','pd-7','pd-8','pd-9','pd-10','pd-11','pd-12','pd-13','pd-14','pd-15','pd-16','pd-17'],
+            },
+        };
+        
+        const continuousPillars = {
+            'cont-left': { color: '#e67e22', label: 'Stakeholder Communication' },
+            'cont-right': { color: '#ef4444', label: 'Risk Management' },
+        };
+        
+        const categoryColors = {
+            forum: { bg: '#4a3f6b', border: '#7b6ba3', text: '#ffffff' },
+            stage: { bg: '#1e4a6d', border: '#3a7fad', text: '#ffffff' },
+            activity: { bg: '#1a4a4a', border: '#2a8f8f', text: '#ffffff' },
+            governance: { bg: '#5a4a1a', border: '#c9a227', text: '#ffffff' },
+            artefact: { bg: '#2a3a4a', border: '#5a7a9a', text: '#ffffff' },
+            continuous: { bg: '#3a2a1a', border: '#e67e22', text: '#ffffff' },
+        };
+        
+        // ============================================
+        // POSITION CALCULATIONS
+        // ============================================
+        
+        // Seeded random for consistent chaos positions
+        function seededRandom(seed) {
+            const x = Math.sin(seed * 9999) * 10000;
+            return x - Math.floor(x);
+        }
+        
+        function getNodeById(id) {
+            return nodeData.find(n => n.id === id);
+        }
+        
+        // Calculate all positions
+        const positions = {};
+        
+        function calculatePositions() {
+            const margin = 120;
+            const usableWidth = CONFIG.canvasWidth - margin * 2 - CONFIG.nodeWidth;
+            const usableHeight = CONFIG.canvasHeight - margin * 2 - CONFIG.nodeHeight;
+            
+            // Chaos positions with ENHANCED float animation parameters
+            nodeData.forEach((node, idx) => {
+                const seed = idx * 137;
+                
+                // Generate multiple waypoints for more organic floating
+                const floatAmplitude = 25 + seededRandom(seed + 100) * 20; // 25-45px range
+                const rotationAmplitude = 3 + seededRandom(seed + 101) * 4; // 3-7 degrees
+                
+                positions[node.id] = {
+                    chaos: {
+                        x: margin + CONFIG.nodeWidth/2 + seededRandom(seed) * usableWidth,
+                        y: margin + CONFIG.nodeHeight/2 + seededRandom(seed + 1) * usableHeight,
+                        rotation: (seededRandom(seed + 2) - 0.5) * 45,
+                        scale: 0.88 + seededRandom(seed + 3) * 0.15,
+                        // Enhanced float parameters - 4 waypoints for more organic movement
+                        floatX1: (seededRandom(seed + 10) - 0.5) * floatAmplitude,
+                        floatY1: (seededRandom(seed + 11) - 0.5) * floatAmplitude,
+                        floatR1: (seededRandom(seed + 12) - 0.5) * rotationAmplitude,
+                        floatX2: (seededRandom(seed + 13) - 0.5) * floatAmplitude,
+                        floatY2: (seededRandom(seed + 14) - 0.5) * floatAmplitude,
+                        floatR2: (seededRandom(seed + 15) - 0.5) * rotationAmplitude,
+                        floatX3: (seededRandom(seed + 16) - 0.5) * floatAmplitude,
+                        floatY3: (seededRandom(seed + 17) - 0.5) * floatAmplitude,
+                        floatR3: (seededRandom(seed + 18) - 0.5) * rotationAmplitude,
+                        floatDuration: 6 + seededRandom(seed + 6) * 8, // 6-14 seconds (slower, more organic)
+                        floatDelay: seededRandom(seed + 7) * 3, // 0-3 seconds stagger
+                    }
+                };
+            });
+            
+            // Organized positions
+            const stackOrder = ['pm', 'gov', 'pd'];
+            
+            const pmHeight = (stackConfig.pm.items.length - 1) * CONFIG.stackGap + CONFIG.nodeHeight;
+            const pdHeight = (stackConfig.pd.items.length - 1) * CONFIG.stackGap + CONFIG.nodeHeight;
+            const govHeight = (stackConfig.gov.items.length - 1) * CONFIG.stackGap + CONFIG.nodeHeight;
+            
+            const bottomY = CONFIG.canvasHeight - 50;
+            const maxOuterHeight = Math.max(pmHeight, pdHeight);
+            const stackTop = bottomY - maxOuterHeight;
+            
+            const govCenterY = (stackTop + bottomY) / 2;
+            const govStartY = govCenterY - govHeight / 2 + CONFIG.nodeHeight / 2;
+            
+            const totalWidth = 3 * CONFIG.nodeWidth + 2 * CONFIG.columnGap;
+            const startX = (CONFIG.canvasWidth - totalWidth) / 2 + CONFIG.nodeWidth / 2;
+            
+            stackOrder.forEach((stackId, colIdx) => {
+                const stack = stackConfig[stackId];
+                const colX = startX + colIdx * (CONFIG.nodeWidth + CONFIG.columnGap);
+                const stackLen = stack.items.length;
+                const stackHeight = (stackLen - 1) * CONFIG.stackGap + CONFIG.nodeHeight;
+                
+                let startY;
+                if (stack.isFloating) {
+                    startY = govStartY;
+                } else {
+                    startY = bottomY - stackHeight + CONFIG.nodeHeight / 2;
+                }
+                
+                stack.items.forEach((nodeId, idx) => {
+                    const node = getNodeById(nodeId);
+                    if (node?.primaryStack && node.primaryStack !== stackId) {
+                        return;
+                    }
+                    
+                    if (!positions[nodeId]) return;
+                    positions[nodeId].organized = {
+                        x: colX,
+                        y: startY + idx * CONFIG.stackGap,
+                        rotation: 0,
+                        scale: 1,
+                        color: stack.color,
+                        stackIndex: idx,
+                    };
+                });
+            });
+            
+            // Continuous pillars
+            positions['cont-1'].organized = { x: CONFIG.pillarMargin, y: CONFIG.canvasHeight/2, rotation: 0, scale: 1 };
+            positions['cont-2'].organized = { x: CONFIG.canvasWidth - CONFIG.pillarMargin, y: CONFIG.canvasHeight/2, rotation: 0, scale: 1 };
+        }
+        
+        calculatePositions();
+        
+        // Column positions for headers
+        const totalWidth = 3 * CONFIG.nodeWidth + 2 * CONFIG.columnGap;
+        const startX = (CONFIG.canvasWidth - totalWidth) / 2 + CONFIG.nodeWidth / 2;
+        const columnPositions = {
+            pm: startX,
+            gov: startX + CONFIG.nodeWidth + CONFIG.columnGap,
+            pd: startX + 2 * (CONFIG.nodeWidth + CONFIG.columnGap),
+        };
+        
+        // Pillar extents
+        const pmHeight = (stackConfig.pm.items.length - 1) * CONFIG.stackGap + CONFIG.nodeHeight;
+        const pdHeight = (stackConfig.pd.items.length - 1) * CONFIG.stackGap + CONFIG.nodeHeight;
+        const maxOuterHeight = Math.max(pmHeight, pdHeight);
+        const bottomY = CONFIG.canvasHeight - 50;
+        const pillarTop = bottomY - maxOuterHeight - CONFIG.nodeHeight/2;
+        const pillarBottom = bottomY + CONFIG.nodeHeight/2;
+        const pillarHeight = pillarBottom - pillarTop;
+        
+        // ============================================
+        // FEEDBACK LOOPS
+        // ============================================
+        
+        function createFeedbackPath(fromId, toId, side) {
+            const fromPos = positions[fromId]?.organized;
+            const toPos = positions[toId]?.organized;
+            if (!fromPos || !toPos) return null;
+            
+            const xOffset = side === 'left' ? -CONFIG.nodeWidth/2 - 12 : CONFIG.nodeWidth/2 + 12;
+            const vertDist = Math.abs(toPos.y - fromPos.y);
+            const curveDepth = Math.min(vertDist * 0.3, 40);
+            
+            const startX = fromPos.x + xOffset;
+            const endX = toPos.x + xOffset;
+            const curveX = startX + (side === 'left' ? -curveDepth : curveDepth);
+            
+            return `M ${startX} ${fromPos.y} C ${curveX} ${fromPos.y}, ${curveX} ${toPos.y}, ${endX} ${toPos.y}`;
+        }
+        
+        const feedbackLoopDefs = [
+            { id: 'pm-loop-1', from: 'pm-1', to: 'pm-3', side: 'left', color: '#2a8f8f' },
+            { id: 'pm-loop-2', from: 'pm-5', to: 'pm-6', side: 'left', color: '#2a8f8f' },
+            { id: 'pm-loop-3', from: 'pm-10', to: 'pm-14', side: 'left', color: '#2a8f8f' },
+            { id: 'pm-loop-4', from: 'pm-10', to: 'pm-11', side: 'left', color: '#2a8f8f' },
+            { id: 'pm-loop-5', from: 'pm-11', to: 'pm-12', side: 'left', color: '#2a8f8f' },
+            { id: 'pm-loop-6', from: 'pm-12', to: 'pm-13', side: 'left', color: '#2a8f8f' },
+            { id: 'pd-loop-1', from: 'pd-2', to: 'pd-4', side: 'right', color: '#c9a227' },
+            { id: 'pd-loop-2', from: 'pd-7', to: 'pd-10', side: 'right', color: '#c9a227' },
+            { id: 'pd-loop-3', from: 'pd-7', to: 'pd-8', side: 'right', color: '#c9a227' },
+            { id: 'pd-loop-4', from: 'pd-8', to: 'pd-11', side: 'right', color: '#c9a227' },
+            { id: 'pd-loop-5', from: 'pd-11', to: 'pd-16', side: 'right', color: '#c9a227' },
+        ];
+        
+        const feedbackLoops = feedbackLoopDefs.map(loop => ({
+            ...loop,
+            path: createFeedbackPath(loop.from, loop.to, loop.side),
+        })).filter(loop => loop.path);
+        
+        // ============================================
+        // CROSS-STACK CONNECTIONS
+        // ============================================
+        
+        function createCrossStackPath(fromId, toId) {
+            const fromPos = positions[fromId]?.organized;
+            const toPos = positions[toId]?.organized;
+            if (!fromPos || !toPos) return null;
+            
+            const fromRight = fromPos.x < toPos.x;
+            const pathStartX = fromPos.x + (fromRight ? CONFIG.nodeWidth/2 : -CONFIG.nodeWidth/2);
+            const pathEndX = toPos.x + (fromRight ? -CONFIG.nodeWidth/2 : CONFIG.nodeWidth/2);
+            const pathStartY = fromPos.y;
+            const pathEndY = toPos.y;
+            const midX = (pathStartX + pathEndX) / 2;
+            
+            return `M ${pathStartX} ${pathStartY} C ${midX} ${pathStartY}, ${midX} ${pathEndY}, ${pathEndX} ${pathEndY}`;
+        }
+        
+        const crossStackDefs = [
+            // Documentation connections (16)
+            { id: 'doc-1', from: 'pd-3', to: 'gov-5', category: 'documentation', color: '#5a7a9a' },
+            { id: 'doc-2', from: 'pd-5', to: 'gov-5', category: 'documentation', color: '#5a7a9a' },
+            { id: 'doc-3', from: 'pd-9', to: 'gov-5', category: 'documentation', color: '#5a7a9a' },
+            { id: 'doc-4', from: 'pd-12', to: 'gov-5', category: 'documentation', color: '#5a7a9a' },
+            { id: 'doc-5', from: 'pd-13', to: 'gov-5', category: 'documentation', color: '#5a7a9a' },
+            { id: 'doc-6', from: 'pm-7', to: 'gov-5', category: 'documentation', color: '#5a7a9a' },
+            { id: 'doc-7', from: 'pm-9', to: 'gov-5', category: 'documentation', color: '#5a7a9a' },
+            { id: 'doc-8', from: 'pm-4', to: 'gov-5', category: 'documentation', color: '#5a7a9a' },
+            { id: 'doc-9', from: 'pm-1', to: 'gov-5', category: 'documentation', color: '#5a7a9a' },
+            { id: 'doc-10', from: 'pm-16', to: 'gov-5', category: 'documentation', color: '#5a7a9a' },
+            { id: 'doc-11', from: 'gov-4', to: 'pm-1', category: 'documentation', color: '#7a9aba' },
+            { id: 'doc-12', from: 'gov-4', to: 'pd-3', category: 'documentation', color: '#7a9aba' },
+            { id: 'doc-13', from: 'gov-4', to: 'pd-5', category: 'documentation', color: '#7a9aba' },
+            { id: 'doc-14', from: 'gov-4', to: 'pd-9', category: 'documentation', color: '#7a9aba' },
+            { id: 'doc-15', from: 'gov-4', to: 'pd-12', category: 'documentation', color: '#7a9aba' },
+            { id: 'doc-16', from: 'gov-4', to: 'pd-13', category: 'documentation', color: '#7a9aba' },
+            { id: 'doc-17', from: 'pm-13', to: 'gov-3', category: 'documentation', color: '#5a7a9a' },
+            // Process connections (14)
+            { id: 'proc-1', from: 'gov-5', to: 'pd-2', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-2', from: 'gov-5', to: 'pd-17', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-3', from: 'gov-3', to: 'pm-5', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-4', from: 'gov-3', to: 'pm-7', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-5', from: 'gov-3', to: 'pm-10', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-6', from: 'gov-8', to: 'pd-14', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-7', from: 'gov-9', to: 'pd-10', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-8', from: 'gov-9', to: 'pd-16', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-9', from: 'gov-6', to: 'pd-6', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-10', from: 'gov-11', to: 'pd-11', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-11', from: 'gov-6', to: 'pd-4', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-12', from: 'pm-1', to: 'pd-2', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-13', from: 'pm-16', to: 'gov-13', category: 'process', color: '#7b6ba3' },
+            { id: 'proc-14', from: 'pd-17', to: 'pm-16', category: 'process', color: '#7b6ba3' },
+            // Risk Management connections (12)
+            { id: 'risk-1', from: 'gov-1', to: 'pm-15', category: 'riskManagement', color: '#ef4444' },
+            { id: 'risk-2', from: 'gov-1', to: 'pd-7', category: 'riskManagement', color: '#ef4444' },
+            { id: 'risk-3', from: 'gov-1', to: 'pd-11', category: 'riskManagement', color: '#ef4444' },
+            { id: 'risk-4', from: 'pm-11', to: 'gov-2', category: 'riskManagement', color: '#ef4444' },
+            { id: 'risk-5', from: 'pm-12', to: 'gov-2', category: 'riskManagement', color: '#ef4444' },
+            { id: 'risk-6', from: 'pd-2', to: 'gov-2', category: 'riskManagement', color: '#ef4444' },
+            { id: 'risk-7', from: 'pd-6', to: 'gov-2', category: 'riskManagement', color: '#ef4444' },
+            { id: 'risk-8', from: 'pd-8', to: 'gov-2', category: 'riskManagement', color: '#ef4444' },
+            { id: 'risk-9', from: 'pd-10', to: 'gov-2', category: 'riskManagement', color: '#ef4444' },
+            { id: 'risk-10', from: 'pd-11', to: 'gov-2', category: 'riskManagement', color: '#ef4444' },
+            { id: 'risk-11', from: 'pd-14', to: 'gov-2', category: 'riskManagement', color: '#ef4444' },
+            { id: 'risk-12', from: 'pd-15', to: 'gov-2', category: 'riskManagement', color: '#ef4444' },
+            // Programme Intelligence connections (9)
+            { id: 'intel-1', from: 'pm-8', to: 'gov-10', category: 'programmeIntelligence', color: '#e67e22' },
+            { id: 'intel-2', from: 'pm-12', to: 'gov-10', category: 'programmeIntelligence', color: '#e67e22' },
+            { id: 'intel-3', from: 'pm-14', to: 'gov-10', category: 'programmeIntelligence', color: '#e67e22' },
+            { id: 'intel-4', from: 'pd-2', to: 'gov-12', category: 'programmeIntelligence', color: '#e67e22' },
+            { id: 'intel-5', from: 'pd-6', to: 'gov-12', category: 'programmeIntelligence', color: '#e67e22' },
+            { id: 'intel-6', from: 'pd-10', to: 'gov-12', category: 'programmeIntelligence', color: '#e67e22' },
+            { id: 'intel-7', from: 'pd-14', to: 'gov-12', category: 'programmeIntelligence', color: '#e67e22' },
+            { id: 'intel-8', from: 'pd-15', to: 'gov-12', category: 'programmeIntelligence', color: '#e67e22' },
+            { id: 'intel-9', from: 'pd-16', to: 'gov-12', category: 'programmeIntelligence', color: '#e67e22' },
+        ];
+        
+        // ============================================
+        // DOM ELEMENTS
+        // ============================================
+        const canvasWrapper = document.getElementById('cfmCanvasWrapper');
+        const canvas = document.getElementById('cfmCanvas');
+        const nodesLayer = document.getElementById('cfmNodes');
+        const svgLayer = document.getElementById('cfmSvg');
+        const hint = document.getElementById('cfmHint');
+        const overlay = document.getElementById('cfmOverlay');
+        const badge = document.getElementById('cfmBadge');
+        const actionBtn = document.getElementById('cfmActionBtn');
+        const exploreGroup = document.getElementById('cfmExploreGroup');
+        const exploreButtons = document.querySelectorAll('.cfm-explore-btn');
+        const banner = document.getElementById('cfmBanner');
+        const centerCta = document.getElementById('cfmCenterCta');
+        const centerBtn = document.getElementById('cfmCenterBtn');
+        
+        // ============================================
+        // RESPONSIVE SCALING
+        // ============================================
+        
+        function updateCanvasScale() {
+            const wrapperWidth = canvasWrapper.offsetWidth;
+            const scale = Math.min(wrapperWidth / CONFIG.canvasWidth, 1);
+            
+            canvas.style.transform = `scale(${scale})`;
+            canvas.style.transformOrigin = 'top left';
+            
+            // Adjust wrapper height to match scaled canvas
+            canvasWrapper.style.height = (CONFIG.canvasHeight * scale) + 'px';
+        }
+        
+        // Initial scale
+        updateCanvasScale();
+        
+        // Update on resize
+        window.addEventListener('resize', updateCanvasScale);
+        
+        // ============================================
+        // RENDER NODES
+        // ============================================
+        
+        function renderNodes() {
+            nodesLayer.innerHTML = '';
+            
+            nodeData.forEach((node, idx) => {
+                const pos = positions[node.id];
+                if (!pos) return;
+                
+                const chaos = pos.chaos;
+                const org = pos.organized;
+                const colors = categoryColors[node.category];
+                const isContinuous = node.category === 'continuous';
+                const shouldHide = isOrganized && isContinuous;
+                const currentPos = isOrganized && org ? org : chaos;
+                const delay = isOrganized ? idx * 0.02 : (nodeData.length - idx) * 0.015;
+                const shouldFloat = !isOrganized && !isContinuous;
+                
+                const nodeEl = document.createElement('div');
+                nodeEl.className = 'cfm-node';
+                nodeEl.style.width = CONFIG.nodeWidth + 'px';
+                nodeEl.style.height = CONFIG.nodeHeight + 'px';
+                nodeEl.style.transform = `translate(${currentPos.x - CONFIG.nodeWidth/2}px, ${currentPos.y - CONFIG.nodeHeight/2}px) rotate(${currentPos.rotation}deg) scale(${currentPos.scale})`;
+                nodeEl.style.transition = `transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) ${delay}s, opacity 0.5s ease ${delay}s`;
+                nodeEl.style.opacity = shouldHide ? 0 : 1;
+                nodeEl.dataset.id = node.id;
+                nodeEl.dataset.idx = idx;
+                
+                const innerEl = document.createElement('div');
+                innerEl.className = 'cfm-node-inner';
+                innerEl.style.backgroundColor = colors.bg;
+                innerEl.style.border = `2px solid ${isOrganized && org?.color ? org.color : colors.border}`;
+                innerEl.style.boxShadow = isOrganized && org ? `0 0 15px ${org.color}40` : '2px 3px 8px rgba(0,0,0,0.5)';
+                
+                // Enhanced float animation with multiple waypoints
+                if (shouldFloat) {
+                    innerEl.style.setProperty('--float-x1', chaos.floatX1 + 'px');
+                    innerEl.style.setProperty('--float-y1', chaos.floatY1 + 'px');
+                    innerEl.style.setProperty('--float-r1', chaos.floatR1 + 'deg');
+                    innerEl.style.setProperty('--float-x2', chaos.floatX2 + 'px');
+                    innerEl.style.setProperty('--float-y2', chaos.floatY2 + 'px');
+                    innerEl.style.setProperty('--float-r2', chaos.floatR2 + 'deg');
+                    innerEl.style.setProperty('--float-x3', chaos.floatX3 + 'px');
+                    innerEl.style.setProperty('--float-y3', chaos.floatY3 + 'px');
+                    innerEl.style.setProperty('--float-r3', chaos.floatR3 + 'deg');
+                    innerEl.style.animation = `cfmFloatNode ${chaos.floatDuration}s ease-in-out infinite`;
+                    innerEl.style.animationDelay = chaos.floatDelay + 's';
+                }
+                
+                // Dot indicator
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (isOrganized && !isContinuous ? ' visible' : '');
+                dot.style.backgroundColor = colors.border;
+                innerEl.appendChild(dot);
+                
+                // Label
+                const span = document.createElement('span');
+                span.style.color = colors.text;
+                span.textContent = node.label;
+                innerEl.appendChild(span);
+                
+                nodeEl.appendChild(innerEl);
+                nodesLayer.appendChild(nodeEl);
+            });
+        }
+        
+        // ============================================
+        // RENDER SVG (Connectors, Pillars, Headers)
+        // ============================================
+        
+        let pillarsRendered = false;
+        
+        function renderSVG() {
+            // Only render pillars/headers once when entering clarity mode
+            if (isOrganized && !pillarsRendered) {
+                renderPillarsAndHeaders();
+                pillarsRendered = true;
+            }
+            
+            // If going back to chaos, clear everything
+            if (!isOrganized) {
+                clearSVG();
+                pillarsRendered = false;
+                return;
+            }
+            
+            // Always update cross-stack connections (they can be toggled)
+            renderCrossStackConnections();
+        }
+        
+        function clearSVG() {
+            while (svgLayer.lastChild && svgLayer.lastChild.tagName !== 'defs') {
+                svgLayer.removeChild(svgLayer.lastChild);
+            }
+        }
+        
+        function renderPillarsAndHeaders() {
+            // Column headers
+            Object.entries(stackConfig).forEach(([stackId, stack]) => {
+                const x = columnPositions[stackId];
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', x);
+                text.setAttribute('y', 50);
+                text.setAttribute('text-anchor', 'middle');
+                text.setAttribute('font-family', 'Cormorant Garamond, serif');
+                text.setAttribute('font-size', '18');
+                text.setAttribute('font-weight', '600');
+                text.setAttribute('fill', stack.color);
+                text.setAttribute('class', 'cfm-svg-static');
+                text.style.opacity = '0';
+                text.style.transition = 'opacity 0.8s ease 0.5s';
+                text.textContent = stack.label;
+                svgLayer.appendChild(text);
+                
+                requestAnimationFrame(() => {
+                    text.style.opacity = '1';
+                });
+            });
+            
+            // Vertical flow lines for all three stacks
+            ['pm', 'gov', 'pd'].forEach((stackId, sIdx) => {
+                const stack = stackConfig[stackId];
+                const x = columnPositions[stackId];
+                const startY = positions[stack.items[0]]?.organized?.y || 0;
+                const endY = positions[stack.items[stack.items.length - 1]]?.organized?.y || 0;
+                
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', x);
+                line.setAttribute('y1', startY);
+                line.setAttribute('x2', x);
+                line.setAttribute('y2', endY);
+                line.setAttribute('stroke', stack.color);
+                line.setAttribute('stroke-width', '2');
+                line.setAttribute('stroke-dasharray', '6,6');
+                line.setAttribute('class', 'cfm-svg-static');
+                line.style.opacity = '0';
+                line.style.transition = 'opacity 0.8s ease 0.6s';
+                line.style.animation = `cfmFlowPulse 1.5s linear infinite`;
+                line.style.animationDelay = (sIdx * 0.15) + 's';
+                svgLayer.appendChild(line);
+                
+                requestAnimationFrame(() => {
+                    line.style.opacity = '0.7';
+                });
+            });
+            
+            // Feedback loops - bidirectional (two overlapping paths, no arrows)
+            feedbackLoops.forEach((loop, idx) => {
+                // Forward path
+                const pathForward = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                pathForward.setAttribute('d', loop.path);
+                pathForward.setAttribute('fill', 'none');
+                pathForward.setAttribute('stroke', loop.color);
+                pathForward.setAttribute('stroke-width', '1.5');
+                pathForward.setAttribute('stroke-dasharray', '4,4');
+                pathForward.setAttribute('class', 'cfm-svg-static');
+                pathForward.style.opacity = '0';
+                pathForward.style.transition = 'opacity 0.8s ease 0.8s';
+                pathForward.style.animation = 'cfmFeedbackForward 1.2s linear infinite';
+                svgLayer.appendChild(pathForward);
+                
+                // Reverse path (overlapping)
+                const pathReverse = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                pathReverse.setAttribute('d', loop.path);
+                pathReverse.setAttribute('fill', 'none');
+                pathReverse.setAttribute('stroke', loop.color);
+                pathReverse.setAttribute('stroke-width', '1.5');
+                pathReverse.setAttribute('stroke-dasharray', '4,4');
+                pathReverse.setAttribute('class', 'cfm-svg-static');
+                pathReverse.style.opacity = '0';
+                pathReverse.style.transition = 'opacity 0.8s ease 0.8s';
+                pathReverse.style.animation = 'cfmFeedbackReverse 1.2s linear infinite';
+                svgLayer.appendChild(pathReverse);
+                
+                requestAnimationFrame(() => {
+                    pathForward.style.opacity = '0.5';
+                    pathReverse.style.opacity = '0.5';
+                });
+            });
+            
+            // Continuous pillars
+            Object.entries(continuousPillars).forEach(([id, pillar], pIdx) => {
+                const x = id === 'cont-left' ? CONFIG.pillarMargin : CONFIG.canvasWidth - CONFIG.pillarMargin;
+                const isLeft = id === 'cont-left';
+                
+                const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                g.setAttribute('class', 'cfm-svg-static cfm-pillar');
+                g.style.setProperty('--glow-color', pillar.color);
+                g.style.opacity = '0';
+                g.style.transition = 'opacity 0.8s ease 0.5s';
+                
+                // Outer glow
+                const outerRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                outerRect.setAttribute('x', x - 20);
+                outerRect.setAttribute('y', pillarTop - 4);
+                outerRect.setAttribute('width', 40);
+                outerRect.setAttribute('height', pillarHeight + 8);
+                outerRect.setAttribute('rx', 20);
+                outerRect.setAttribute('fill', pillar.color + '10');
+                outerRect.setAttribute('stroke', pillar.color);
+                outerRect.setAttribute('stroke-width', '1');
+                outerRect.setAttribute('stroke-opacity', '0.3');
+                outerRect.style.animation = 'cfmPillarGlow 2.5s ease-in-out infinite';
+                outerRect.style.animationDelay = isLeft ? '0s' : '1.25s';
+                g.appendChild(outerRect);
+                
+                // Main pillar
+                const mainRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                mainRect.setAttribute('x', x - 16);
+                mainRect.setAttribute('y', pillarTop);
+                mainRect.setAttribute('width', 32);
+                mainRect.setAttribute('height', pillarHeight);
+                mainRect.setAttribute('rx', 16);
+                mainRect.setAttribute('fill', pillar.color + '20');
+                mainRect.setAttribute('stroke', pillar.color);
+                mainRect.setAttribute('stroke-width', '2');
+                mainRect.style.filter = 'url(#cfmGlow)';
+                mainRect.style.animation = 'cfmPillarPulse 2.5s ease-in-out infinite';
+                mainRect.style.animationDelay = isLeft ? '0s' : '1.25s';
+                g.appendChild(mainRect);
+                
+                // Title
+                const title = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                title.setAttribute('x', x);
+                title.setAttribute('y', pillarTop - 12);
+                title.setAttribute('text-anchor', 'middle');
+                title.setAttribute('font-size', '11');
+                title.setAttribute('font-weight', '600');
+                title.setAttribute('fill', pillar.color);
+                title.style.filter = 'url(#cfmGlow)';
+                title.style.animation = 'cfmLabelGlow 2.5s ease-in-out infinite';
+                title.style.animationDelay = isLeft ? '0s' : '1.25s';
+                title.textContent = pillar.label;
+                g.appendChild(title);
+                
+                // Flow dots
+                [0, 0.25, 0.5, 0.75, 1].forEach((pct, i) => {
+                    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                    circle.setAttribute('cx', x);
+                    circle.setAttribute('cy', pillarTop + pillarHeight * pct);
+                    circle.setAttribute('r', '4');
+                    circle.setAttribute('fill', pillar.color);
+                    circle.style.animation = 'cfmDotPulse 2.5s ease-in-out infinite';
+                    circle.style.animationDelay = isLeft ? (i * 0.3) + 's' : (1.25 + i * 0.3) + 's';
+                    g.appendChild(circle);
+                });
+                
+                // CONTINUOUS label
+                const contLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                contLabel.setAttribute('x', x);
+                contLabel.setAttribute('y', pillarBottom + 20);
+                contLabel.setAttribute('text-anchor', 'middle');
+                contLabel.setAttribute('font-size', '8');
+                contLabel.setAttribute('font-weight', '600');
+                contLabel.setAttribute('fill', pillar.color);
+                contLabel.setAttribute('letter-spacing', '1');
+                contLabel.style.animation = 'cfmLabelGlow 2.5s ease-in-out infinite';
+                contLabel.style.animationDelay = isLeft ? '0s' : '1.25s';
+                contLabel.textContent = 'CONTINUOUS';
+                g.appendChild(contLabel);
+                
+                svgLayer.appendChild(g);
+                
+                requestAnimationFrame(() => {
+                    g.style.opacity = '1';
+                });
+            });
+        }
+        
+        function renderCrossStackConnections() {
+            // Remove only the connection paths (not static elements)
+            document.querySelectorAll('.cfm-svg-connection').forEach(el => el.remove());
+            
+            // Add cross-stack connections with animation
+            crossStackDefs
+                .filter(conn => activeRelationships[conn.category])
+                .forEach((conn, idx) => {
+                    const path = createCrossStackPath(conn.from, conn.to);
+                    if (!path) return;
+                    
+                    const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    pathEl.setAttribute('d', path);
+                    pathEl.setAttribute('fill', 'none');
+                    pathEl.setAttribute('stroke', conn.color);
+                    pathEl.setAttribute('stroke-width', '1.5');
+                    pathEl.setAttribute('stroke-opacity', '0.7');
+                    pathEl.setAttribute('stroke-dasharray', '4,4');
+                    pathEl.setAttribute('class', 'cfm-svg-connection');
+                    pathEl.style.animation = 'cfmConnectionFlow 0.8s linear infinite';
+                    pathEl.style.animationDelay = (idx * 0.05) + 's';
+                    svgLayer.appendChild(pathEl);
+                });
+        }
+        
+        // ============================================
+        // UPDATE UI STATE
+        // ============================================
+        
+        function updateUI() {
+            // Update nodes
+            document.querySelectorAll('.cfm-node').forEach(nodeEl => {
+                const id = nodeEl.dataset.id;
+                const idx = parseInt(nodeEl.dataset.idx);
+                const pos = positions[id];
+                const node = nodeData[idx];
+                
+                if (!pos || !node) return;
+                
+                const chaos = pos.chaos;
+                const org = pos.organized;
+                const colors = categoryColors[node.category];
+                const isContinuous = node.category === 'continuous';
+                const shouldHide = isOrganized && isContinuous;
+                const currentPos = isOrganized && org ? org : chaos;
+                const delay = isOrganized ? idx * 0.02 : (nodeData.length - idx) * 0.015;
+                const shouldFloat = !isOrganized && !isContinuous;
+                
+                nodeEl.style.transform = `translate(${currentPos.x - CONFIG.nodeWidth/2}px, ${currentPos.y - CONFIG.nodeHeight/2}px) rotate(${currentPos.rotation}deg) scale(${currentPos.scale})`;
+                nodeEl.style.transition = `transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) ${delay}s, opacity 0.5s ease ${delay}s`;
+                nodeEl.style.opacity = shouldHide ? 0 : 1;
+                
+                const innerEl = nodeEl.querySelector('.cfm-node-inner');
+                innerEl.style.border = `2px solid ${isOrganized && org?.color ? org.color : colors.border}`;
+                innerEl.style.boxShadow = isOrganized && org ? `0 0 15px ${org.color}40` : '2px 3px 8px rgba(0,0,0,0.5)';
+                
+                // Float animation
+                if (shouldFloat) {
+                    innerEl.style.animation = `cfmFloatNode ${chaos.floatDuration}s ease-in-out infinite`;
+                    innerEl.style.animationDelay = chaos.floatDelay + 's';
+                } else {
+                    innerEl.style.animation = 'none';
+                }
+                
+                // Dot visibility
+                const dot = innerEl.querySelector('.dot');
+                if (dot) {
+                    dot.className = 'dot' + (isOrganized && !isContinuous ? ' visible' : '');
+                }
+            });
+            
+            // Update overlay
+            overlay.className = 'cfm-gradient-overlay ' + (isOrganized ? 'clarity' : 'chaos');
+            
+            // Update badge
+            badge.className = 'cfm-state-badge ' + (isOrganized ? 'clarity' : 'chaos');
+            badge.textContent = isOrganized ? 'Clarity' : 'Chaos';
+            
+            // Update button - hide in chaos mode (using centered CTA instead)
+            if (isOrganized) {
+                actionBtn.className = 'cfm-action-btn clarity';
+                actionBtn.innerHTML = '&larr; Return to Chaos';
+            } else {
+                actionBtn.className = 'cfm-action-btn chaos-hidden';
+            }
+            
+            // Update hint (hidden - using centered CTA instead)
+            hint.className = 'cfm-hint hidden';
+            
+            // Update centered CTA button (only visible in chaos mode before interaction)
+            centerCta.className = 'cfm-center-cta' + (isOrganized ? ' hidden' : '');
+            
+            // Update explore buttons
+            exploreGroup.className = 'cfm-explore-group' + (!isOrganized ? ' disabled' : '');
+            exploreButtons.forEach(btn => {
+                btn.disabled = !isOrganized;
+                const rel = btn.dataset.relationship;
+                btn.className = 'cfm-explore-btn' + (activeRelationships[rel] ? ' active' : '');
+            });
+            
+            // Update SVG
+            renderSVG();
+        }
+        
+        // ============================================
+        // EVENT HANDLERS
+        // ============================================
+        
+        function handleToggle() {
+            if (!hasInteracted) {
+                hasInteracted = true;
+                banner.classList.add('hidden');
+            }
+            isOrganized = !isOrganized;
+            
+            // Reset relationships when going back to chaos
+            if (!isOrganized) {
+                activeRelationships = {
+                    documentation: false,
+                    process: false,
+                    riskManagement: false,
+                    programmeIntelligence: false,
+                };
+            }
+            
+            updateUI();
+        }
+        
+        function handleRelationshipToggle(e) {
+            const relationship = e.currentTarget.dataset.relationship;
+            activeRelationships[relationship] = !activeRelationships[relationship];
+            
+            // Update button state
+            e.currentTarget.className = 'cfm-explore-btn' + (activeRelationships[relationship] ? ' active' : '');
+            
+            // Only re-render the connections (not pillars/headers)
+            renderCrossStackConnections();
+        }
+        
+        // Attach event listeners
+        actionBtn.addEventListener('click', handleToggle);
+        centerBtn.addEventListener('click', handleToggle);
+        // Note: Removed canvas click - only buttons should trigger the toggle
+        
+        exploreButtons.forEach(btn => {
+            btn.addEventListener('click', handleRelationshipToggle);
+        });
+        
+        // ============================================
+        // INITIAL RENDER
+        // ============================================
+        renderNodes();
+        
+    })();
     </script>
 </body>
 </html>
