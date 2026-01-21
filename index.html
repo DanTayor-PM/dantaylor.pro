@@ -896,6 +896,171 @@
             color: var(--grey-mid);
         }
 
+        /* ============================================ */
+        /* AI INFLECTION POINT SECTION                 */
+        /* ============================================ */
+        
+        .inflection {
+            background: var(--navy-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .inflection::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(42, 143, 143, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(201, 162, 39, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .inflection-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .inflection-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .inflection-narrative {
+            padding-right: 2rem;
+        }
+        
+        .inflection-narrative p {
+            font-size: 1.05rem;
+            color: var(--grey-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+        }
+        
+        .inflection-narrative p:first-of-type::first-letter {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            float: left;
+            line-height: 0.8;
+            padding-right: 0.5rem;
+            color: var(--gold-primary);
+        }
+        
+        .inflection-quote {
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
+            background: rgba(42, 143, 143, 0.1);
+            border-left: 3px solid var(--teal-primary);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .inflection-capabilities {
+            background: var(--navy-mid);
+            border-radius: 8px;
+            padding: 2.5rem;
+            border: 1px solid var(--navy-light);
+        }
+        
+        .capabilities-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .capabilities-subtitle {
+            font-size: 0.85rem;
+            color: var(--gold-primary);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--navy-light);
+        }
+        
+        .capability-item {
+            margin-bottom: 1.5rem;
+            padding-left: 0;
+        }
+        
+        .capability-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .capability-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .capability-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        
+        .capability-icon.gold {
+            background: rgba(201, 162, 39, 0.2);
+            border: 1px solid rgba(201, 162, 39, 0.4);
+            color: var(--gold-primary);
+        }
+        
+        .capability-icon.teal {
+            background: rgba(42, 143, 143, 0.2);
+            border: 1px solid rgba(42, 143, 143, 0.4);
+            color: var(--teal-primary);
+        }
+        
+        .capability-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+        
+        .capability-description {
+            font-size: 0.9rem;
+            color: var(--grey-light);
+            line-height: 1.7;
+            padding-left: 44px;
+        }
+        
+        .inflection-statement {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.1) 0%, rgba(42, 143, 143, 0.1) 100%);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .inflection-statement p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--white);
+            margin: 0;
+        }
+        
+        .inflection-statement .highlight {
+            color: var(--gold-primary);
+            font-weight: 600;
+        }
+
         /* Framework Teaser */
         .framework-teaser {
             background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-dark) 100%);
@@ -1076,6 +1241,15 @@
             .expanded-metrics {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .inflection-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .inflection-narrative {
+                padding-right: 0;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1250,6 +1424,15 @@
             
             .contact-links .btn {
                 margin-left: 0 !important;
+            }
+            
+            .inflection-quote {
+                font-size: 1.2rem;
+                padding: 1rem 1.5rem;
+            }
+            
+            .inflection-capabilities {
+                padding: 1.5rem;
             }
         }
 
@@ -1629,14 +1812,13 @@
                         </div>
                         
                         <div class="skills-section">
-                            <p class="skills-title">Domain &amp; Technologies</p>
+                            <p class="skills-title">Skills Applied</p>
                             <div class="skills-tags">
-                                <span class="skill-tag">Lloyd&rsquo;s Market</span>
-                                <span class="skill-tag">Blueprint Two</span>
-                                <span class="skill-tag">Policy Administration</span>
-                                <span class="skill-tag">Claims Management</span>
-                                <span class="skill-tag">Underwriting Workbench</span>
-                                <span class="skill-tag">Exposure Management</span>
+                                <span class="skill-tag">Programme Management</span>
+                                <span class="skill-tag">Dependency Mapping</span>
+                                <span class="skill-tag">Steering Committee</span>
+                                <span class="skill-tag">M&amp;A Due Diligence</span>
+                                <span class="skill-tag">Executive Reporting</span>
                             </div>
                         </div>
                     </div>
@@ -1644,13 +1826,13 @@
             </div>
             
             <!-- Role 2: Ingersoll Rand -->
-            <div class="timeline-item" data-role="ingersoll">
+            <div class="timeline-item" data-role="ingersollrand">
                 <div class="timeline-card">
                     <div class="timeline-header">
                         <div>
                             <p class="timeline-date">2020 &mdash; 2024</p>
-                            <h3 class="timeline-role">Operations &amp; Programme Manager</h3>
-                            <p class="timeline-company">Ingersoll Rand (Harrier Pneumatics) &middot; NYSE-Listed Industrial Group</p>
+                            <h3 class="timeline-role">Systems &amp; Operations Manager</h3>
+                            <p class="timeline-company">Ingersoll Rand &middot; Global Industrial Manufacturing</p>
                         </div>
                         <div class="expand-indicator">
                             <span>Details</span>
@@ -1660,12 +1842,12 @@
                         </div>
                     </div>
                     <p class="timeline-summary">
-                        Appointed to lead national enterprise system implementation and operational transformation 
-                        programme across 4 locations for this NYSE-listed industrial group.
+                        Led comprehensive enterprise CRM transformation and operational excellence programme 
+                        across multi-site service operation following acquisition integration.
                     </p>
                     <div class="timeline-highlights">
-                        <span class="highlight-tag">13-Month CRM Delivery</span>
-                        <span class="highlight-tag">20%+ Efficiency Gain</span>
+                        <span class="highlight-tag">13-Month Delivery</span>
+                        <span class="highlight-tag">4 Sites</span>
                         <span class="highlight-tag">ISO 9001</span>
                     </div>
                     
@@ -1875,6 +2057,161 @@
         </div>
     </section>
 
+    <!-- AI Inflection Point Section -->
+    <section class="inflection" id="inflection">
+        <div class="inflection-content">
+            
+            <div class="section-header">
+                <p class="section-label">The Inflection Point</p>
+                <h2 class="section-title"><span class="gradient-text">From Tracking Work to Understanding Value</span></h2>
+            </div>
+            
+            <div class="inflection-grid">
+                
+                <!-- Left: The Shift Narrative -->
+                <div class="inflection-narrative">
+                    <p>
+                        Artificial intelligence is rapidly automating the mechanical aspects of programme 
+                        management. Status report generation, schedule variance detection, resource utilisation 
+                        tracking, risk pattern recognition&mdash;these tasks can now be performed by AI faster 
+                        and more accurately than any human.
+                    </p>
+                    <p>
+                        This is not a threat; it is an opportunity. As AI handles the administrative burden, 
+                        programme leadership must evolve. The value shifts from asking &ldquo;was this 
+                        delivered?&rdquo; to &ldquo;did this deliver what we intended?&rdquo;
+                    </p>
+                    
+                    <div class="inflection-quote">
+                        Organisations still measuring programme success by task completion 
+                        are measuring the wrong things.
+                    </div>
+                    
+                    <p>
+                        The real questions are harder: Was the intended value realised? Did we solve the 
+                        right problem? Are our dependencies truly understood, or just documented? Is our 
+                        governance enabling delivery, or obstructing it?
+                    </p>
+                    <p>
+                        The Clarity Framework is designed for this new reality&mdash;leveraging automation 
+                        for what it does well, while focusing human expertise on what humans do best.
+                    </p>
+                </div>
+                
+                <!-- Right: What Humans Uniquely Bring -->
+                <div class="inflection-capabilities">
+                    <h3 class="capabilities-title">What Humans Uniquely Bring</h3>
+                    <p class="capabilities-subtitle">The irreplaceable value in programme leadership</p>
+                    
+                    <div class="capability-item">
+                        <div class="capability-header">
+                            <div class="capability-icon gold">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                                    <line x1="6" y1="1" x2="6" y2="4"/>
+                                    <line x1="10" y1="1" x2="10" y2="4"/>
+                                    <line x1="14" y1="1" x2="14" y2="4"/>
+                                </svg>
+                            </div>
+                            <span class="capability-name">Building Trust Through Presence</span>
+                        </div>
+                        <p class="capability-description">
+                            Corridor conversations. Coffee with a sceptical stakeholder. Being in the 
+                            trenches together when things go wrong. Trust is built through repeated 
+                            human interaction&mdash;no algorithm substitutes for shared experience.
+                        </p>
+                    </div>
+                    
+                    <div class="capability-item">
+                        <div class="capability-header">
+                            <div class="capability-icon teal">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                    <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                    <line x1="15" y1="9" x2="15.01" y2="9"/>
+                                </svg>
+                            </div>
+                            <span class="capability-name">Reading the Room</span>
+                        </div>
+                        <p class="capability-description">
+                            Someone checked out ten minutes ago. Two stakeholders exchanged looks when 
+                            budget was mentioned. The energy shifted. Humans detect micro-expressions, 
+                            body language, and emotional undercurrents that determine what's really happening.
+                        </p>
+                    </div>
+                    
+                    <div class="capability-item">
+                        <div class="capability-header">
+                            <div class="capability-icon gold">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <span class="capability-name">Dependency Identification</span>
+                        </div>
+                        <p class="capability-description">
+                            AI can track documented dependencies. Humans identify the undocumented 
+                            ones&mdash;the tribal knowledge, the informal relationships, the political 
+                            sensitivities, the history between teams that never made it into a system.
+                        </p>
+                    </div>
+                    
+                    <div class="capability-item">
+                        <div class="capability-header">
+                            <div class="capability-icon teal">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <span class="capability-name">Conflict Resolution</span>
+                        </div>
+                        <p class="capability-description">
+                            When priorities compete, resources are constrained, or stakeholders disagree, 
+                            resolution requires negotiation, empathy, and political navigation. Knowing 
+                            when to push and when to back off is a human skill.
+                        </p>
+                    </div>
+                    
+                    <div class="capability-item">
+                        <div class="capability-header">
+                            <div class="capability-icon gold">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <path d="M9 12l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <span class="capability-name">The Smell Test</span>
+                        </div>
+                        <p class="capability-description">
+                            All the metrics look green, but something feels off. Experienced programme 
+                            leaders develop instincts from pattern recognition over decades&mdash;knowing 
+                            when someone is telling you what you want to hear versus the truth.
+                        </p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <!-- Bottom Statement -->
+            <div class="inflection-statement">
+                <p>
+                    The Clarity Framework prioritises <span class="highlight">what actually works</span> over what sounds impressive, 
+                    <span class="highlight">what delivers outcomes</span> over what satisfies audit requirements, 
+                    and <span class="highlight">what enables teams</span> over what controls them.
+                </p>
+            </div>
+            
+        </div>
+    </section>
+
     <!-- Framework Teaser -->
     <section class="framework-teaser">
         <div class="framework-content">
@@ -1908,7 +2245,7 @@
 
     <!-- Footer -->
     <footer>
-        <p class="footer-text">&copy; 2025 Daniel Taylor. All rights reserved.</p>
+        <p class="footer-text">&copy; 2026 Daniel Taylor. All rights reserved.</p>
     </footer>
 
     <script>
