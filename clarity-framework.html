@@ -960,20 +960,22 @@
 
         .ecosystem-canvas-wrapper {
             width: 100%;
-            overflow-x: auto;
-            overflow-y: hidden;
+            max-width: 100%;
             background: #0a1628;
+            position: relative;
+            /* Height set by JavaScript based on scale */
         }
 
         .ecosystem-canvas {
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 1400px;
             height: 900px;
-            min-width: 1400px;
             background: radial-gradient(ellipse at center, #0f2744 0%, #0a1628 70%);
             cursor: pointer;
-            overflow: hidden;
-            margin: 0 auto;
+            transform-origin: top left;
+            /* Scale set by JavaScript */
         }
 
         .ecosystem-watermark {
@@ -1329,12 +1331,6 @@
             }
         }
 
-        @media (max-width: 1450px) {
-            .ecosystem-canvas-wrapper {
-                overflow-x: scroll;
-            }
-        }
-
         @media (max-width: 768px) {
             .ecosystem-header {
                 flex-direction: column;
@@ -1535,7 +1531,7 @@
                         <div class="ecosystem-footer">
                             <div class="ecosystem-footer-top">
                                 <div class="ecosystem-footer-tagline">&ldquo;Calm in chaos. Clarity in complexity. Control in delivery.&rdquo;</div>
-                                <div class="ecosystem-footer-copyright">&copy; 2025 Dan Taylor | dantaylor.pro</div>
+                                <div class="ecosystem-footer-copyright">&copy; 2026 Dan Taylor | dantaylor.pro</div>
                             </div>
                             <div class="ecosystem-footer-bottom">
                                 <div class="ecosystem-explore-group disabled" id="exploreGroup">
@@ -3133,7 +3129,7 @@
 
     <!-- Footer -->
     <footer>
-        <p class="footer-text">&copy; 2025 Daniel Taylor. All rights reserved.</p>
+        <p class="footer-text">&copy; 2026 Daniel Taylor. All rights reserved.</p>
     </footer>
 
     <script>
@@ -3919,6 +3915,34 @@
             const hint = document.getElementById('ecosystemHint');
             const exploreGroup = document.getElementById('exploreGroup');
             const exploreBtns = document.querySelectorAll('.ecosystem-explore-btn');
+            const canvasWrapper = document.querySelector('.ecosystem-canvas-wrapper');
+
+            // ============================================
+            // RESPONSIVE SCALING - No Scrollbar
+            // ============================================
+            
+            function updateCanvasScale() {
+                const wrapperWidth = canvasWrapper.clientWidth || window.innerWidth - 40;
+                const scale = Math.min(wrapperWidth / CONFIG.canvasWidth, 1);
+                
+                canvas.style.transform = 'scale(' + scale + ')';
+                canvas.style.transformOrigin = 'top left';
+                
+                // Set wrapper height to match scaled canvas
+                canvasWrapper.style.height = (CONFIG.canvasHeight * scale) + 'px';
+            }
+            
+            // Initial scale
+            updateCanvasScale();
+            setTimeout(updateCanvasScale, 50);
+            setTimeout(updateCanvasScale, 200);
+            
+            // Update on resize (debounced)
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(updateCanvasScale, 50);
+            });
 
             // Render nodes
             function renderNodes() {
