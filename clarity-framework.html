@@ -418,6 +418,110 @@
             line-height: 1.8;
         }
 
+        /* Approach Section - New "Meeting You Where You Are" */
+        .approach {
+            background: var(--navy-darkest);
+            padding: 6rem 4rem;
+        }
+
+        .approach-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .approach-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .approach-intro p {
+            font-size: 1.15rem;
+            color: var(--grey-light);
+            line-height: 1.9;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .approach-card {
+            background: var(--navy-mid);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .approach-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--teal-primary));
+            border-radius: 4px 4px 0 0;
+        }
+
+        .approach-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(201, 162, 39, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .approach-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .approach-card p {
+            font-size: 0.95rem;
+            color: var(--grey-light);
+            line-height: 1.8;
+        }
+
+        .approach-emphasis {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(201, 162, 39, 0.05);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 4px;
+        }
+
+        .approach-emphasis p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        @media (max-width: 1024px) {
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .approach {
+                padding: 4rem 2rem;
+            }
+            
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .approach-card {
+                padding: 2rem;
+            }
+        }
+
         /* Artefacts Section /* Artefacts Section - Embedded Full-Width */
         .artefacts {
             background: var(--navy-dark);
@@ -1564,14 +1668,13 @@
         <div class="hero-bg-orb hero-bg-orb-2"></div>
         
         <div class="hero-content">
-            <p class="hero-pretitle">Programme Management Methodology</p>
+            <p class="hero-pretitle">Programme Management Expertise</p>
             <h1 class="hero-title">The <span class="gradient-text">Clarity</span> Framework</h1>
             <p class="hero-subtitle">
-                When coordinating 2,000+ initiatives across multi-billion dollar specialty insurers, 
-                generic frameworks don't survive first contact. This methodology was conceived, 
-                stress-tested, and refined in the demanding environment of Global Specialty P&C &mdash; 
-                where Lloyd's Market complexity, Blueprint Two compliance, and acquisition-readiness 
-                aren't aspirations but baseline requirements.
+                Not a rigid methodology to implement wholesale, but a comprehensive toolkit developed 
+                through real-world experience coordinating 2,000+ initiatives. Whether your organisation 
+                needs to build governance from scratch or enhance existing processes, this represents 
+                how I diagnose challenges and shape solutions to fit your specific context.
             </p>
         </div>
     </section>
@@ -1613,6 +1716,59 @@
                         making. Critical issues lack ownership and resolution timelines.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section - Meeting You Where You Are -->
+    <section class="approach" id="approach">
+        <div class="approach-content">
+            <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
+                <p class="section-label">My Approach</p>
+                <h2 class="section-title"><span class="gradient-text">Meeting You Where You Are</span></h2>
+            </div>
+            
+            <div class="approach-intro reveal">
+                <p>
+                    Every organisation is different. Some need comprehensive governance built from the ground up. 
+                    Others have established processes that simply need refinement. The Clarity Framework isn't 
+                    something I ask you to adopt &mdash; it's evidence of how I think about programme challenges, 
+                    and a toolkit I can draw from to address your specific needs.
+                </p>
+            </div>
+            
+            <div class="approach-grid">
+                <div class="approach-card reveal reveal-delay-1">
+                    <h4>If You're Starting Fresh</h4>
+                    <p>
+                        The complete framework is here &mdash; governance structures, templates, processes, 
+                        and implementation guidance. Ready to be shaped to your organisation's culture 
+                        and context from day one. Not imposed, but tailored collaboratively.
+                    </p>
+                </div>
+                <div class="approach-card reveal reveal-delay-2">
+                    <h4>If You Have Existing Processes</h4>
+                    <p>
+                        Most organisations already have governance, tools, and ways of working. 
+                        I can assess what's functioning well, identify gaps, and enhance rather than replace. 
+                        The goal is improvement, not wholesale change for its own sake.
+                    </p>
+                </div>
+                <div class="approach-card reveal reveal-delay-3">
+                    <h4>What You Get Either Way</h4>
+                    <p>
+                        Diagnostic expertise to identify where improvements will have the greatest impact, 
+                        combined with the experience to implement them. Not a product to buy &mdash; 
+                        an approach to problem-solving that adapts to what you actually need.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="approach-emphasis reveal">
+                <p>
+                    &ldquo;The framework demonstrates the depth of my thinking. 
+                    What matters is applying that thinking to your specific challenges.&rdquo;
+                </p>
             </div>
         </div>
     </section>
@@ -1946,8 +2102,8 @@
             <!-- Implementation Timeline -->
             <div class="artefact-display reveal">
                 <div class="artefact-header">
-                    <h3>Implementation Timeline</h3>
-                    <p>A baseline deployment roadmap &mdash; adapting to organisational context while embedding governance capability from first principles.</p>
+                    <h3>Example Implementation Timeline</h3>
+                    <p>A baseline roadmap for comprehensive deployment &mdash; adaptable based on your existing maturity, priorities, and the scope of changes needed.</p>
                 </div>
                 <div class="artefact-visual">
             <svg viewBox="0 0 1000 640" xmlns="http://www.w3.org/2000/svg">
@@ -2343,7 +2499,7 @@
                         
                         <!-- Day 1 Ready - center at 810 -->
                         <text x="810" y="30" font-family="Cormorant Garamond, serif" font-size="20" font-weight="700" fill="#2a8f8f">Day 1</text>
-                        <text x="810" y="50" font-family="Raleway, sans-serif" font-size="8" fill="#6b7a8f" letter-spacing="0.05em">DEPLOYABLE</text>
+                        <text x="810" y="50" font-family="Raleway, sans-serif" font-size="8" fill="#6b7a8f" letter-spacing="0.05em">ADAPTABLE</text>
                     </g>
                 </g>
 
