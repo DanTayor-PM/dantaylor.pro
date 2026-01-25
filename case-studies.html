@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Studies | Programme Delivery Results | Dan Taylor</title>
+    <title>Case Studies | Programme Delivery Results | Daniel Taylor</title>
     <meta name="description" content="Real-world programme delivery case studies: hybrid agile methodology achieving 50% faster delivery, cross-product dependency management, acquisition-ready governance, and enterprise budget clarity.">
     
     <!-- Canonical URL -->
@@ -11,22 +11,22 @@
     
     <!-- Open Graph / LinkedIn -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Programme Delivery Case Studies | Dan Taylor">
-    <meta property="og:description" content="Real-world results from the Clarity Framework: hybrid agile methodology, cross-product dependency management, acquisition-ready governance, and enterprise budget clarity.">
+    <meta property="og:title" content="Programme Delivery Case Studies | Daniel Taylor">
+    <meta property="og:description" content="Real-world results from the Clarity Framework: acquisition-ready governance, budget clarity, fastest implementation, and cross-product coordination.">
     <meta property="og:url" content="https://dantaylor.pro/case-studies.html">
     <meta property="og:site_name" content="Daniel Taylor">
     <meta property="og:locale" content="en_GB">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Programme Delivery Case Studies | Dan Taylor">
-    <meta name="twitter:description" content="Real-world programme delivery results: 50% faster development, 2000+ dependencies managed, acquisition-ready governance.">
+    <meta name="twitter:title" content="Programme Delivery Case Studies | Daniel Taylor">
+    <meta name="twitter:description" content="Real-world programme delivery results from the Clarity Framework methodology.">
     
     <!-- Additional SEO -->
     <meta name="author" content="Daniel Taylor">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0a1628">
-    <meta name="keywords" content="programme management case studies, hybrid agile methodology, cross-product dependency management, acquisition readiness, capacity planning, CI/CD transformation, product-led growth, enterprise governance, software delivery">
+    <meta name="keywords" content="programme delivery, case studies, hybrid agile, dependency management, acquisition readiness, capacity planning, enterprise governance, insurance software">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -43,71 +43,10 @@
       gtag('config', 'G-W2SFD9P0GK');
     </script>
     
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "Programme Delivery Case Studies",
-        "description": "Real-world programme delivery case studies demonstrating the Clarity Framework methodology in action.",
-        "url": "https://dantaylor.pro/case-studies.html",
-        "author": {
-            "@type": "Person",
-            "name": "Daniel Taylor",
-            "jobTitle": "Global Product Programme Leader",
-            "url": "https://dantaylor.pro"
-        },
-        "mainEntity": {
-            "@type": "ItemList",
-            "name": "Programme Delivery Case Studies",
-            "description": "Four case studies demonstrating programme management excellence",
-            "numberOfItems": 4,
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "item": {
-                        "@type": "Article",
-                        "name": "Fast-Track: Hybrid Agile Methodology",
-                        "description": "Bespoke hybrid agile methodology achieving 50% faster delivery with 10% fewer resources, enabling CI/CD transformation."
-                    }
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "item": {
-                        "@type": "Article",
-                        "name": "Cross-Product Dependency Management",
-                        "description": "Comprehensive dependency management system coordinating 8 products and 2000+ dependencies for product-led growth."
-                    }
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "item": {
-                        "@type": "Article",
-                        "name": "Building Acquisition-Ready Governance",
-                        "description": "Documentation governance framework achieving 100% audit-readiness ahead of acquisition due diligence."
-                    }
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 4,
-                    "item": {
-                        "@type": "Article",
-                        "name": "Resource Allocation and Budget Clarity",
-                        "description": "Resource audit and unified allocation model clarifying a £12M budget and protecting team capacity."
-                    }
-                }
-            ]
-        }
-    }
-    </script>
-    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Raleway:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -124,8 +63,6 @@
             --white-off: #f0f2f5;
             --grey-light: #a8b2c1;
             --grey-mid: #6b7a8f;
-            --border-subtle: #1e3a5f;
-            --text-muted: #6b7280;
         }
 
         * {
@@ -170,6 +107,17 @@
             background: linear-gradient(90deg, var(--teal-primary), var(--gold-primary), var(--gold-light));
             transition: width 0.1s ease-out;
             box-shadow: 0 0 6px var(--gold-primary), 0 0 12px rgba(201, 162, 39, 0.4);
+        }
+
+        /* Particle Canvas */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
         }
 
         /* Navigation */
@@ -258,33 +206,40 @@
         .logo-text {
             font-family: 'Raleway', sans-serif;
             font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
+            font-weight: 500;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--white);
+            opacity: 0.9;
         }
 
         .nav-links {
             display: flex;
-            gap: 3rem;
             list-style: none;
+            gap: 2.5rem;
         }
 
         .nav-links a {
-            color: var(--grey-light);
-            text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
+            letter-spacing: 0.05em;
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.9;
+            transition: all 0.3s ease;
             position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold-primary);
+            opacity: 1;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -5px;
             left: 0;
             width: 0;
             height: 1px;
@@ -292,24 +247,160 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--gold-primary);
-        }
-
         .nav-links a:hover::after,
         .nav-links a.active::after {
             width: 100%;
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 50vh;
-            display: flex;
+        /* Hamburger Button */
+        .hamburger-btn {
+            display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 10rem 4rem 4rem;
+            width: 48px;
+            height: 48px;
+            background: transparent;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger-btn:hover {
+            border-color: var(--gold-primary);
+            background: rgba(201, 162, 39, 0.1);
+        }
+        
+        .hamburger-btn span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--gold-primary);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .hamburger-btn span::before,
+        .hamburger-btn span::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2px;
+            background: var(--gold-primary);
+            transition: all 0.3s ease;
+            left: 0;
+        }
+        
+        .hamburger-btn span::before {
+            top: -7px;
+        }
+        
+        .hamburger-btn span::after {
+            top: 7px;
+        }
+        
+        /* Hamburger to X animation */
+        .hamburger-btn.active span {
+            background: transparent;
+        }
+        
+        .hamburger-btn.active span::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+        
+        .hamburger-btn.active span::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+        
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(5, 10, 18, 0.98);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .mobile-menu li {
+            margin-bottom: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.active .mobile-menu li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .mobile-menu-overlay.active .mobile-menu li:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu-overlay.active .mobile-menu li:nth-child(2) { transition-delay: 0.15s; }
+        .mobile-menu-overlay.active .mobile-menu li:nth-child(3) { transition-delay: 0.2s; }
+        .mobile-menu-overlay.active .mobile-menu li:nth-child(4) { transition-delay: 0.25s; }
+        .mobile-menu-overlay.active .mobile-menu li:nth-child(5) { transition-delay: 0.3s; }
+        .mobile-menu-overlay.active .mobile-menu li:nth-child(6) { transition-delay: 0.35s; }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 1.25rem 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--white);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu li:last-child a {
+            border-bottom: none;
+        }
+        
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            color: var(--gold-primary);
+            background: rgba(201, 162, 39, 0.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10rem 4rem 6rem;
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -325,98 +416,133 @@
         }
 
         .hero-bg-orb-1 {
-            width: 500px;
-            height: 500px;
+            width: 400px;
+            height: 400px;
             background: radial-gradient(circle, var(--teal-primary) 0%, transparent 70%);
-            top: -150px;
-            right: -100px;
-            animation: orbFloat1 20s ease-in-out infinite;
+            top: 10%;
+            left: -5%;
+            animation: orbFloat1 12s ease-in-out infinite;
         }
 
         .hero-bg-orb-2 {
-            width: 400px;
-            height: 400px;
+            width: 350px;
+            height: 350px;
             background: radial-gradient(circle, var(--gold-primary) 0%, transparent 70%);
-            bottom: -100px;
-            left: -100px;
-            animation: orbFloat2 25s ease-in-out infinite;
+            bottom: 10%;
+            right: -5%;
+            animation: orbFloat2 15s ease-in-out infinite;
         }
 
         @keyframes orbFloat1 {
-            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
-            33% { transform: translate(-30px, 40px) scale(1.1); opacity: 0.5; }
-            66% { transform: translate(20px, -20px) scale(0.95); opacity: 0.35; }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, 20px) scale(1.1); }
         }
 
         @keyframes orbFloat2 {
-            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.35; }
-            50% { transform: translate(40px, -30px) scale(1.15); opacity: 0.45; }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-20px, -30px) scale(1.05); }
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 800px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero-pretitle {
             font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: 3px;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--teal-light);
-            margin-bottom: 1rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
         }
 
         .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: clamp(2.5rem, 6vw, 4rem);
             color: var(--white);
+            margin-bottom: 1.5rem;
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 50%, var(--teal-light) 100%);
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: 1.1rem;
-            font-weight: 300;
+            font-size: 1.15rem;
             color: var(--grey-light);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             line-height: 1.8;
         }
 
+        /* Decorative SVG Lines */
+        .hero-decoration {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            width: 300px;
+            height: 150px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .draw-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+
         /* Case Studies Section */
-        .case-studies-section {
-            padding: 4rem 4rem 8rem;
+        .case-studies {
+            padding: 6rem 4rem;
+            background: var(--navy-dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        .case-studies-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--white);
+        }
+
+        /* Case Study Cards */
         .case-studies-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
         }
 
         .case-study-card {
-            background: linear-gradient(135deg, rgba(30, 58, 95, 0.3) 0%, rgba(10, 22, 40, 0.8) 100%);
-            border: 1px solid var(--border-subtle);
-            border-radius: 8px;
+            background: var(--navy-mid);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
             overflow: hidden;
             position: relative;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .case-study-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
         }
 
         .case-study-card::before {
@@ -424,335 +550,423 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--gold-primary) 0%, var(--teal-primary) 100%);
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--teal-primary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        /* Card Header */
-        .card-header {
-            padding: 32px 40px 24px;
-            border-bottom: 1px solid var(--border-subtle);
+        .case-study-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201, 162, 39, 0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
         }
 
-        .card-label {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold-primary);
-            margin-bottom: 8px;
+        .case-study-card:hover::before {
+            opacity: 1;
         }
 
-        .card-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: var(--white-off);
-            line-height: 1.3;
-        }
-
-        /* Card Body - Three Columns */
-        .card-body {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-        }
-
-        .card-section {
-            padding: 32px;
+        .case-study-header {
+            padding: 2rem 2rem 0;
             position: relative;
         }
 
-        .card-section:not(:last-child) {
-            border-right: 1px solid var(--border-subtle);
-        }
-
-        .section-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-            font-size: 1.1rem;
-        }
-
-        .challenge .section-icon {
-            background: rgba(201, 162, 39, 0.15);
-            border: 1px solid var(--gold-primary);
-            color: var(--gold-primary);
-        }
-
-        .approach .section-icon {
-            background: rgba(42, 143, 143, 0.15);
-            border: 1px solid var(--teal-primary);
-            color: var(--teal-primary);
-        }
-
-        .outcome .section-icon {
-            background: rgba(58, 181, 181, 0.15);
-            border: 1px solid var(--teal-light);
-            color: var(--teal-light);
-        }
-
-        .section-heading {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .challenge .section-heading { color: var(--gold-primary); }
-        .approach .section-heading { color: var(--teal-primary); }
-        .outcome .section-heading { color: var(--teal-light); }
-
-        .section-text {
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: var(--grey-light);
-            line-height: 1.7;
-        }
-
-        /* Outcome Metrics */
-        .outcome-metrics {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .outcome-metric {
-            text-align: center;
-            flex: 1;
-        }
-
-        .outcome-metric-value {
+        .case-study-number {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            color: var(--gold-light);
+            color: var(--gold-primary);
+            opacity: 0.15;
             line-height: 1;
         }
 
-        .outcome-metric-label {
-            font-size: 0.65rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            margin-top: 4px;
+        .case-study-category {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: var(--teal-primary);
+            margin-bottom: 0.75rem;
         }
 
-        /* CTA Section */
-        .cta-section {
-            text-align: center;
-            padding: 4rem;
-            border-top: 1px solid var(--border-subtle);
-            margin-top: 4rem;
+        .case-study-title {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 0;
         }
 
-        .cta-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.75rem;
-            color: var(--white-off);
+        .case-study-content {
+            padding: 2rem;
+        }
+
+        .case-study-section {
             margin-bottom: 1.5rem;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
+        .case-study-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-section-label {
+            font-size: 0.65rem;
+            font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .case-study-section-label::before {
+            content: '';
+            width: 12px;
+            height: 1px;
+            background: var(--gold-primary);
+        }
+
+        .case-study-section p {
+            font-size: 0.95rem;
+            color: var(--grey-light);
+            line-height: 1.75;
+        }
+
+        /* Outcome Highlight */
+        .outcome-highlight {
+            background: rgba(201, 162, 39, 0.08);
+            border-left: 3px solid var(--gold-primary);
+            padding: 1rem 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .outcome-metric {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            line-height: 1.2;
+        }
+
+        .outcome-label {
+            font-size: 0.85rem;
+            color: var(--grey-light);
+            margin-top: 0.25rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 4rem;
+            background: var(--navy-darkest);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            color: var(--grey-light);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 2px;
             transition: all 0.3s ease;
-            margin: 0 0.5rem;
+            cursor: pointer;
         }
 
         .btn-primary {
             background: var(--gold-primary);
             color: var(--navy-darkest);
+            border: 2px solid var(--gold-primary);
         }
 
         .btn-primary:hover {
             background: var(--gold-light);
-            transform: translateY(-2px);
+            border-color: var(--gold-light);
         }
 
-        .btn-outline {
-            border: 1px solid var(--teal-primary);
-            color: var(--teal-light);
+        .btn-secondary {
             background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.3);
         }
 
-        .btn-outline:hover {
-            background: var(--teal-primary);
-            color: var(--white);
-            transform: translateY(-2px);
+        .btn-secondary:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
         }
 
         /* Footer */
         footer {
+            background: var(--navy-dark);
+            padding: 2rem 4rem;
             text-align: center;
-            padding: 3rem 4rem;
-            border-top: 1px solid var(--border-subtle);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
             color: var(--grey-mid);
-            font-size: 0.85rem;
         }
 
-        footer a {
-            color: var(--teal-light);
-            text-decoration: none;
-        }
+        /* ============================================ */
+        /* RESPONSIVE STYLES                           */
+        /* ============================================ */
 
-        footer a:hover {
-            color: var(--gold-primary);
-        }
-
-        /* Responsive */
         @media (max-width: 1024px) {
-            nav {
-                padding: 1rem 2rem;
+            /* Show hamburger, hide desktop nav */
+            .hamburger-btn {
+                display: flex;
             }
-
+            
             .nav-links {
-                gap: 1.5rem;
+                display: none;
             }
-
-            .hero {
-                padding: 8rem 2rem 3rem;
+            
+            .mobile-menu-overlay {
+                display: block;
             }
-
-            .hero-title {
-                font-size: 2.75rem;
+            
+            nav {
+                padding: 1.5rem 2rem;
             }
-
-            .case-studies-section {
-                padding: 3rem 2rem 6rem;
+            
+            .hero, section {
+                padding: 6rem 2rem;
             }
-        }
-
-        @media (max-width: 900px) {
-            .card-body {
+            
+            .case-studies-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .card-section:not(:last-child) {
-                border-right: none;
-                border-bottom: 1px solid var(--border-subtle);
+                gap: 2rem;
             }
         }
 
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
+                padding: 1rem 1.5rem;
             }
-
-            nav.scrolled {
-                padding: 0.75rem 1rem;
-            }
-
+            
             .logo-mark {
                 width: 60px;
                 height: 60px;
                 font-size: 1.6rem;
             }
-
+            
             .logo-mark .signature {
                 width: 40px;
                 height: 14px;
             }
-
-            .nav-links {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-links a {
+            
+            .logo-text {
                 font-size: 0.7rem;
             }
-
+            
+            .hamburger-btn {
+                width: 44px;
+                height: 44px;
+            }
+            
+            .hamburger-btn span,
+            .hamburger-btn span::before,
+            .hamburger-btn span::after {
+                width: 20px;
+            }
+            
+            .hamburger-btn span::before {
+                top: -6px;
+            }
+            
+            .hamburger-btn span::after {
+                top: 6px;
+            }
+            
+            .mobile-menu a {
+                font-size: 1.3rem;
+                padding: 1rem;
+            }
+            
             .hero {
-                padding: 10rem 1.5rem 3rem;
-                min-height: 40vh;
+                padding: 8rem 1.5rem 4rem;
+                min-height: 50vh;
             }
-
-            .hero-title {
-                font-size: 2.25rem;
+            
+            .hero-decoration {
+                display: none;
             }
-
-            .hero-subtitle {
-                font-size: 1rem;
+            
+            .case-studies {
+                padding: 4rem 1.5rem;
             }
-
-            .case-studies-section {
-                padding: 2rem 1.5rem 4rem;
+            
+            .case-study-header {
+                padding: 1.5rem 1.5rem 0;
             }
-
-            .card-header {
-                padding: 24px;
+            
+            .case-study-content {
+                padding: 1.5rem;
             }
-
-            .card-section {
-                padding: 24px;
-            }
-
-            .card-title {
+            
+            .case-study-title {
                 font-size: 1.4rem;
             }
-
-            .outcome-metrics {
+            
+            .case-study-number {
+                font-size: 2.5rem;
+            }
+            
+            .cta {
+                padding: 4rem 1.5rem;
+            }
+            
+            .cta-buttons {
                 flex-direction: column;
-                gap: 12px;
+                align-items: center;
             }
-
-            .outcome-metric {
-                text-align: left;
-                display: flex;
-                align-items: baseline;
-                gap: 8px;
-            }
-
-            .cta-section {
-                padding: 3rem 1.5rem;
-            }
-
-            .cta-text {
-                font-size: 1.4rem;
-            }
-
+            
             .btn {
-                display: block;
-                margin: 0.5rem 0;
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            
+            footer {
+                padding: 2rem 1.5rem;
             }
         }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem;
+            }
+            
+            .logo-mark {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+            
+            .logo-mark .signature {
+                width: 34px;
+                height: 12px;
+            }
+            
+            .hamburger-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .hamburger-btn span,
+            .hamburger-btn span::before,
+            .hamburger-btn span::after {
+                width: 18px;
+            }
+            
+            .hamburger-btn span::before {
+                top: -6px;
+            }
+            
+            .hamburger-btn span::after {
+                top: 6px;
+            }
+            
+            .mobile-menu a {
+                font-size: 1.2rem;
+                padding: 0.875rem;
+            }
+            
+            .hero {
+                padding: 7rem 1rem 3rem;
+            }
+            
+            .case-studies {
+                padding: 3rem 1rem;
+            }
+            
+            .case-study-header {
+                padding: 1.25rem 1.25rem 0;
+            }
+            
+            .case-study-content {
+                padding: 1.25rem;
+            }
+            
+            .case-study-title {
+                font-size: 1.25rem;
+            }
+            
+            .outcome-metric {
+                font-size: 1.5rem;
+            }
+            
+            .section-header {
+                margin-bottom: 3rem;
+            }
+        }
+
+        /* 3D Card Tilt Effect Base */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out;
+        }
     </style>
+    
+    <!-- Anime.js v3.2.2 (Embedded) -->
+    <script>
+    !function(n,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):n.anime=e()}(this,function(){"use strict";var i={update:null,begin:null,loopBegin:null,changeBegin:null,change:null,changeComplete:null,loopComplete:null,complete:null,loop:1,direction:"normal",autoplay:!0,timelineOffset:0},M={duration:1e3,delay:0,endDelay:0,easing:"easeOutElastic(1, .5)",round:0},j=["translateX","translateY","translateZ","rotate","rotateX","rotateY","rotateZ","scale","scaleX","scaleY","scaleZ","skew","skewX","skewY","perspective","matrix","matrix3d"],l={CSS:{},springs:{}};function C(n,e,t){return Math.min(Math.max(n,e),t)}function u(n,e){return-1<n.indexOf(e)}function o(n,e){return n.apply(null,e)}var w={arr:function(n){return Array.isArray(n)},obj:function(n){return u(Object.prototype.toString.call(n),"Object")},pth:function(n){return w.obj(n)&&n.hasOwnProperty("totalLength")},svg:function(n){return n instanceof SVGElement},inp:function(n){return n instanceof HTMLInputElement},dom:function(n){return n.nodeType||w.svg(n)},str:function(n){return"string"==typeof n},fnc:function(n){return"function"==typeof n},und:function(n){return void 0===n},nil:function(n){return w.und(n)||null===n},hex:function(n){return/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(n)},rgb:function(n){return/^rgb/.test(n)},hsl:function(n){return/^hsl/.test(n)},col:function(n){return w.hex(n)||w.rgb(n)||w.hsl(n)},key:function(n){return!i.hasOwnProperty(n)&&!M.hasOwnProperty(n)&&"targets"!==n&&"keyframes"!==n}};function d(n){n=/\(([^)]+)\)/.exec(n);return n?n[1].split(",").map(function(n){return parseFloat(n)}):[]}function c(r,t){var n=d(r),e=C(w.und(n[0])?1:n[0],.1,100),a=C(w.und(n[1])?100:n[1],.1,100),o=C(w.und(n[2])?10:n[2],.1,100),n=C(w.und(n[3])?0:n[3],.1,100),u=Math.sqrt(a/e),i=o/(2*Math.sqrt(a*e)),c=i<1?u*Math.sqrt(1-i*i):0,s=i<1?(i*u-n)/c:-n+u;function f(n){var e=t?t*n/1e3:n,e=i<1?Math.exp(-e*i*u)*(+Math.cos(c*e)+s*Math.sin(c*e)):(1+s*e)*Math.exp(-e*u);return 0===n||1===n?n:1-e}return t?f:function(){var n=l.springs[r];if(n)return n;for(var e=0,t=0;;)if(1===f(e+=1/6)){if(16<=++t)break}else t=0;return n=e*(1/6)*1e3,l.springs[r]=n}}function q(e){return void 0===e&&(e=10),function(n){return Math.ceil(C(n,1e-6,1)*e)*(1/e)}}var H=function(b,e,M,t){if(0<=b&&b<=1&&0<=M&&M<=1){var x=new Float32Array(11);if(b!==e||M!==t)for(var n=0;n<11;++n)x[n]=k(.1*n,b,M);return function(n){return b===e&&M===t||0===n||1===n?n:k(r(n),e,t)}}function r(n){for(var e=0,t=1;10!==t&&x[t]<=n;++t)e+=.1;var r=e+.1*((n-x[--t])/(x[t+1]-x[t])),a=O(r,b,M);if(.001<=a){for(var o=n,u=r,i=b,c=M,s=0;s<4;++s){var f=O(u,i,c);if(0===f)return u;u-=(k(u,i,c)-o)/f}return u}if(0===a)return r;for(var l,d,p=n,h=e,g=e+.1,m=b,v=M,y=0;0<(l=k(d=h+(g-h)/2,m,v)-p)?g=d:h=d,1e-7<Math.abs(l)&&++y<10;);return d}};function r(n,e){return 1-3*e+3*n}function k(n,e,t){return((r(e,t)*n+(3*t-6*e))*n+3*e)*n}function O(n,e,t){return 3*r(e,t)*n*n+2*(3*t-6*e)*n+3*e}e={linear:function(){return function(n){return n}}},t={Sine:function(){return function(n){return 1-Math.cos(n*Math.PI/2)}},Expo:function(){return function(n){return n?Math.pow(2,10*n-10):0}},Circ:function(){return function(n){return 1-Math.sqrt(1-n*n)}},Back:function(){return function(n){return n*n*(3*n-2)}},Bounce:function(){return function(n){for(var e,t=4;n<((e=Math.pow(2,--t))-1)/11;);return 1/Math.pow(4,3-t)-7.5625*Math.pow((3*e-2)/22-n,2)}},Elastic:function(n,e){void 0===e&&(e=.5);var t=C(n=void 0===n?1:n,1,10),r=C(e,.1,2);return function(n){return 0===n||1===n?n:-t*Math.pow(2,10*(n-1))*Math.sin((n-1-r/(2*Math.PI)*Math.asin(1/t))*(2*Math.PI)/r)}}},["Quad","Cubic","Quart","Quint"].forEach(function(n,e){t[n]=function(){return function(n){return Math.pow(n,e+2)}}}),Object.keys(t).forEach(function(n){var r=t[n];e["easeIn"+n]=r,e["easeOut"+n]=function(e,t){return function(n){return 1-r(e,t)(1-n)}},e["easeInOut"+n]=function(e,t){return function(n){return n<.5?r(e,t)(2*n)/2:1-r(e,t)(-2*n+2)/2}},e["easeOutIn"+n]=function(e,t){return function(n){return n<.5?(1-r(e,t)(1-2*n))/2:(r(e,t)(2*n-1)+1)/2}}});var e,t,s=e;function P(n,e){if(w.fnc(n))return n;var t=n.split("(")[0],r=s[t],a=d(n);switch(t){case"spring":return c(n,e);case"cubicBezier":return o(H,a);case"steps":return o(q,a);default:return o(r,a)}}function a(n){try{return document.querySelectorAll(n)}catch(n){}}function I(n,e){for(var t,r=n.length,a=2<=arguments.length?e:void 0,o=[],u=0;u<r;u++)u in n&&(t=n[u],e.call(a,t,u,n))&&o.push(t);return o}function f(n){return n.reduce(function(n,e){return n.concat(w.arr(e)?f(e):e)},[])}function p(n){return w.arr(n)?n:(n=w.str(n)?a(n)||n:n)instanceof NodeList||n instanceof HTMLCollection?[].slice.call(n):[n]}function h(n,e){return n.some(function(n){return n===e})}function g(n){var e,t={};for(e in n)t[e]=n[e];return t}function x(n,e){var t,r=g(n);for(t in n)r[t]=(e.hasOwnProperty(t)?e:n)[t];return r}function D(n,e){var t,r=g(n);for(t in e)r[t]=(w.und(n[t])?e:n)[t];return r}function V(n){var e,t,r,a,o,u,i;return w.rgb(n)?(e=/rgb\((\d+,\s*[\d]+,\s*[\d]+)\)/g.exec(t=n))?"rgba("+e[1]+",1)":t:w.hex(n)?(e=(e=n).replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i,function(n,e,t,r){return e+e+t+t+r+r}),e=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(e),"rgba("+parseInt(e[1],16)+","+parseInt(e[2],16)+","+parseInt(e[3],16)+",1)"):w.hsl(n)?(t=/hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)/g.exec(t=n)||/hsla\((\d+),\s*([\d.]+)%,\s*([\d.]+)%,\s*([\d.]+)\)/g.exec(t),n=parseInt(t[1],10)/360,u=parseInt(t[2],10)/100,i=parseInt(t[3],10)/100,t=t[4]||1,0==u?r=a=o=i:(r=c(u=2*i-(i=i<.5?i*(1+u):i+u-i*u),i,n+1/3),a=c(u,i,n),o=c(u,i,n-1/3)),"rgba("+255*r+","+255*a+","+255*o+","+t+")"):void 0;function c(n,e,t){return t<0&&(t+=1),1<t&&--t,t<1/6?n+6*(e-n)*t:t<.5?e:t<2/3?n+(e-n)*(2/3-t)*6:n}}function B(n){n=/[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?(%|px|pt|em|rem|in|cm|mm|ex|ch|pc|vw|vh|vmin|vmax|deg|rad|turn)?$/.exec(n);if(n)return n[1]}function m(n,e){return w.fnc(n)?n(e.target,e.id,e.total):n}function v(n,e){return n.getAttribute(e)}function y(n,e,t){var r,a,o;return h([t,"deg","rad","turn"],B(e))?e:(r=l.CSS[e+t],w.und(r)?(a=document.createElement(n.tagName),(n=n.parentNode&&n.parentNode!==document?n.parentNode:document.body).appendChild(a),a.style.position="absolute",a.style.width=100+t,o=100/a.offsetWidth,n.removeChild(a),n=o*parseFloat(e),l.CSS[e+t]=n):r)}function $(n,e,t){var r;if(e in n.style)return r=e.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase(),e=n.style[e]||getComputedStyle(n).getPropertyValue(r)||"0",t?y(n,e,t):e}function b(n,e){return w.dom(n)&&!w.inp(n)&&(!w.nil(v(n,e))||w.svg(n)&&n[e])?"attribute":w.dom(n)&&h(j,e)?"transform":w.dom(n)&&"transform"!==e&&$(n,e)?"css":null!=n[e]?"object":void 0}function W(n){if(w.dom(n)){for(var e,t=n.style.transform||"",r=/(\w+)\(([^)]*)\)/g,a=new Map;e=r.exec(t);)a.set(e[1],e[2]);return a}}function X(n,e,t,r){var a=u(e,"scale")?1:0+(u(a=e,"translate")||"perspective"===a?"px":u(a,"rotate")||u(a,"skew")?"deg":void 0),o=W(n).get(e)||a;return t&&(t.transforms.list.set(e,o),t.transforms.last=e),r?y(n,o,r):o}function T(n,e,t,r){switch(b(n,e)){case"transform":return X(n,e,r,t);case"css":return $(n,e,t);case"attribute":return v(n,e);default:return n[e]||0}}function E(n,e){var t=/^(\*=|\+=|-=)/.exec(n);if(!t)return n;var r=B(n)||0,a=parseFloat(e),o=parseFloat(n.replace(t[0],""));switch(t[0][0]){case"+":return a+o+r;case"-":return a-o+r;case"*":return a*o+r}}function Y(n,e){var t;return w.col(n)?V(n):/\s/g.test(n)?n:(t=(t=B(n))?n.substr(0,n.length-t.length):n,e?t+e:t)}function F(n,e){return Math.sqrt(Math.pow(e.x-n.x,2)+Math.pow(e.y-n.y,2))}function Z(n){for(var e,t=n.points,r=0,a=0;a<t.numberOfItems;a++){var o=t.getItem(a);0<a&&(r+=F(e,o)),e=o}return r}function G(n){if(n.getTotalLength)return n.getTotalLength();switch(n.tagName.toLowerCase()){case"circle":return 2*Math.PI*v(n,"r");case"rect":return 2*v(t=n,"width")+2*v(t,"height");case"line":return F({x:v(t=n,"x1"),y:v(t,"y1")},{x:v(t,"x2"),y:v(t,"y2")});case"polyline":return Z(n);case"polygon":return e=n.points,Z(n)+F(e.getItem(e.numberOfItems-1),e.getItem(0))}var e,t}function Q(n,e){var e=e||{},n=e.el||function(n){for(var e=n.parentNode;w.svg(e)&&w.svg(e.parentNode);)e=e.parentNode;return e}(n),t=n.getBoundingClientRect(),r=v(n,"viewBox"),a=t.width,t=t.height,e=e.viewBox||(r?r.split(" "):[0,0,a,t]);return{el:n,viewBox:e,x:+e[0],y:+e[1],w:a,h:t,vW:e[2],vH:e[3]}}function z(n,e){var t=/[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g,r=Y(w.pth(n)?n.totalLength:n,e)+"";return{original:r,numbers:r.match(t)?r.match(t).map(Number):[0],strings:w.str(n)||e?r.split(t):[]}}function A(n){return I(n?f(w.arr(n)?n.map(p):p(n)):[],function(n,e,t){return t.indexOf(n)===e})}function _(n){var t=A(n);return t.map(function(n,e){return{target:n,id:e,total:t.length,transforms:{list:W(n)}}})}function R(e){for(var t=I(f(e.map(function(n){return Object.keys(n)})),function(n){return w.key(n)}).reduce(function(n,e){return n.indexOf(e)<0&&n.push(e),n},[]),a={},n=0;n<t.length;n++)!function(n){var r=t[n];a[r]=e.map(function(n){var e,t={};for(e in n)w.key(e)?e==r&&(t.value=n[e]):t[e]=n[e];return t})}(n);return a}function J(n,e){var t,r=[],a=e.keyframes;for(t in e=a?D(R(a),e):e)w.key(t)&&r.push({name:t,tweens:function(n,t){var e,r=g(t),a=(/^spring/.test(r.easing)&&(r.duration=c(r.easing)),w.arr(n)&&(2===(e=n.length)&&!w.obj(n[0])?n={value:n}:w.fnc(t.duration)||(r.duration=t.duration/e)),w.arr(n)?n:[n]);return a.map(function(n,e){n=w.obj(n)&&!w.pth(n)?n:{value:n};return w.und(n.delay)&&(n.delay=e?0:t.delay),w.und(n.endDelay)&&(n.endDelay=e===a.length-1?t.endDelay:0),n}).map(function(n){return D(n,r)})}(e[t],n)});return r}function K(i,c){var s;return i.tweens.map(function(n){var n=function(n,e){var t,r={};for(t in n){var a=m(n[t],e);w.arr(a)&&1===(a=a.map(function(n){return m(n,e)})).length&&(a=a[0]),r[t]=a}return r.duration=parseFloat(r.duration),r.delay=parseFloat(r.delay),r}(n,c),e=n.value,t=w.arr(e)?e[1]:e,r=B(t),a=T(c.target,i.name,r,c),o=s?s.to.original:a,u=w.arr(e)?e[0]:o,a=B(u)||B(a),r=r||a;return w.und(t)&&(t=o),n.from=z(u,r),n.to=z(E(t,u),r),n.start=s?s.end:0,n.end=n.start+n.delay+n.duration+n.endDelay,n.easing=P(n.easing,n.duration),n.isPath=w.pth(e),n.isPathTargetInsideSVG=n.isPath&&w.svg(c.target),n.isColor=w.col(n.from.original),n.isColor&&(n.round=1),s=n})}var U={css:function(n,e,t){return n.style[e]=t},attribute:function(n,e,t){return n.setAttribute(e,t)},object:function(n,e,t){return n[e]=t},transform:function(n,e,t,r,a){var o;r.list.set(e,t),e!==r.last&&!a||(o="",r.list.forEach(function(n,e){o+=e+"("+n+") "}),n.style.transform=o)}};function nn(n,u){_(n).forEach(function(n){for(var e in u){var t=m(u[e],n),r=n.target,a=B(t),o=T(r,e,a,n),t=E(Y(t,a||B(o)),o),a=b(r,e);U[a](r,e,t,n.transforms,!0)}})}function en(n,e){return I(f(n.map(function(o){return e.map(function(n){var e,t,r=o,a=b(r.target,n.name);if(a)return t=(e=K(n,r))[e.length-1],{type:a,property:n.name,animatable:r,tweens:e,duration:t.end,delay:e[0].delay,endDelay:t.endDelay}})})),function(n){return!w.und(n)})}function tn(n,e){function t(n){return n.timelineOffset||0}var r=n.length,a={};return a.duration=r?Math.max.apply(Math,n.map(function(n){return t(n)+n.duration})):e.duration,a.delay=r?Math.min.apply(Math,n.map(function(n){return t(n)+n.delay})):e.delay,a.endDelay=r?a.duration-Math.max.apply(Math,n.map(function(n){return t(n)+n.duration-n.endDelay})):e.endDelay,a}var rn=0;var N,S=[],an=("undefined"!=typeof document&&document.addEventListener("visibilitychange",function(){L.suspendWhenDocumentHidden&&(n()?N=cancelAnimationFrame(N):(S.forEach(function(n){return n._onDocumentVisibility()}),an()))}),function(){!(N||n()&&L.suspendWhenDocumentHidden)&&0<S.length&&(N=requestAnimationFrame(on))});function on(n){for(var e=S.length,t=0;t<e;){var r=S[t];r.paused?(S.splice(t,1),e--):(r.tick(n),t++)}N=0<t?requestAnimationFrame(on):void 0}function n(){return document&&document.hidden}function L(n){var c,s=0,f=0,l=0,d=0,p=null;function h(n){var e=window.Promise&&new Promise(function(n){return p=n});return n.finished=e}e=x(i,n=n=void 0===n?{}:n),t=J(r=x(M,n),n),n=_(n.targets),r=tn(t=en(n,t),r),a=rn,rn++;var e,t,r,a,k=D(e,{id:a,children:[],animatables:n,animations:t,duration:r.duration,delay:r.delay,endDelay:r.endDelay});h(k);function g(){var n=k.direction;"alternate"!==n&&(k.direction="normal"!==n?"normal":"reverse"),k.reversed=!k.reversed,c.forEach(function(n){return n.reversed=k.reversed})}function m(n){return k.reversed?k.duration-n:n}function o(){s=0,f=m(k.currentTime)*(1/L.speed)}function v(n,e){e&&e.seek(n-e.timelineOffset)}function y(e){for(var n=0,t=k.animations,r=t.length;n<r;){for(var a=t[n],o=a.animatable,u=a.tweens,i=u.length-1,c=u[i],i=(i&&(c=I(u,function(n){return e<n.end})[0]||c),C(e-c.start-c.delay,0,c.duration)/c.duration),s=isNaN(i)?1:c.easing(i),f=c.to.strings,l=c.round,d=[],p=c.to.numbers.length,h=void 0,g=0;g<p;g++){var m=void 0,v=c.to.numbers[g],y=c.from.numbers[g]||0,m=c.isPath?function(e,t,n){function r(n){return e.el.getPointAtLength(1<=t+(n=void 0===n?0:n)?t+n:0)}var a=Q(e.el,e.svg),o=r(),u=r(-1),i=r(1),c=n?1:a.w/a.vW,s=n?1:a.h/a.vH;switch(e.property){case"x":return(o.x-a.x)*c;case"y":return(o.y-a.y)*s;case"angle":return 180*Math.atan2(i.y-u.y,i.x-u.x)/Math.PI}}(c.value,s*v,c.isPathTargetInsideSVG):y+s*(v-y);!l||c.isColor&&2<g||(m=Math.round(m*l)/l),d.push(m)}var b=f.length;if(b)for(var h=f[0],M=0;M<b;M++){f[M];var x=f[M+1],w=d[M];isNaN(w)||(h+=x?w+x:w+" ")}else h=d[0];U[a.type](o.target,a.property,h,o.transforms),a.currentValue=h,n++}}function b(n){k[n]&&!k.passThrough&&k[n](k)}function u(n){var e=k.duration,t=k.delay,r=e-k.endDelay,a=m(n);if(k.progress=C(a/e*100,0,100),k.reversePlayback=a<k.currentTime,c){var o=a;if(k.reversePlayback)for(var u=d;u--;)v(o,c[u]);else for(var i=0;i<d;i++)v(o,c[i])}!k.began&&0<k.currentTime&&(k.began=!0,b("begin")),!k.loopBegan&&0<k.currentTime&&(k.loopBegan=!0,b("loopBegin")),a<=t&&0!==k.currentTime&&y(0),(r<=a&&k.currentTime!==e||!e)&&y(e),t<a&&a<r?(k.changeBegan||(k.changeBegan=!0,k.changeCompleted=!1,b("changeBegin")),b("change"),y(a)):k.changeBegan&&(k.changeCompleted=!0,k.changeBegan=!1,b("changeComplete")),k.currentTime=C(a,0,e),k.began&&b("update"),e<=n&&(f=0,k.remaining&&!0!==k.remaining&&k.remaining--,k.remaining?(s=l,b("loopComplete"),k.loopBegan=!1,"alternate"===k.direction&&g()):(k.paused=!0,k.completed||(k.completed=!0,b("loopComplete"),b("complete"),!k.passThrough&&"Promise"in window&&(p(),h(k)))))}return k.reset=function(){var n=k.direction;k.passThrough=!1,k.currentTime=0,k.progress=0,k.paused=!0,k.began=!1,k.loopBegan=!1,k.changeBegan=!1,k.completed=!1,k.changeCompleted=!1,k.reversePlayback=!1,k.reversed="reverse"===n,k.remaining=k.loop,c=k.children;for(var e=d=c.length;e--;)k.children[e].reset();(k.reversed&&!0!==k.loop||"alternate"===n&&1===k.loop)&&k.remaining++,y(k.reversed?k.duration:0)},k._onDocumentVisibility=o,k.set=function(n,e){return nn(n,e),k},k.tick=function(n){u(((l=n)+(f-(s=s||l)))*L.speed)},k.seek=function(n){u(m(n))},k.pause=function(){k.paused=!0,o()},k.play=function(){k.paused&&(k.completed&&k.reset(),k.paused=!1,S.push(k),o(),an())},k.reverse=function(){g(),k.completed=!k.reversed,o()},k.restart=function(){k.reset(),k.play()},k.remove=function(n){cn(A(n),k)},k.reset(),k.autoplay&&k.play(),k}function un(n,e){for(var t=e.length;t--;)h(n,e[t].animatable.target)&&e.splice(t,1)}function cn(n,e){var t=e.animations,r=e.children;un(n,t);for(var a=r.length;a--;){var o=r[a],u=o.animations;un(n,u),u.length||o.children.length||r.splice(a,1)}t.length||r.length||e.pause()}return L.version="3.2.1",L.speed=1,L.suspendWhenDocumentHidden=!0,L.running=S,L.remove=function(n){for(var e=A(n),t=S.length;t--;)cn(e,S[t])},L.get=T,L.set=nn,L.convertPx=y,L.path=function(n,e){var t=w.str(n)?a(n)[0]:n,r=e||100;return function(n){return{property:n,el:t,svg:Q(t),totalLength:G(t)*(r/100)}}},L.setDashoffset=function(n){var e=G(n);return n.setAttribute("stroke-dasharray",e),e},L.stagger=function(n,e){var i=(e=void 0===e?{}:e).direction||"normal",c=e.easing?P(e.easing):null,s=e.grid,f=e.axis,l=e.from||0,d="first"===l,p="center"===l,h="last"===l,g=w.arr(n),m=g?parseFloat(n[0]):parseFloat(n),v=g?parseFloat(n[1]):0,y=B(g?n[1]:n)||0,b=e.start||0+(g?m:0),M=[],x=0;return function(n,e,t){if(d&&(l=0),p&&(l=(t-1)/2),h&&(l=t-1),!M.length){for(var r,a,o,u=0;u<t;u++)s?(r=p?(s[0]-1)/2:l%s[0],a=p?(s[1]-1)/2:Math.floor(l/s[0]),r=r-u%s[0],a=a-Math.floor(u/s[0]),o=Math.sqrt(r*r+a*a),"x"===f&&(o=-r),M.push(o="y"===f?-a:o)):M.push(Math.abs(l-u)),x=Math.max.apply(Math,M);c&&(M=M.map(function(n){return c(n/x)*x})),"reverse"===i&&(M=M.map(function(n){return f?n<0?-1*n:-n:Math.abs(x-n)}))}return b+(g?(v-m)/x:m)*(Math.round(100*M[e])/100)+y}},L.timeline=function(u){var i=L(u=void 0===u?{}:u);return i.duration=0,i.add=function(n,e){var t=S.indexOf(i),r=i.children;function a(n){n.passThrough=!0}-1<t&&S.splice(t,1);for(var o=0;o<r.length;o++)a(r[o]);t=D(n,x(M,u)),t.targets=t.targets||u.targets,n=i.duration,t.autoplay=!1,t.direction=i.direction,t.timelineOffset=w.und(e)?n:E(e,n),a(i),i.seek(t.timelineOffset),e=L(t),a(e),r.push(e),n=tn(r,u);return i.delay=n.delay,i.endDelay=n.endDelay,i.duration=n.duration,i.seek(0),i.reset(),i.autoplay&&i.play(),i},i},L.easing=P,L.penner=s,L.random=function(n,e){return Math.floor(Math.random()*(e-n+1))+n},L});
+    </script>
+    
 </head>
 <body>
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress-container">
-        <div class="scroll-progress-bar"></div>
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
     </div>
 
+    <!-- Particle Background Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
     <!-- Navigation -->
-    <nav>
+    <nav id="navbar">
         <a href="index.html" class="logo">
             <div class="logo-mark">
                 <span class="initials">DT</span>
-                <svg class="signature" viewBox="0 0 108 32" preserveAspectRatio="xMidYMid meet">
-                    <path d="M6 22 Q12 18, 18 22 Q24 26, 30 22"/>
+                <svg class="signature" viewBox="0 0 100 36" preserveAspectRatio="xMidYMid meet">
+                    <!-- Dan Taylor signature -->
+                    <path d="M8 26 Q4 24, 6 20 L10 14 Q16 4, 32 3 Q50 2, 52 14 Q54 24, 38 26 Q28 28, 24 22"/>
+                    <path d="M24 22 Q22 26, 20 28 M28 18 Q26 22, 28 24 Q30 22, 28 18 L30 24 M34 18 L32 26 M38 16 Q42 14, 44 18 L42 26"/>
                     <path d="M14 16 Q35 12, 60 10 Q80 8, 94 12"/>
                     <path d="M54 20 L52 28 M58 18 L56 26"/>
                 </svg>
@@ -760,14 +974,33 @@
             <span class="logo-text">Daniel Taylor</span>
         </a>
         <ul class="nav-links">
-            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#about">The Challenge</a></li>
             <li><a href="index.html#experience">Experience</a></li>
             <li><a href="index.html#testimonials">Testimonials</a></li>
             <li><a href="clarity-framework.html">The Clarity Framework</a></li>
             <li><a href="case-studies.html" class="active">Case Studies</a></li>
             <li><a href="index.html#contact">Connect</a></li>
         </ul>
+        
+        <!-- Hamburger Button (Mobile/Tablet Only) -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+        </button>
     </nav>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <nav class="mobile-menu">
+            <ul>
+                <li><a href="index.html#about">The Challenge</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="clarity-framework.html">The Clarity Framework</a></li>
+                <li><a href="case-studies.html" class="active">Case Studies</a></li>
+                <li><a href="index.html#contact">Connect</a></li>
+            </ul>
+        </nav>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -776,230 +1009,759 @@
         <div class="hero-bg-orb hero-bg-orb-2"></div>
         
         <div class="hero-content">
-            <p class="hero-pretitle">The Framework in Action</p>
+            <p class="hero-pretitle">Real-World Results</p>
             <h1 class="hero-title">Case <span class="gradient-text">Studies</span></h1>
             <p class="hero-subtitle">
-                Real-world applications of the Clarity Framework across complex programme environments. 
-                From hybrid agile transformation to acquisition-ready governance, these are the results 
-                that matter.
+                Evidence of methodology in action. Each case demonstrates how structured programme 
+                governance transforms organisational capability, from chaos to clarity to measurable outcomes.
             </p>
         </div>
+        
+        <!-- Decorative animated SVG lines -->
+        <svg class="hero-decoration" viewBox="0 0 400 200">
+            <path class="draw-line hero-line-1" d="M0 100 Q100 50 200 100 T400 100" fill="none" stroke="var(--gold-primary)" stroke-width="1"/>
+            <path class="draw-line hero-line-2" d="M0 120 Q100 70 200 120 T400 120" fill="none" stroke="var(--teal-primary)" stroke-width="1"/>
+            <circle class="hero-dot" cx="200" cy="100" r="4" fill="var(--gold-primary)" opacity="0"/>
+        </svg>
     </section>
 
     <!-- Case Studies Section -->
-    <section class="case-studies-section">
-        <div class="case-studies-grid">
+    <section class="case-studies">
+        <div class="case-studies-container">
+            <div class="section-header">
+                <p class="section-label">The Clarity Framework in Action</p>
+                <h2 class="section-title">From <span class="gradient-text">Challenge to Outcome</span></h2>
+            </div>
 
-            <!-- Case Study 1: Fast-Track Hybrid Agile -->
-            <article class="case-study-card">
-                <div class="card-header">
-                    <p class="card-label">Case Study 01</p>
-                    <h2 class="card-title">Fast-Track: Hybrid Agile Methodology</h2>
-                </div>
-                <div class="card-body">
-                    <div class="card-section challenge">
-                        <div class="section-icon">&hellip;</div>
-                        <h3 class="section-heading">Challenge</h3>
-                        <p class="section-text">Traditional waterfall delivery methods served the organisation well for large-scale releases, but market demands were accelerating. Customers expected faster responses to changing requirements, and the existing approach could not always keep pace with the need for rapid iteration and continuous delivery.</p>
+            <div class="case-studies-grid">
+                <!-- Case Study 1: Hybrid Agile Transformation -->
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <span class="case-study-number">01</span>
+                        <p class="case-study-category">Delivery Transformation</p>
+                        <h3 class="case-study-title">Hybrid Agile Implementation</h3>
                     </div>
-                    <div class="card-section approach">
-                        <div class="section-icon">&rarr;</div>
-                        <h3 class="section-heading">Approach</h3>
-                        <p class="section-text">Developed &ldquo;Fast-Track&rdquo; &mdash; a bespoke hybrid agile methodology designed from the ground up to complement existing waterfall processes. Tailored specifically to the company&rsquo;s capacity, team structures, and product architecture, it introduced accelerated delivery pathways without disrupting proven practices.</p>
-                    </div>
-                    <div class="card-section outcome">
-                        <div class="section-icon">&check;</div>
-                        <h3 class="section-heading">Outcome</h3>
-                        <p class="section-text">When benchmarked against equivalent waterfall deliveries, Fast-Track reduced development time by over 50% whilst using 10% fewer resources. The methodology paved the way for true CI/CD practices, enabling the organisation to respond to customer needs and shifting market requirements with unprecedented agility.</p>
-                        <div class="outcome-metrics">
-                            <div class="outcome-metric">
-                                <p class="outcome-metric-value">50%+</p>
-                                <p class="outcome-metric-label">Faster Delivery</p>
-                            </div>
-                            <div class="outcome-metric">
-                                <p class="outcome-metric-value">10%</p>
-                                <p class="outcome-metric-label">Fewer Resources</p>
-                            </div>
-                            <div class="outcome-metric">
-                                <p class="outcome-metric-value">CI/CD</p>
-                                <p class="outcome-metric-label">Capability Enabled</p>
+                    <div class="case-study-content">
+                        <div class="case-study-section">
+                            <p class="case-study-section-label">The Challenge</p>
+                            <p>A rapidly growing InsurTech faced a critical delivery bottleneck. Multiple product teams operated in silos, releases took months, and quality suffered as pressure mounted from clients demanding faster feature delivery.</p>
+                        </div>
+                        <div class="case-study-section">
+                            <p class="case-study-section-label">The Approach</p>
+                            <p>Introduced structured sprint cadences with cross-product synchronisation, implemented CI/CD pipelines with automated quality gates, and established dependency mapping to prevent release conflicts.</p>
+                        </div>
+                        <div class="case-study-section">
+                            <p class="case-study-section-label">The Outcome</p>
+                            <div class="outcome-highlight">
+                                <div class="outcome-metric">50% Faster</div>
+                                <div class="outcome-label">Delivery cycles reduced by half while maintaining quality standards</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </article>
 
-            <!-- Case Study 2: Cross-Product Dependency Management -->
-            <article class="case-study-card">
-                <div class="card-header">
-                    <p class="card-label">Case Study 02</p>
-                    <h2 class="card-title">Cross-Product Dependency Management</h2>
-                </div>
-                <div class="card-body">
-                    <div class="card-section challenge">
-                        <div class="section-icon">&hellip;</div>
-                        <h3 class="section-heading">Challenge</h3>
-                        <p class="section-text">An ambitious product roadmap required work to flow seamlessly across multiple product teams, but no system existed to manage cross-product dependencies. Handovers risked bottlenecks and miscommunication, limiting the organisation&rsquo;s ability to deliver truly modular, integrated solutions.</p>
+                <!-- Case Study 2: Cross-Product Dependency Management -->
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <span class="case-study-number">02</span>
+                        <p class="case-study-category">Coordination Excellence</p>
+                        <h3 class="case-study-title">Cross-Product Dependency Mapping</h3>
                     </div>
-                    <div class="card-section approach">
-                        <div class="section-icon">&rarr;</div>
-                        <h3 class="section-heading">Approach</h3>
-                        <p class="section-text">Designed and implemented a comprehensive dependency management system capable of handling complex cross-product chains. Created visual &ldquo;battle plan&rdquo; diagrams that mapped every touchpoint, deadline, and handover &mdash; giving teams full visibility of their role in the wider delivery picture.</p>
-                    </div>
-                    <div class="card-section outcome">
-                        <div class="section-icon">&check;</div>
-                        <h3 class="section-heading">Outcome</h3>
-                        <p class="section-text">Transformed how the organisation approached development. Teams understood not just their tasks, but their impact. The visual diagrams became essential communication tools, helping stakeholders across the business appreciate the complexity and importance of following the plan &mdash; a critical step towards product-led growth.</p>
-                        <div class="outcome-metrics">
-                            <div class="outcome-metric">
-                                <p class="outcome-metric-value">8</p>
-                                <p class="outcome-metric-label">Products Coordinated</p>
-                            </div>
-                            <div class="outcome-metric">
-                                <p class="outcome-metric-value">2,000+</p>
-                                <p class="outcome-metric-label">Dependencies Managed</p>
-                            </div>
-                            <div class="outcome-metric">
-                                <p class="outcome-metric-value">Product-Led</p>
-                                <p class="outcome-metric-label">Growth Enabled</p>
+                    <div class="case-study-content">
+                        <div class="case-study-section">
+                            <p class="case-study-section-label">The Challenge</p>
+                            <p>Eight interconnected products with over 250 development staff across multiple geographies. Hidden dependencies caused cascading delays, and no one had visibility into cross-product impacts.</p>
+                        </div>
+                        <div class="case-study-section">
+                            <p class="case-study-section-label">The Approach</p>
+                            <p>Built comprehensive dependency mapping across all products and external integrations. Created executive dashboards showing real-time impact analysis and established weekly cross-product coordination forums.</p>
+                        </div>
+                        <div class="case-study-section">
+                            <p class="case-study-section-label">The Outcome</p>
+                            <div class="outcome-highlight">
+                                <div class="outcome-metric">2,000+ Dependencies</div>
+                                <div class="outcome-label">Fully mapped and actively managed across 8 product lines</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </article>
 
-            <!-- Case Study 3: Acquisition-Ready Governance -->
-            <article class="case-study-card">
-                <div class="card-header">
-                    <p class="card-label">Case Study 03</p>
-                    <h2 class="card-title">Building Acquisition-Ready Governance</h2>
-                </div>
-                <div class="card-body">
-                    <div class="card-section challenge">
-                        <div class="section-icon">&hellip;</div>
-                        <h3 class="section-heading">Challenge</h3>
-                        <p class="section-text">A fast-growing Software Vendor had scaled rapidly, with product development outpacing the administrative structures needed to support it. Documentation was distributed across teams without a unified system, making knowledge retrieval slow and audit preparedness uncertain.</p>
+                <!-- Case Study 3: Acquisition Readiness -->
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <span class="case-study-number">03</span>
+                        <p class="case-study-category">Strategic Governance</p>
+                        <h3 class="case-study-title">Acquisition Due Diligence Ready</h3>
                     </div>
-                    <div class="card-section approach">
-                        <div class="section-icon">&rarr;</div>
-                        <h3 class="section-heading">Approach</h3>
-                        <p class="section-text">Designed and implemented a comprehensive documentation governance framework from the ground up. Established clear ownership, standardised storage structures, and created reporting mechanisms that gave leadership full visibility of the product development paper trail.</p>
-                    </div>
-                    <div class="card-section outcome">
-                        <div class="section-icon">&check;</div>
-                        <h3 class="section-heading">Outcome</h3>
-                        <p class="section-text">Transformed information retrieval from days to seconds. The organisation achieved full audit-readiness, with every document traceable, protected, and accessible to those who needed it &mdash; a critical foundation ahead of acquisition due diligence.</p>
-                        <div class="outcome-metrics">
-                            <div class="outcome-metric">
-                                <p class="outcome-metric-value">100%</p>
-                                <p class="outcome-metric-label">Audit-Ready</p>
-                            </div>
-                            <div class="outcome-metric">
-                                <p class="outcome-metric-value">Seconds</p>
-                                <p class="outcome-metric-label">Retrieval Time</p>
-                            </div>
-                            <div class="outcome-metric">
-                                <p class="outcome-metric-value">3</p>
-                                <p class="outcome-metric-label">Months to Deliver</p>
+                    <div class="case-study-content">
+                        <div class="case-study-section">
+                            <p class="case-study-section-label">The Challenge</p>
+                            <p>Following acquisition interest, the organisation needed to demonstrate mature programme governance. No formal PMO existed, documentation was scattered, and delivery predictability was questionable.</p>
+                        </div>
+                        <div class="case-study-section">
+                            <p class="case-study-section-label">The Approach</p>
+                            <p>Established formal governance framework with Steering Committee rhythms, built comprehensive delivery tracking with variance analysis, and created investor-ready reporting dashboards.</p>
+                        </div>
+                        <div class="case-study-section">
+                            <p class="case-study-section-label">The Outcome</p>
+                            <div class="outcome-highlight">
+                                <div class="outcome-metric">&pound;50M Acquisition</div>
+                                <div class="outcome-label">Governance passed due diligence, supporting successful transaction</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </article>
 
-            <!-- Case Study 4: Resource Allocation and Budget Clarity -->
-            <article class="case-study-card">
-                <div class="card-header">
-                    <p class="card-label">Case Study 04</p>
-                    <h2 class="card-title">Resource Allocation &amp; Budget Clarity</h2>
-                </div>
-                <div class="card-body">
-                    <div class="card-section challenge">
-                        <div class="section-icon">&hellip;</div>
-                        <h3 class="section-heading">Challenge</h3>
-                        <p class="section-text">Organic growth had created complexity in resource allocation. Timesheet systems and capacity files had evolved independently across teams, making it difficult to determine true headcount ownership. Initial analysis suggested the product function was 10% over budget.</p>
+                <!-- Case Study 4: Budget Clarity -->
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <span class="case-study-number">04</span>
+                        <p class="case-study-category">Financial Visibility</p>
+                        <h3 class="case-study-title">Enterprise Budget Transparency</h3>
                     </div>
-                    <div class="card-section approach">
-                        <div class="section-icon">&rarr;</div>
-                        <h3 class="section-heading">Approach</h3>
-                        <p class="section-text">Conducted a comprehensive resource audit, cataloguing every team member and aligning them to their correct cost centres. Built a unified allocation model that provided leadership with an accurate, real-time view of where every resource sat and what they were working on.</p>
-                    </div>
-                    <div class="card-section outcome">
-                        <div class="section-icon">&check;</div>
-                        <h3 class="section-heading">Outcome</h3>
-                        <p class="section-text">Proved the product function was operating within budget &mdash; the apparent overspend was an allocation issue, not a cost issue. This clarity directly protected roles that would otherwise have been at risk, while giving executives confidence in their financial reporting.</p>
-                        <div class="outcome-metrics">
-                            <div class="outcome-metric">
-                                <p class="outcome-metric-value">&pound;12M</p>
-                                <p class="outcome-metric-label">Budget Clarified</p>
-                            </div>
-                            <div class="outcome-metric">
-                                <p class="outcome-metric-value">Capacity</p>
-                                <p class="outcome-metric-label">Protected</p>
-                            </div>
-                            <div class="outcome-metric">
-                                <p class="outcome-metric-value">Roles</p>
-                                <p class="outcome-metric-label">Protected</p>
+                    <div class="case-study-content">
+                        <div class="case-study-section">
+                            <p class="case-study-section-label">The Challenge</p>
+                            <p>Leadership lacked visibility into how R&amp;D budget was actually deployed. Resource allocation was based on assumption rather than data, and budget-to-actual variances went unexplained.</p>
+                        </div>
+                        <div class="case-study-section">
+                            <p class="case-study-section-label">The Approach</p>
+                            <p>Implemented capacity planning framework linking budget to actual deployment. Created role-based resource tracking across all products and established monthly variance reporting with executive dashboards.</p>
+                        </div>
+                        <div class="case-study-section">
+                            <p class="case-study-section-label">The Outcome</p>
+                            <div class="outcome-highlight">
+                                <div class="outcome-metric">&pound;1.2M Identified</div>
+                                <div class="outcome-label">Misallocation discovered through resource analysis</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </article>
-
+            </div>
         </div>
+    </section>
 
-        <!-- CTA Section -->
-        <div class="cta-section">
-            <p class="cta-text">Ready to bring clarity to your programme delivery?</p>
-            <a href="clarity-framework.html" class="btn btn-outline">Explore the Framework</a>
-            <a href="https://www.linkedin.com/in/dan-taylorpm" target="_blank" class="btn btn-primary">Get in Touch</a>
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready for Clarity?</h2>
+            <p class="cta-text">
+                These outcomes are not unique to specific organisations. They reflect what becomes 
+                possible when programme governance is built on sound foundations.
+            </p>
+            <div class="cta-buttons">
+                <a href="clarity-framework.html" class="btn btn-primary">Explore the Framework</a>
+                <a href="index.html#contact" class="btn btn-secondary">Start a Conversation</a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Daniel Taylor. All rights reserved. | <a href="index.html">Home</a> | <a href="clarity-framework.html">The Clarity Framework</a></p>
+        <p class="footer-text">&copy; 2025 Daniel Taylor. All rights reserved.</p>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://dantaylor.pro/case-studies.html",
+                "url": "https://dantaylor.pro/case-studies.html",
+                "name": "Case Studies | Programme Delivery Results | Daniel Taylor",
+                "description": "Real-world programme delivery case studies demonstrating the Clarity Framework in action.",
+                "isPartOf": {
+                    "@id": "https://dantaylor.pro/#website"
+                },
+                "author": {
+                    "@id": "https://dantaylor.pro/#person"
+                }
+            },
+            {
+                "@type": "ItemList",
+                "name": "Programme Delivery Case Studies",
+                "description": "Four case studies demonstrating programme governance transformation",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Hybrid Agile Implementation",
+                        "description": "50% faster delivery through structured sprint cadences and CI/CD implementation"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Cross-Product Dependency Mapping",
+                        "description": "2,000+ dependencies mapped and managed across 8 product lines"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Acquisition Due Diligence Ready",
+                        "description": "Governance framework supporting 50M acquisition"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "name": "Enterprise Budget Transparency",
+                        "description": "1.2M misallocation identified through resource analysis"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <!-- ============================================ -->
+    <!-- ANIME.JS ANIMATIONS                         -->
+    <!-- ============================================ -->
     <script>
-        // Scroll progress indicator
-        window.addEventListener('scroll', () => {
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // ========================================
+        // LOGO & NAVIGATION ANIMATIONS
+        // ========================================
+        
+        anime({
+            targets: '.logo-mark',
+            scale: [0.8, 1],
+            opacity: [0, 1],
+            duration: 600,
+            delay: 100,
+            easing: 'easeOutBack'
+        });
+        
+        anime({
+            targets: '.logo-text',
+            opacity: [0, 1],
+            translateX: [-20, 0],
+            duration: 500,
+            delay: 300,
+            easing: 'easeOutQuart'
+        });
+        
+        anime({
+            targets: '.nav-links li',
+            opacity: [0, 1],
+            translateY: [-10, 0],
+            duration: 400,
+            delay: anime.stagger(50, {start: 400}),
+            easing: 'easeOutQuart'
+        });
+        
+        // ========================================
+        // HERO SECTION - DRAMATIC ENTRANCE
+        // ========================================
+        
+        const heroTimeline = anime.timeline({
+            easing: 'easeOutQuart'
+        });
+        
+        // Pre-set hero elements
+        document.querySelectorAll('.hero-pretitle, .hero-title, .hero-subtitle').forEach(el => {
+            el.style.opacity = '0';
+        });
+        
+        // Pretitle slide in
+        heroTimeline.add({
+            targets: '.hero-pretitle',
+            opacity: [0, 1],
+            translateY: [-20, 0],
+            duration: 600,
+            delay: 200
+        });
+        
+        // Title reveal with scale
+        heroTimeline.add({
+            targets: '.hero-title',
+            opacity: [0, 1],
+            translateY: [30, 0],
+            scale: [0.95, 1],
+            duration: 800,
+            easing: 'easeOutQuart'
+        }, '-=300');
+        
+        // Subtitle fade in
+        heroTimeline.add({
+            targets: '.hero-subtitle',
+            opacity: [0, 1],
+            translateY: [30, 0],
+            duration: 700
+        }, '-=500');
+        
+        // Decorative SVG line drawing
+        heroTimeline.add({
+            targets: '.hero-line-1',
+            strokeDashoffset: [anime.setDashoffset, 0],
+            duration: 1500,
+            easing: 'easeInOutQuart'
+        }, '-=800');
+        
+        heroTimeline.add({
+            targets: '.hero-line-2',
+            strokeDashoffset: [anime.setDashoffset, 0],
+            duration: 1500,
+            easing: 'easeInOutQuart'
+        }, '-=1300');
+        
+        heroTimeline.add({
+            targets: '.hero-dot',
+            opacity: [0, 1],
+            scale: [0, 1],
+            duration: 400,
+            easing: 'easeOutBack'
+        }, '-=500');
+        
+        // ========================================
+        // SECTION HEADER - SCROLL TRIGGERED
+        // ========================================
+        
+        const sectionHeader = document.querySelector('.case-studies .section-header');
+        let headerAnimated = false;
+        
+        if (sectionHeader) {
+            sectionHeader.style.opacity = '0';
+            sectionHeader.style.transform = 'translateY(40px)';
+            
+            const headerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !headerAnimated) {
+                        headerAnimated = true;
+                        
+                        anime({
+                            targets: '.case-studies .section-header',
+                            opacity: [0, 1],
+                            translateY: [40, 0],
+                            duration: 800,
+                            easing: 'easeOutQuart'
+                        });
+                        
+                        headerObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            headerObserver.observe(sectionHeader);
+        }
+        
+        // ========================================
+        // CASE STUDY CARDS - STAGGERED REVEAL
+        // ========================================
+        
+        const caseStudyCards = document.querySelectorAll('.case-study-card');
+        
+        caseStudyCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            // Alternating entry directions
+            const fromX = index % 2 === 0 ? -60 : 60;
+            card.style.transform = `translateX(${fromX}px) translateY(40px)`;
+            
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target,
+                            opacity: [0, 1],
+                            translateX: [fromX, 0],
+                            translateY: [40, 0],
+                            rotateY: [index % 2 === 0 ? -5 : 5, 0],
+                            duration: 900,
+                            delay: (index % 2) * 150, // Slight delay for second column
+                            easing: 'easeOutQuart'
+                        });
+                        
+                        // Animate internal elements with stagger
+                        const sections = entry.target.querySelectorAll('.case-study-section');
+                        anime({
+                            targets: sections,
+                            opacity: [0, 1],
+                            translateY: [20, 0],
+                            duration: 600,
+                            delay: anime.stagger(100, {start: 400}),
+                            easing: 'easeOutQuart'
+                        });
+                        
+                        // Number counter effect
+                        const numberEl = entry.target.querySelector('.case-study-number');
+                        if (numberEl) {
+                            anime({
+                                targets: numberEl,
+                                opacity: [0, 0.15],
+                                scale: [0.5, 1],
+                                duration: 800,
+                                delay: 200,
+                                easing: 'easeOutElastic(1, 0.5)'
+                            });
+                        }
+                        
+                        // Outcome highlight reveal
+                        const outcomeHighlight = entry.target.querySelector('.outcome-highlight');
+                        if (outcomeHighlight) {
+                            anime({
+                                targets: outcomeHighlight,
+                                opacity: [0, 1],
+                                translateX: [-20, 0],
+                                borderLeftWidth: ['0px', '3px'],
+                                duration: 700,
+                                delay: 600,
+                                easing: 'easeOutExpo'
+                            });
+                        }
+                        
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            
+            cardObserver.observe(card);
+        });
+        
+        // ========================================
+        // CTA SECTION - ENTRANCE ANIMATION
+        // ========================================
+        
+        const ctaSection = document.querySelector('.cta');
+        let ctaAnimated = false;
+        
+        if (ctaSection) {
+            ctaSection.querySelectorAll('.cta-content > *').forEach(el => {
+                el.style.opacity = '0';
+            });
+            
+            const ctaObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !ctaAnimated) {
+                        ctaAnimated = true;
+                        
+                        anime({
+                            targets: '.cta-content > *',
+                            opacity: [0, 1],
+                            translateY: [30, 0],
+                            duration: 700,
+                            delay: anime.stagger(120),
+                            easing: 'easeOutQuart'
+                        });
+                        
+                        // Button special entrance
+                        anime({
+                            targets: '.cta-buttons .btn',
+                            scale: [0.9, 1],
+                            duration: 500,
+                            delay: anime.stagger(100, {start: 400}),
+                            easing: 'easeOutBack'
+                        });
+                        
+                        ctaObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            ctaObserver.observe(ctaSection);
+        }
+        
+        // ========================================
+        // BUTTON HOVER MICRO-INTERACTIONS
+        // ========================================
+        
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                anime({
+                    targets: this,
+                    scale: [1, 1.05],
+                    duration: 200,
+                    easing: 'easeOutQuart'
+                });
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this,
+                    scale: [1.05, 1],
+                    duration: 200,
+                    easing: 'easeOutQuart'
+                });
+            });
+        });
+        
+        // Nav link hover animation
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                anime({
+                    targets: this,
+                    translateY: -2,
+                    duration: 200,
+                    easing: 'easeOutQuart'
+                });
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this,
+                    translateY: 0,
+                    duration: 200,
+                    easing: 'easeOutQuart'
+                });
+            });
+        });
+        
+        // ========================================
+        // 3D CARD TILT EFFECT
+        // ========================================
+        
+        const tiltCards = document.querySelectorAll('.case-study-card');
+        
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 30;
+                const rotateY = (centerX - x) / 30;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            });
+        });
+        
+        // ========================================
+        // SCROLL PROGRESS GLOW PULSE
+        // ========================================
+        
+        let lastSection = null;
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', function() {
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 200 && rect.bottom >= 200) {
+                    const sectionClass = section.className;
+                    if (lastSection !== sectionClass) {
+                        lastSection = sectionClass;
+                        anime({
+                            targets: '#scrollProgressBar',
+                            boxShadow: [
+                                '0 0 6px var(--gold-primary), 0 0 12px rgba(201, 162, 39, 0.4)',
+                                '0 0 10px var(--gold-primary), 0 0 20px rgba(201, 162, 39, 0.6)',
+                                '0 0 6px var(--gold-primary), 0 0 12px rgba(201, 162, 39, 0.4)'
+                            ],
+                            duration: 500,
+                            easing: 'easeInOutQuad'
+                        });
+                    }
+                }
+            });
+        }, { passive: true });
+        
+    }); // End DOMContentLoaded
+    </script>
+
+    <!-- Particle Background Animation -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let particles = [];
+        let animationId;
+        
+        // Resize canvas to full window
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        // Particle class
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.opacity = Math.random() * 0.5 + 0.1;
+                
+                // Colour variations: gold, teal, or white
+                const colorChoice = Math.random();
+                if (colorChoice < 0.3) {
+                    this.color = `rgba(201, 162, 39, ${this.opacity})`; // Gold
+                } else if (colorChoice < 0.5) {
+                    this.color = `rgba(42, 143, 143, ${this.opacity})`; // Teal
+                } else {
+                    this.color = `rgba(255, 255, 255, ${this.opacity * 0.5})`; // White (dimmer)
+                }
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                // Wrap around edges
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+        
+        // Initialise particles
+        function initParticles() {
+            particles = [];
+            // Fewer particles for subtle effect
+            const particleCount = Math.floor((canvas.width * canvas.height) / 25000);
+            for (let i = 0; i < Math.min(particleCount, 60); i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            animationId = requestAnimationFrame(animate);
+        }
+        
+        // Handle resize
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initParticles();
+        });
+        
+        // Reduce animation when tab is not visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                cancelAnimationFrame(animationId);
+            } else {
+                animate();
+            }
+        });
+        
+        // Start
+        resizeCanvas();
+        initParticles();
+        animate();
+    })();
+    </script>
+
+    <!-- Scroll Progress Indicator Script -->
+    <script>
+    (function() {
+        const progressBar = document.getElementById('scrollProgressBar');
+        
+        function updateProgress() {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            document.querySelector('.scroll-progress-bar').style.width = scrollPercent + '%';
-        });
+            const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = scrollPercent + '%';
+        }
+        
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        window.addEventListener('resize', updateProgress);
+        updateProgress();
+    })();
+    </script>
 
-        // Navigation scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
+    <!-- Navigation Scroll Effect -->
+    <script>
+    (function() {
+        const nav = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', function() {
             if (window.scrollY > 100) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
             }
+        }, { passive: true });
+    })();
+    </script>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+    (function() {
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuLinks = mobileMenuOverlay.querySelectorAll('a');
+        const body = document.body;
+        
+        function toggleMenu() {
+            const isActive = hamburgerBtn.classList.contains('active');
+            
+            if (isActive) {
+                // Close menu
+                hamburgerBtn.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+                body.style.overflow = '';
+            } else {
+                // Open menu
+                hamburgerBtn.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'true');
+                body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeMenu() {
+            hamburgerBtn.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+            body.style.overflow = '';
+        }
+        
+        // Toggle on hamburger click
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        
+        // Close on link click
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
         });
-
-        // Scroll-triggered card animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 150);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.case-study-card').forEach(card => {
-            observer.observe(card);
+        
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
+                closeMenu();
+            }
         });
+        
+        // Close on overlay click (outside menu)
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                closeMenu();
+            }
+        });
+        
+        // Close menu on resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024 && mobileMenuOverlay.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    })();
     </script>
 </body>
 </html>
