@@ -1578,6 +1578,143 @@
             padding-left: 44px;
         }
         
+        /* PRAXIS Section Styles */
+        .praxis-section {
+            grid-column: 1 / -1;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(45, 212, 191, 0.05) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .praxis-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold) 0%, var(--teal) 100%);
+        }
+        
+        .praxis-logo {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 48px;
+            height: 48px;
+            opacity: 0.7;
+        }
+        
+        .praxis-logo svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .praxis-logo circle {
+            fill: var(--gold);
+        }
+        
+        .praxis-logo line {
+            stroke: var(--gold);
+        }
+        
+        .praxis-content {
+            max-width: 800px;
+        }
+        
+        .praxis-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .praxis-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.7;
+        }
+        
+        .praxis-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+        
+        .praxis-description strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        .praxis-feature {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 2px solid rgba(212, 175, 55, 0.3);
+            line-height: 1.7;
+        }
+        
+        .praxis-feature strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        .praxis-tech,
+        .praxis-insight {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+        
+        .praxis-tech {
+            margin-top: 1.5rem;
+        }
+        
+        .tech-label,
+        .insight-label {
+            color: var(--teal);
+            font-weight: 500;
+        }
+        
+        .tech-stack {
+            font-family: 'SF Mono', 'Consolas', monospace;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+        
+        .praxis-closing {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        
+        .praxis-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .praxis-btn::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+        
+        .praxis-btn:hover::after {
+            transform: translateX(4px);
+        }
+        
         .inflection-statement {
             margin-top: 3rem;
             padding: 2rem;
@@ -2053,6 +2190,26 @@
             
             .inflection-capabilities {
                 padding: 1.5rem;
+            }
+            
+            .praxis-section {
+                margin-top: 3rem;
+                padding: 2rem 1.5rem;
+            }
+            
+            .praxis-logo {
+                width: 40px;
+                height: 40px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .praxis-title {
+                font-size: 1.5rem;
+            }
+            
+            .praxis-intro {
+                font-size: 1rem;
             }
         }
 
@@ -2938,6 +3095,61 @@
                 
             </div>
             
+                <!-- PRAXIS: Building the Tools Section -->
+                <div class="praxis-section">
+                    <div class="praxis-logo">
+                        <svg viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="7" r="5"></circle>
+                            <circle cx="9" cy="26" r="4"></circle>
+                            <circle cx="31" cy="26" r="4"></circle>
+                            <circle cx="20" cy="35" r="3" opacity="0.5"></circle>
+                            <line x1="20" y1="12" x2="11.5" y2="22.5" stroke-width="2.5" stroke-linecap="round"></line>
+                            <line x1="20" y1="12" x2="28.5" y2="22.5" stroke-width="2.5" stroke-linecap="round"></line>
+                            <line x1="13" y1="26" x2="27" y2="26" stroke-width="2.5" stroke-linecap="round"></line>
+                            <line x1="11" y1="29.5" x2="17.5" y2="33" stroke-width="2" stroke-linecap="round" opacity="0.5"></line>
+                            <line x1="29" y1="29.5" x2="22.5" y2="33" stroke-width="2" stroke-linecap="round" opacity="0.5"></line>
+                        </svg>
+                    </div>
+                    <div class="praxis-content">
+                        <h3 class="praxis-title">Building the Tools, Not Just Using Them</h3>
+                        <p class="praxis-intro">
+                            Understanding where AI adds value is one thing. Building systems that deliver it is another.
+                        </p>
+                        <p class="praxis-description">
+                            I&rsquo;m currently developing <strong>PRAXIS</strong>&mdash;mission control for programme management. 
+                            It encodes 99 methodology constraints into a knowledge graph, ingests project data directly 
+                            from Jira, Asana, Azure DevOps, and Excel, and surfaces the dependencies, bottlenecks, and risks 
+                            that your PM tools can&rsquo;t see.
+                        </p>
+                        <p class="praxis-description">
+                            This isn&rsquo;t &ldquo;upload a plan and ask ChatGPT.&rdquo; PRAXIS runs structured queries against a knowledge 
+                            graph&mdash;tracing dependency chains, simulating delays, detecting resource conflicts, and 
+                            explaining findings in plain English. The AI has 14 specialised tools and real data to interrogate, 
+                            not just text to summarise.
+                        </p>
+                        <div class="praxis-feature">
+                            <strong>Teams integration</strong> means alerts and health changes surface where you already 
+                            work&mdash;no extra tabs. Instant PDF and PowerPoint export means no more hours building 
+                            steering committee reports.
+                        </div>
+                        <div class="praxis-feature">
+                            <strong>Built for enterprise:</strong> multi-tenant architecture, role-based access control, 
+                            and full version history.
+                        </div>
+                        <div class="praxis-tech">
+                            <span class="tech-label">Tech stack:</span> 
+                            <span class="tech-stack">FastAPI &middot; React &middot; Neo4j &middot; Claude Haiku</span>
+                        </div>
+                        <div class="praxis-insight">
+                            <span class="insight-label">The insight:</span> 10+ years of programme management methodology, now executable as software.
+                        </div>
+                        <p class="praxis-closing">
+                            This isn&rsquo;t a side project&mdash;it&rsquo;s where I believe programme intelligence is heading.
+                        </p>
+                        <a href="https://usepraxis.pro" target="_blank" class="btn btn-primary praxis-btn">Find Out More</a>
+                    </div>
+                </div>
+            
             <!-- Bottom Statement -->
             <div class="inflection-statement">
                 <p>
@@ -3588,6 +3800,14 @@
                             }, '-=400');
                             
                             tl.add({
+                                targets: '.praxis-section',
+                                opacity: [0, 1],
+                                translateY: [30, 0],
+                                duration: 800,
+                                easing: 'easeOutQuad'
+                            }, '-=200');
+                            
+                            tl.add({
                                 targets: '.inflection-statement',
                                 opacity: [0, 1],
                                 scale: [0.95, 1],
@@ -3601,7 +3821,7 @@
                 }, { threshold: 0.15 });
                 
                 // Pre-set elements
-                document.querySelectorAll('.inflection .section-header, .inflection-narrative p, .inflection-quote, .capability-item, .inflection-statement').forEach(el => {
+                document.querySelectorAll('.inflection .section-header, .inflection-narrative p, .inflection-quote, .capability-item, .praxis-section, .inflection-statement').forEach(el => {
                     el.style.opacity = '0';
                 });
                 
